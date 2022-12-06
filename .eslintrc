@@ -1,0 +1,4 @@
+{
+  "extends": ["dolmios", "next/core-web-vitals"],
+  "settings": { "import/core-modules": ["styled-jsx/css"] }
+}
