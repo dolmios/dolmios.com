@@ -11,9 +11,7 @@ export function useAudio(): {
     fetcher
   );
 
-  if (error) return { image: '', listening: '' };
-
-  if (!data) return { image: '', listening: '' };
+  if (error || !data) return { image: '', listening: '' };
 
   const { recenttracks } = data;
   const { track } = recenttracks;
