@@ -1,7 +1,6 @@
 import useSWR from 'swr';
 
-export const fetcher = (url: RequestInfo | URL): Promise<void> =>
-  fetch(url).then((res) => res.json());
+export const fetcher = (url: RequestInfo | URL): Promise<void> => fetch(url).then((res) => res.json());
 
 export function useAudio(): {
   image: string;
@@ -21,8 +20,7 @@ export function useAudio(): {
   const { image, artist, name } = track[0];
 
   return {
-    image:
-      image[3]['#text'] || image[2]['#text'] || image[1]['#text'] || image[0]['#text'],
+    image: image[3]['#text'] || image[2]['#text'] || image[1]['#text'] || image[0]['#text'],
     listening: `${artist['#text']} - ${name}`,
   };
 }

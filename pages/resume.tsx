@@ -17,15 +17,11 @@ export default function Resume(): JSX.Element {
                 mail@dolmios.com
               </a>
               ✺
-              <a
-                href='tel:+1-929-438-9964'
-                style={{ marginLeft: '1rem', marginRight: '1rem' }}>
+              <a href='tel:+1-929-438-9964' style={{ marginLeft: '1rem', marginRight: '1rem' }}>
                 929-438-9964
               </a>
               ✺
-              <a
-                href='https://github.com/dolmios'
-                style={{ marginLeft: '1rem', marginRight: '1rem' }}>
+              <a href='https://github.com/dolmios' style={{ marginLeft: '1rem', marginRight: '1rem' }}>
                 github.com/dolmios
               </a>
             </p>
@@ -42,14 +38,12 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='justify'>
-                Extensive experience with applying analytical and numerical methods
-                (such as the finite element method) to model a broad range of systems
-                from molecular structures to large-scale mechanical structures. Proven
-                track record of creating and improving new computational methods to
-                perform dynamic and static analysis of otherwise intractable engineering
-                and biological systems. Strong ability to collaborate and work in a team
-                environment on multi-disciplinary projects. Legally authorized to work
-                in the United States (Green Card holder).
+                Extensive experience with applying analytical and numerical methods (such as the finite element method)
+                to model a broad range of systems from molecular structures to large-scale mechanical structures. Proven
+                track record of creating and improving new computational methods to perform dynamic and static analysis
+                of otherwise intractable engineering and biological systems. Strong ability to collaborate and work in a
+                team environment on multi-disciplinary projects. Legally authorized to work in the United States (Green
+                Card holder).
               </td>
             </tr>
 
@@ -66,21 +60,18 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Developed, implemented, and maintained the company's website,
-                database, and backend systems.
+                &bull; Developed, implemented, and maintained the company's website, database, and backend systems.
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Designed and developed a web application for the company's
-                clients to view their data, and interact with the company's database
-                alongside API's and other integrated systems.
+                &bull; Designed and developed a web application for the company's clients to view their data, and
+                interact with the company's database alongside API's and other integrated systems.
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Implemented internal technology systems and processes for the
-                company.
+                &bull; Implemented internal technology systems and processes for the company.
               </td>
             </tr>
             <tr>
@@ -91,44 +82,39 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Provided website design and development services for small-medium
-                sized businesses and organizations across multiple sectors.
+                &bull; Provided website design and development services for small-medium sized businesses and
+                organizations across multiple sectors.
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Noted clients include Crime Stoppers Victoria, Irrigated Cropping
-                Council, InLife Independent Living.
+                &bull; Noted clients include Crime Stoppers Victoria, Irrigated Cropping Council, InLife Independent
+                Living.
               </td>
             </tr>
             <tr>
-              <td className='item'>
-                Information Technology Consultant, Uptake Digital
-              </td>
+              <td className='item'>Information Technology Consultant, Uptake Digital</td>
               <td className='date'>2019 - 2020</td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Web development for a wide range of clients, including web
-                platforms, e-commerce sites, and large-scale website projects.
+                &bull; Web development for a wide range of clients, including web platforms, e-commerce sites, and
+                large-scale website projects.
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Oversaw documentation for all internal and external projects,
-                including development of project data flows.
+                &bull; Oversaw documentation for all internal and external projects, including development of project
+                data flows.
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Utilized Zendesk to provide customer service and sales service
-                for general IT.
+                &bull; Utilized Zendesk to provide customer service and sales service for general IT.
               </td>
             </tr>
             <tr>
-              <td className='item'>
-                Information Technology Intern, JCP Investment Partners
-              </td>
+              <td className='item'>Information Technology Intern, JCP Investment Partners</td>
               <td className='date'>2017</td>
             </tr>
             <tr>
@@ -147,20 +133,18 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='concat'>
-                <b>Front-End:</b> Next.js, Typescript, React, Redux, HTML/CSS (SASS,
-                Styled Components, et. al.), Javascript (ES6+),
+                <b>Front-End:</b> Next.js, Typescript, React, Redux, HTML/CSS (SASS, Styled Components, et. al.),
+                Javascript (ES6+),
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='concat'>
-                <b>Supplemental Back-End:</b> Node.js, PostgreSQL, REST, Firebase, Git,
-                Docker
+                <b>Supplemental Back-End:</b> Node.js, PostgreSQL, REST, Firebase, Git, Docker
               </td>
             </tr>
             <tr>
               <td colSpan={2} className='concat'>
-                <b>Information Technology:</b> Zendesk, Intercom, Hubspot, Slack,
-                Notion, Adobe Photoshop
+                <b>Information Technology:</b> Zendesk, Intercom, Hubspot, Slack, Notion, Adobe Photoshop
               </td>
             </tr>
             <tr>
@@ -179,8 +163,8 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Academic Scholarship; Percentile rank: 99.6 (2012, Australian
-                Council for Educational Research Testing)
+                &bull; Academic Scholarship; Percentile rank: 99.6 (2012, Australian Council for Educational Research
+                Testing)
               </td>
             </tr>
             <tr>
@@ -213,20 +197,17 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td className='list' colSpan={2}>
-                Contributed to recruitment and organization policy, alongside managing
-                the organization's website.
+                Contributed to recruitment and organization policy, alongside managing the organization's website.
               </td>
             </tr>
             <tr>
-              <td className='item'>
-                Volunteer, Red Shield Appeal (Salvation Army Australia)
-              </td>
+              <td className='item'>Volunteer, Red Shield Appeal (Salvation Army Australia)</td>
               <td className='date'>2013-2016</td>
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Local outreach raising awareness, collecting donations and
-                fielding questions regarding homeless services and social services.
+                &bull; Local outreach raising awareness, collecting donations and fielding questions regarding homeless
+                services and social services.
               </td>
             </tr>
             <tr>
@@ -235,8 +216,7 @@ export default function Resume(): JSX.Element {
             </tr>
             <tr>
               <td colSpan={2} className='list'>
-                &bull; Prepared birthing kits for distribution overseas, for women
-                without access to sound medical care.
+                &bull; Prepared birthing kits for distribution overseas, for women without access to sound medical care.
               </td>
             </tr>
             <tr>
@@ -245,16 +225,11 @@ export default function Resume(): JSX.Element {
               </td>
             </tr>
             <tr>
-              <td className='list'>
-                &bull; Attained Permanent Residency status in the United States of
-                America.
-              </td>
+              <td className='list'>&bull; Attained Permanent Residency status in the United States of America.</td>
               <td className='date'>2021</td>
             </tr>
             <tr>
-              <td className='list'>
-                &bull; Competed in the 2018 Shell Eco-marathon in Singapore.
-              </td>
+              <td className='list'>&bull; Competed in the 2018 Shell Eco-marathon in Singapore.</td>
               <td className='date'>2018</td>
             </tr>
           </tbody>

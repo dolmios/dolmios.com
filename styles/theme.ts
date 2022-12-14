@@ -1,26 +1,52 @@
+import localFont from '@next/font/local';
+
+const Standard = localFont({
+  display: 'swap',
+  fallback: ['system-ui', 'sans-serif'],
+  preload: true,
+  src: [
+    {
+      path: './fonts/standard-bold.woff2',
+      style: 'normal',
+      weight: '700',
+    },
+    {
+      path: './fonts/standard-bold.woff',
+      style: 'normal',
+      weight: '700',
+    },
+    {
+      path: './fonts/standard-book.woff2',
+      style: 'normal',
+      weight: '400',
+    },
+    {
+      path: './fonts/standard-book.woff',
+      style: 'normal',
+      weight: '400',
+    },
+  ],
+});
+
 const theme = {
-  collapse: 900,
   colors: {
-    background: '#fff',
-    border: '#ddd',
-    link: '#1eaaf1',
-    linkHover: '#0d8ecf',
-    success: '#d4edda',
-    text: '#333',
-    warning: '#fff3cd',
+    background: '#ffffff',
+    border: 'rgb(11, 12, 73)',
+    tag: ' rgb(238, 205, 91)',
+    tagHover: 'rgb(185, 158, 60)',
+    text: 'rgb(24, 16, 17)',
   },
   fontFamily: {
-    default: 'Quivira',
+    sansSerif: Standard.style.fontFamily,
   },
   space: {
-    0: '0',
-    1: '0.25rem',
-    2: '0.5rem',
-    3: '1rem',
-    4: '2rem',
-    5: '4rem',
-    6: '8rem',
-    true: 0,
+    1: '0rem',
+    2: '0.25rem',
+    3: '0.5rem',
+    4: '1rem',
+    5: '2rem',
+    6: '4rem',
+    7: '8rem',
   },
 };
 

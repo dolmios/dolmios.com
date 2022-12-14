@@ -1,29 +1,56 @@
 {
-  "name": "interwebs",
+  "name": "dolmios.com",
+  "description": "My personal site on the information superhighway.",
   "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "build": "next build",
-    "dev": "echo '⚡️ Fetching device IP for development...' && ipconfig getifaddr en0 && echo '🫡' && next dev -p 420",
-    "lint": "eslint . --ext js,jsx,ts,tsx",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx}' '!node_modules/**' '!.git/**' '!.next/**'"
+  "author": "Jackson <mail@dolmios.com>",
+  "bugs": {
+    "url": "https://github.com/dolmios/dolmios.com/issues"
   },
   "dependencies": {
+    "@next/font": "^13.0.6",
+    "@vercel/analytics": "^0.1.6",
+    "csstype": "^3.1.1",
+    "goober": "^2.1.11",
+    "goober-autoprefixer": "^1.2.3",
     "next": "^13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "swr": "^1.3.0",
-    "typescript": "^4.9.3"
+    "typescript": "^4.9.4"
   },
-  "packageManager": "yarn@3.3.0",
   "devDependencies": {
-    "@types/node": "^18.11.11",
+    "@types/node": "^18.11.15",
     "@types/react": "^18.0.26",
     "eslint": "^8.29.0",
-    "eslint-config-dolmios": "^1.3.1",
+    "eslint-config-dolmios": "^1.3.2",
     "eslint-config-next": "^13.0.6",
-    "prettier": "^2.8.0",
-    "styled-jsx": "^5.1.0"
+    "next-sitemap": "^3.1.32",
+    "prettier": "^2.8.1",
+    "vercel": "^28.8.0"
   },
-  "prettier": "eslint-config-dolmios/.prettierrc.json"
+  "homepage": "https://github.com/dolmios",
+  "keywords": [
+    "next",
+    "nextjs",
+    "react",
+    "typescript",
+    "vercel"
+  ],
+  "license": "MIT",
+  "prettier": "eslint-config-dolmios/.prettierrc.json",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolmios/dolmios.com.git"
+  },
+  "scripts": {
+    "build": "next build",
+    "dev": "echo '⚡️ Fetching device IP for development...' && ipconfig getifaddr en0 && echo '🫡' && next dev -p 420",
+    "env:link": "vercel link",
+    "env:local": "vercel env pull .env.local",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
+    "prettier": "prettier --write '**/*.{js,jsx,tsx}' '!node_modules/**' '!.git/**' '!.next/**'",
+    "sitemap": "next-sitemap",
+    "tidy": "pnpm lint && pnpm prettier"
+  }
 }
