@@ -1,6 +1,5 @@
 import { extractCss } from 'goober';
 import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 type Props = {
   css: string;
@@ -23,13 +22,6 @@ class Document extends NextDocument<Props> {
         <body>
           <Main />
           <NextScript />
-          <Script
-            defer
-            strategy='beforeInteractive'
-            src='https://api.pirsch.io/pirsch.js'
-            id='pirschjs'
-            data-code='PSlcyQFqdKiXPOKF50ayJF2i27Ev61uI'
-          />
         </body>
       </Html>
     );
