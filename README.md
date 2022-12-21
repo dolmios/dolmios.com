@@ -35,7 +35,7 @@ Feel free to get in touch with feedback, advice or suggestions. See [Conventiona
 
 ## Acknowledgments
 
-- [goober](https://github.com/cristianbote/goober)
+- [stitches](https://github.com/stitchesjs/stitches)
 
 ## License
 

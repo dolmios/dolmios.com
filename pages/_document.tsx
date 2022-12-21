@@ -1,5 +1,6 @@
-import { extractCss } from "goober";
 import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
+
+import { getCssText } from "../stitches.config";
 
 type Props = {
   css: string;
@@ -9,7 +10,7 @@ class Document extends NextDocument<Props> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static async getInitialProps({ renderPage }: DocumentContext): Promise<any> {
     const page = await renderPage();
-    const css = extractCss();
+    const css = getCssText();
     return { ...page, css };
   }
 
@@ -17,7 +18,8 @@ class Document extends NextDocument<Props> {
     return (
       <Html>
         <Head>
-          <style id={"_goober"} dangerouslySetInnerHTML={{ __html: " " + this.props.css }} />
+          <style id="stitches" dangerouslySetInnerHTML={{ __html: " " + this.props.css }} />
+          <meta charSet="UTF-8" />
         </Head>
         <body>
           <Main />

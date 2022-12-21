@@ -7,7 +7,7 @@ export function useAudio(): {
   listening: string;
 } {
   const { data, error } = useSWR(
-    'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=6ebf4fabf3d00f803681a53820af6945&format=json',
+    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`,
     fetcher
   );
 

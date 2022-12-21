@@ -8,7 +8,7 @@ export function Layout({ children }: { children: ReactNode }): JSX.Element {
   return (
     <Grid as="main">
       {router.pathname !== "/resume" && (
-        <Grid as="header" direction="row" flex="center" top={4} bottom={4}>
+        <Grid as="header" direction="row" flex="center" top={5} bottom={4}>
           <Grid direction="column" align="center">
             <Text>✺ Jackson Dolman</Text>
           </Grid>

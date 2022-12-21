@@ -9,11 +9,11 @@ export default function Home(): JSX.Element {
   return (
     <Grid>
       <Grid as="section" direction="row">
-        <Grid direction="column" width={40} widthCollapse={30}>
+        <Grid direction="column" width={40} collapse={30}>
           <Image src={image} alt={listening} fill className="fill" />
         </Grid>
-        <Grid direction="column" width={60} widthCollapse={70} top={6} bottom={6}>
-          <Text bold>
+        <Grid direction="column" width={60} collapse={70} top={6} bottom={6}>
+          <Text>
             I'm a frontend developer based in Brooklyn, NY. I am currently working on technology for
             short-term rentals at{" "}
             <a href="https://cosmogroup.io" target="_blank" rel="noreferrer">
@@ -34,7 +34,7 @@ export default function Home(): JSX.Element {
             <Tag>
               <Grid
                 flex="center"
-                style={{
+                css={{
                   display: "inline-block",
                   marginRight: "0.5rem",
                   position: "relative",
