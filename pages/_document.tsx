@@ -1,5 +1,5 @@
-import { extractCss } from 'goober';
-import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import { extractCss } from "goober";
+import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
 
 type Props = {
   css: string;
@@ -17,7 +17,7 @@ class Document extends NextDocument<Props> {
     return (
       <Html>
         <Head>
-          <style id={'_goober'} dangerouslySetInnerHTML={{ __html: ' ' + this.props.css }} />
+          <style id={"_goober"} dangerouslySetInnerHTML={{ __html: " " + this.props.css }} />
         </Head>
         <body>
           <Main />

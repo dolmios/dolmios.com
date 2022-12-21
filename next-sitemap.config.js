@@ -5,5 +5,5 @@
 module.exports = {
   generateIndexSitemap: false,
   generateRobotsTxt: true,
-  siteUrl: 'https://dolmios.com',
+  siteUrl: "https://dolmios.com",
 };
