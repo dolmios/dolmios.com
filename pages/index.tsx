@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
       </Head>
       <Grid as="section" direction="row">
         <Grid direction="column" top={6} bottom={6} width={40} collapse={100} flex="baseline">
-          <Text as="h1">Frontend-forward Developer, based in New York (by way of Melbourne)</Text>
+          <Text as="h1">Frontend Developer, based in New York (by way of Melbourne)</Text>
           <Text>
             Monikered as{" "}
             <code>
@@ -83,7 +83,7 @@ export default function Home(): JSX.Element {
             <Text bottom={2} as="small" css={{ display: "block" }}>
               Currently listening to:
             </Text>
-            <Tag>
+            <Tag css={{ paddingLeft: 0 }}>
               <a href={youtubeURL || url || ""} target="_blank" rel="noreferrer">
                 {image && image !== "#" && (
                   <Image src={image} alt={listening} width={22} height={22} />

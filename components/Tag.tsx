@@ -20,7 +20,7 @@ const TagStyled = styled("div", {
   borderRadius: "$1",
   color: "#000",
   display: "inline-block",
-  padding: "$1 $2",
+  padding: "$1 $4",
   variants: {
     bold: {
       true: {
