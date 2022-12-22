@@ -5,9 +5,11 @@ import Link from "next/link";
 
 import { Grid, Tag, Text } from "../components";
 import { useAudio } from "../hooks";
+import { useFindYoutube } from "../hooks/useFindYoutube";
 
 export default function Home(): JSX.Element {
-  const { listening, image } = useAudio();
+  const { listening, image, name, artist, url } = useAudio();
+  const { youtubeURL } = useFindYoutube(name, artist);
 
   return (
     <Grid as="main">
@@ -29,13 +31,14 @@ export default function Home(): JSX.Element {
           </Text>
 
           <Text top={4}>
-            I write code for the web, and I love to do it. I'm currently working with startups at{" "}
+            I'm currently working with startups at{" "}
             <code>
               <a href="https://planare.dev" target="_blank" rel="noreferrer">
                 Planare
               </a>
             </code>
-            . I also advise to a few companies on their tech stack and product strategy, notably{" "}
+            . I also advise several companies on their technology stacks and product strategies,
+            recently{" "}
             <code>
               <a href="https://cosmogroup.io" target="_blank" rel="noreferrer">
                 Cosmo
@@ -49,7 +52,7 @@ export default function Home(): JSX.Element {
             I can. I'm a big fan of the timeless{" "}
             <code>
               <a
-                href="https://www.youtube.com/watch?v=tc4ROCJYbm0"
+                href="https://www.youtube.com/watch?v=tc4ROCJYbm0?t=1420"
                 target="_blank"
                 rel="noreferrer">
                 Unix Philosophy
@@ -81,8 +84,12 @@ export default function Home(): JSX.Element {
               Currently listening to:
             </Text>
             <Tag>
-              <Image src={image} alt={listening} width={22} height={22} />
-              <Text css={{ marginLeft: "$4" }}>{listening}</Text>
+              <a href={youtubeURL || url || ""} target="_blank" rel="noreferrer">
+                {image && image !== "#" && (
+                  <Image src={image} alt={listening} width={22} height={22} />
+                )}
+                <Text css={{ marginLeft: "$4" }}>{listening}</Text>
+              </a>
             </Tag>
           </Grid>
         </Grid>
