@@ -9,7 +9,7 @@ export default function Home(): JSX.Element {
   return (
     <Grid as="main">
       <Grid as="section" direction="row">
-        <Grid direction="column" top={6} bottom={6} width={50}>
+        <Grid direction="column" top={6} bottom={6} width={50} collapse={100}>
           <Text as="h4">Developer, based in Brooklyn NY.</Text>
           <Text as="p">
             Goes as <code>dolmios</code> on the internet mostly. No relation to this delicious
