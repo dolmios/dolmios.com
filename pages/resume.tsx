@@ -149,7 +149,7 @@ export default function Resume(): JSX.Element {
           {data.employment && (
             <Grid css={{ borderTop: "1px solid $border" }}>
               <Grid top={4}>
-                <Tag>EMPLOYMENT</Tag>
+                <Tag bold>EMPLOYMENT</Tag>
               </Grid>
               {data.employment.map((item, index) => (
                 <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
@@ -175,7 +175,7 @@ export default function Resume(): JSX.Element {
           {data.capabilities && (
             <Grid top={4} css={{ borderTop: "1px solid $border" }}>
               <Grid top={4}>
-                <Tag>CAPABILITIES</Tag>
+                <Tag bold>CAPABILITIES</Tag>
               </Grid>
               <Grid css={{ padding: "0 $2" }}>
                 <Grid top={2}>
@@ -223,7 +223,7 @@ export default function Resume(): JSX.Element {
           {data.education && (
             <Grid top={4} css={{ borderTop: "1px solid $border" }}>
               <Grid top={4}>
-                <Tag>EDUCATION</Tag>
+                <Tag bold>EDUCATION</Tag>
               </Grid>
               {data.education.map((item, index) => (
                 <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
@@ -243,7 +243,7 @@ export default function Resume(): JSX.Element {
           {data.internships && (
             <Grid top={4} css={{ borderTop: "1px solid $border" }}>
               <Grid top={4}>
-                <Tag>INTERNSHIPS</Tag>
+                <Tag bold>INTERNSHIPS</Tag>
               </Grid>
 
               {data.internships.map((item, index) => (
@@ -264,7 +264,7 @@ export default function Resume(): JSX.Element {
           {data.volunteer && (
             <Grid top={4} css={{ borderTop: "1px solid $border" }}>
               <Grid top={4}>
-                <Tag>PROFESSIONAL & PUBLIC SERVICE</Tag>
+                <Tag bold>PROFESSIONAL & PUBLIC SERVICE</Tag>
               </Grid>
               {data.volunteer.map((item, index) => (
                 <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
@@ -290,7 +290,7 @@ export default function Resume(): JSX.Element {
       {data.repositories && (
         <Grid top={3} css={{ borderTop: "1px solid $border" }}>
           <Grid top={3}>
-            <Tag>REPOSITORIES</Tag>
+            <Tag bold >REPOSITORIES</Tag>
           </Grid>
           {data.repositories.map((item, index) => (
             <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>

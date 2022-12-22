@@ -79,14 +79,13 @@ export const globalStyles = globalCss({
   },
   a: {
     "&:hover": {
-      borderBottom: "0.1rem dashed $border",
-      color: "$text",
+      color: "inherit",
+      opacity: 0.5,
     },
     "&:visited, &:active": {
-      color: "$text",
-      textDecoration: "none",
+      color: "inherit",
     },
-    color: "$text",
+    color: "inherit",
     textDecoration: "none",
   },
   body: {
