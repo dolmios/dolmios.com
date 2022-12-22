@@ -50,7 +50,7 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
       direction={props.direction || "default"}
       css={{
         "@media (max-width: 900px)": {
-          width: `${props.collapse || props.width || 100}%`,
+          width: `${props.collapse || props.width || 100}% !important`,
         },
         alignItems: props.flex || "initial",
         justifyContent: props.flex || "initial",
