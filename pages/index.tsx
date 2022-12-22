@@ -18,20 +18,44 @@ export default function Home(): JSX.Element {
         <Grid direction="column" top={6} bottom={6} width={40} collapse={100} flex="baseline">
           <Text as="h1">Frontend-forward Developer, based in New York (by way of Melbourne)</Text>
           <Text>
-            Monikered as <code>dolmios</code> on the internet superhighway. No relation to the
-            delicious Australian pasta sauce brand owned by Mars, Incorporated. Unfortunately.
+            Monikered as{" "}
+            <code>
+              <a href="https://github.com/dolmios" target="_blank" rel="noreferrer">
+                dolmios
+              </a>
+            </code>{" "}
+            on the internet superhighway. No relation to the delicious Australian pasta sauce brand
+            owned by Mars, Incorporated. Unfortunately.
           </Text>
 
           <Text top={4}>
             I write code for the web, and I love to do it. I'm currently working with startups at{" "}
-            <code>Planare</code>. I also advise to a few companies on their tech stack and product
-            strategy, notably <code>Cosmo</code>.
+            <code>
+              <a href="https://planare.dev" target="_blank" rel="noreferrer">
+                Planare
+              </a>
+            </code>
+            . I also advise to a few companies on their tech stack and product strategy, notably{" "}
+            <code>
+              <a href="https://cosmogroup.io" target="_blank" rel="noreferrer">
+                Cosmo
+              </a>
+            </code>
+            .
           </Text>
 
           <Text top={4}>
             I have a firm focus on delivering the most organized, maintainable, and performant code
-            I can. I'm a big fan of the <code>Unix Philosophy</code>, and I try to apply it to my
-            work as much as possible.
+            I can. I'm a big fan of the timeless{" "}
+            <code>
+              <a
+                href="https://www.youtube.com/watch?v=tc4ROCJYbm0"
+                target="_blank"
+                rel="noreferrer">
+                Unix Philosophy
+              </a>
+            </code>
+            .
           </Text>
 
           <Text top={4}>
@@ -45,7 +69,10 @@ export default function Home(): JSX.Element {
 
           <Text top={4}>
             I enjoy when strangers hit me up by email, and I love talking shop. If you'd like to get
-            in touch, you can reach me at <code>mail@dolmios.com</code>
+            in touch, you can reach me at{" "}
+            <code>
+              <a href="mailto:mail@dolmios.com">mail@dolmios.com</a>
+            </code>
           </Text>
           <Text top={4}>Thank you for stopping by.</Text>
 
