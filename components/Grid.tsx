@@ -22,13 +22,7 @@ const GridStyled = styled("div", {
   variants: {
     direction: {
       column: {
-        "@media (max-width: 900px)": {
-          paddingLeft: "$5",
-          paddingRight: "$5",
-        },
-        display: "flex",
-        flexDirection: "column",
-        flexFlow: "column nowrap",
+        maxWidth: "100%",
         paddingLeft: "$5",
         paddingRight: "$5",
         width: "100%",
@@ -38,6 +32,17 @@ const GridStyled = styled("div", {
         display: "flex",
         flexDirection: "row",
         flexFlow: "row wrap",
+        maxWidth: "100%",
+        minWidth: "100%",
+        width: "100%",
+      },
+    },
+    minimal: {
+      false: {
+        padding: "inherit",
+      },
+      true: {
+        padding: "0 !important",
       },
     },
   },
@@ -48,19 +53,25 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
     <GridStyled
       as={props.as || "div"}
       direction={props.direction || "default"}
+      minimal={props.minimal}
       css={{
-        "@media (max-width: 900px)": {
-          width: `${props.collapse || props.width || 100}% !important`,
-        },
-        alignItems: props.flex || "initial",
-        justifyContent: props.flex || "initial",
-        marginBottom: props.bottom ? `$${props.bottom}` : 0,
-        marginTop: props.top ? `$${props.top}` : 0,
-        textAlign: props.align || "left",
-        width: props.direction === "column" ? `${props.width || 100}%` : "auto",
-        ...(props.minimal && {
-          padding: "0 !important",
+        ...(props?.direction === "row" &&
+          props.flex && {
+            alignItems: props.flex,
+          }),
+        ...(props.top && { marginTop: `$${props.top}` }),
+        ...(props.bottom && { marginBottom: `$${props.bottom}` }),
+        ...(props.align && {
+          textAlign: props.align,
         }),
+        ...(props?.direction === "column" &&
+          props.width &&
+          props.collapse && {
+            "@media (max-width: 900px)": {
+              width: `${props.collapse}% !important`,
+            },
+            width: `${props.width}%`,
+          }),
         ...props.css,
       }}>
       {children}

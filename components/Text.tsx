@@ -35,9 +35,7 @@ export const TextStyled = styled("p", {
   },
   variants: {
     inline: {
-      false: {
-        display: "block",
-      },
+      false: {},
       true: {
         display: "inline-block",
         marginBottom: "0 !important",
@@ -45,22 +43,20 @@ export const TextStyled = styled("p", {
       },
     },
     weightVariants: {
-      0: {
-        marginBottom: 0,
-      },
+      0: {},
       a: {
         "&:last-child": {
           marginBottom: 0,
         },
         fontWeight: "bold",
-        marginBottom: "$4",
+        marginBottom: "$5",
       },
       b: {
         "&:last-child": {
           marginBottom: 0,
         },
         fontWeight: "bold",
-        marginBottom: "$3",
+        marginBottom: "$4",
       },
       c: {
         "&:last-child": {
@@ -92,10 +88,10 @@ export function Text({ children, ...props }: TextProps): JSX.Element {
       inline={props.inline ? "true" : "false"}
       weightVariants={props.minimal ? 0 : weightVariants}
       css={{
-        paddingBottom: props.bottom ? `$${props.bottom}` : 0,
-        paddingRight: props.inline ? `$${props.inline}` : "inherit",
-        paddingTop: props.top ? `$${props.top}` : 0,
-        textAlign: props.align || "left",
+        ...(props.top && { paddingTop: `$${props.top}` }),
+        ...(props.bottom && { paddingBottom: `$${props.bottom}` }),
+        ...(props.inline && { marginRight: `$${props.inline}` }),
+        ...(props.align && { textAlign: props.align }),
         ...props.css,
       }}>
       {children}

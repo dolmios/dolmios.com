@@ -9,10 +9,16 @@ interface TagProps {
   type?: "card" | "button" | "tag";
   inline?: keyof typeof theme.space | number;
   minimal?: boolean;
+  bold?: boolean;
 }
 
 const TagStyled = styled("div", {
   variants: {
+    bold: {
+      true: {
+        fontWeight: "bold",
+      },
+    },
     minimal: {
       true: {
         padding: 0,
@@ -42,13 +48,15 @@ const TagStyled = styled("div", {
         padding: "$3",
       },
       tag: {
+        "*": {
+          display: "inline-block",
+          verticalAlign: "middle",
+        },
         backgroundColor: "$tag",
-        borderRadius: "0.42rem",
+        borderRadius: "$1",
         color: "#000",
         display: "inline-block",
-        fontWeight: "bold",
-        padding: "$1 $2",
-        width: "fit-content",
+        padding: "$2 $3",
       },
     },
   },
@@ -57,11 +65,11 @@ const TagStyled = styled("div", {
 export function Tag({ children, ...props }: TagProps): JSX.Element {
   return (
     <TagStyled
+      bold={props.bold || false}
       type={props.type || "tag"}
       minimal={props.minimal || false}
       css={{
-        marginLeft: props.inline ? `$${props.inline}` : 0,
-        marginRight: props.inline ? `$${props.inline}` : 0,
+        ...(props.inline && { marginRight: `$${props.inline}` }),
         ...props.css,
       }}>
       {children}

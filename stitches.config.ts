@@ -45,18 +45,18 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
       fonts: {
         standard: "Standard, system-ui, sans-serif",
       },
+      radii: {
+        1: "0.25rem",
+      },
       space: {
         1: "0rem",
-        2: "0.25rem",
-        3: "0.5rem",
-        4: "1rem",
-        5: "2rem",
-        6: "4rem",
-        7: "8rem",
+        2: "2.5px",
+        3: "5px",
+        4: "10px",
+        5: "20px",
+        6: "40px",
+        7: "80px",
       },
-    },
-    utils: {
-      marginX: (value: unknown) => ({ marginLeft: value, marginRight: value }),
     },
   });
 
@@ -97,18 +97,16 @@ export const globalStyles = globalCss({
     backgroundColor: "$background",
     color: "$text",
     fontFamily: Standard.style.fontFamily,
+    fontSize: "15px",
     lineHeight: 1.4,
     margin: 0,
     padding: 0,
   },
   code: {
-    "*": {
-      verticalAlign: "middle",
-    },
     border: "1px solid $border",
-    borderRadius: "3px",
-    padding: "0.2em 0.4em",
-    verticalAlign: "middle",
+    borderRadius: "$1",
+    fontSize: "inherit",
+    padding: "$1 $2",
   },
 
   img: {
@@ -120,9 +118,7 @@ export const globalStyles = globalCss({
     maxWidth: "48rem",
     minWidth: "100%",
   },
-  small: {
-    fontSize: "15px",
-  },
+
   svg: {
     height: "1rem",
     verticalAlign: "middle",

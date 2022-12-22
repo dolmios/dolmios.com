@@ -5,7 +5,6 @@ import { Grid, Tag, Text } from "../components";
 
 export default function Resume(): JSX.Element {
   const data = {
-    address: "Brooklyn, NY 11237",
     capabilities: {
       frontEnd: [
         "Next.js",
@@ -37,7 +36,6 @@ export default function Resume(): JSX.Element {
         title: " Candidate for Bachelor of Information Technology",
       },
     ],
-    email: "mail@dolmios.com",
 
     employment: [
       {
@@ -87,8 +85,7 @@ export default function Resume(): JSX.Element {
         title: "Web Development Intern",
       },
     ],
-    name: "Jackson Dolman",
-    phone: "(929) 438- 9964",
+
     /*
     repositories: [
       {
@@ -142,161 +139,154 @@ export default function Resume(): JSX.Element {
   };
 
   return (
-    <Grid as="div" css={{ "*": { fontSize: "14px" }, padding: "$4" }}>
+    <Grid as="main" top={4} bottom={4}>
       <Head>
         <title>Resume - Jackson Dolman</title>
       </Head>
 
-      <Grid css={{ padding: "0 $2" }}>
-        <Text as="h3" inline={5}>
-          {data.name}
-        </Text>
-        <Text inline={4}>{data.address}</Text>
-        <Text inline={4}>{data.phone}</Text>
-        <Text inline={1}>{data.email}</Text>
-      </Grid>
+      <Grid direction="row">
+        <Grid direction="column">
+          {data.employment && (
+            <Grid css={{ borderTop: "1px solid $border" }}>
+              <Grid top={4}>
+                <Tag>EMPLOYMENT</Tag>
+              </Grid>
+              {data.employment.map((item, index) => (
+                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                    <Grid>
+                      <Text inline={4}>
+                        <Text as="strong">{item.company}</Text>
+                      </Text>
+                      <Text inline={1}>{item.title}</Text>
+                    </Grid>
+                    <Text align="right">{item.stamp}</Text>
+                  </Grid>
+                  <Grid top={2}>
+                    {item.notes.map((note, index) => (
+                      <Text key={index}>&bull; {note}</Text>
+                    ))}
+                  </Grid>
+                </Grid>
+              ))}
+            </Grid>
+          )}
 
-      {data.employment && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag>EMPLOYMENT</Tag>
-          </Grid>
-          {data.employment.map((item, index) => (
-            <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
-              <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                <Grid>
-                  <Text inline={4}>
-                    <Text as="strong">{item.company}</Text>
-                  </Text>
-                  <Text inline={1}>{item.title}</Text>
-                </Grid>
-                <Text align="right">{item.stamp}</Text>
+          {data.capabilities && (
+            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+              <Grid top={4}>
+                <Tag>CAPABILITIES</Tag>
               </Grid>
-              <Grid top={2}>
-                {item.notes.map((note, index) => (
-                  <Text key={index}>&bull; {note}</Text>
-                ))}
+              <Grid css={{ padding: "0 $2" }}>
+                <Grid top={2}>
+                  <Text inline={4}>
+                    <Text as="strong">Front-end</Text>
+                  </Text>
+                  <Text inline={1}>
+                    {data.capabilities.frontEnd.map((item, index) => (
+                      <Text as="span" key={index} inline={2}>
+                        {item}
+                        {index !== data.capabilities.frontEnd.length - 1 && ", "}
+                      </Text>
+                    ))}
+                  </Text>
+                </Grid>
+                <Grid top={2}>
+                  <Text inline={4}>
+                    <Text as="strong">Supplemental back-end</Text>
+                  </Text>
+                  <Text inline={1}>
+                    {data.capabilities.supplementalBackEnd.map((item, index) => (
+                      <Text as="span" key={index} inline={2}>
+                        {item}
+                        {index !== data.capabilities.supplementalBackEnd.length - 1 && ", "}
+                      </Text>
+                    ))}
+                  </Text>
+                </Grid>
+                <Grid top={2}>
+                  <Text inline={4}>
+                    <Text as="strong">Information technology</Text>
+                  </Text>
+                  <Text inline={1}>
+                    {data.capabilities.informationTechnology.map((item, index) => (
+                      <Text as="span" key={index} inline={2}>
+                        {item}
+                        {index !== data.capabilities.informationTechnology.length - 1 && ", "}
+                      </Text>
+                    ))}
+                  </Text>
+                </Grid>
               </Grid>
             </Grid>
-          ))}
-        </Grid>
-      )}
+          )}
+          {data.education && (
+            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+              <Grid top={4}>
+                <Tag>EDUCATION</Tag>
+              </Grid>
+              {data.education.map((item, index) => (
+                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                    <Grid>
+                      <Text inline={4}>
+                        <Text as="strong">{item.school}</Text>
+                      </Text>
+                      <Text inline={1}>{item.title}</Text>
+                    </Grid>
+                    <Text align="right">{item.stamp}</Text>
+                  </Grid>
+                </Grid>
+              ))}
+            </Grid>
+          )}
+          {data.internships && (
+            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+              <Grid top={4}>
+                <Tag>INTERNSHIPS</Tag>
+              </Grid>
 
-      {data.capabilities && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag>CAPABILITIES</Tag>
-          </Grid>
-          <Grid css={{ padding: "0 $2" }}>
-            <Grid top={2}>
-              <Text inline={4}>
-                <Text as="strong">Front-end</Text>
-              </Text>
-              <Text inline={1}>
-                {data.capabilities.frontEnd.map((item, index) => (
-                  <Text as="span" key={index} inline={2}>
-                    {item}
-                    {index !== data.capabilities.frontEnd.length - 1 && ", "}
-                  </Text>
-                ))}
-              </Text>
-            </Grid>
-            <Grid top={2}>
-              <Text inline={4}>
-                <Text as="strong">Supplemental back-end</Text>
-              </Text>
-              <Text inline={1}>
-                {data.capabilities.supplementalBackEnd.map((item, index) => (
-                  <Text as="span" key={index} inline={2}>
-                    {item}
-                    {index !== data.capabilities.supplementalBackEnd.length - 1 && ", "}
-                  </Text>
-                ))}
-              </Text>
-            </Grid>
-            <Grid top={2}>
-              <Text inline={4}>
-                <Text as="strong">Information technology</Text>
-              </Text>
-              <Text inline={1}>
-                {data.capabilities.informationTechnology.map((item, index) => (
-                  <Text as="span" key={index} inline={2}>
-                    {item}
-                    {index !== data.capabilities.informationTechnology.length - 1 && ", "}
-                  </Text>
-                ))}
-              </Text>
-            </Grid>
-          </Grid>
-        </Grid>
-      )}
-      {data.education && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag>EDUCATION</Tag>
-          </Grid>
-          {data.education.map((item, index) => (
-            <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
-              <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                <Grid>
-                  <Text inline={4}>
-                    <Text as="strong">{item.school}</Text>
-                  </Text>
-                  <Text inline={1}>{item.title}</Text>
+              {data.internships.map((item, index) => (
+                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                    <Grid>
+                      <Text inline={4}>
+                        <Text as="strong">{item.company}</Text>
+                      </Text>
+                      <Text inline={1}>{item.title}</Text>
+                    </Grid>
+                    <Text align="right">{item.stamp}</Text>
+                  </Grid>
                 </Grid>
-                <Text align="right">{item.stamp}</Text>
-              </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      )}
-      {data.internships && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag>INTERNSHIPS</Tag>
-          </Grid>
-
-          {data.internships.map((item, index) => (
-            <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
-              <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                <Grid>
-                  <Text inline={4}>
-                    <Text as="strong">{item.company}</Text>
-                  </Text>
-                  <Text inline={1}>{item.title}</Text>
+          )}
+          {data.volunteer && (
+            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+              <Grid top={4}>
+                <Tag>PROFESSIONAL & PUBLIC SERVICE</Tag>
+              </Grid>
+              {data.volunteer.map((item, index) => (
+                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                    <Grid>
+                      <Text inline={4}>
+                        <Text as="strong">{item.company}</Text>
+                      </Text>
+                      <Text inline={1}>{item.title}</Text>
+                    </Grid>
+                    <Text align="right">{item.stamp}</Text>
+                  </Grid>
+                  <Grid top={2}>
+                    {item.notes.map((note, index) => (
+                      <Text key={index}>&bull; {note}</Text>
+                    ))}
+                  </Grid>
                 </Grid>
-                <Text align="right">{item.stamp}</Text>
-              </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      )}
-      {data.volunteer && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag>PROFESSIONAL & PUBLIC SERVICE</Tag>
-          </Grid>
-          {data.volunteer.map((item, index) => (
-            <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
-              <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                <Grid>
-                  <Text inline={4}>
-                    <Text as="strong">{item.company}</Text>
-                  </Text>
-                  <Text inline={1}>{item.title}</Text>
-                </Grid>
-                <Text align="right">{item.stamp}</Text>
-              </Grid>
-              <Grid top={2}>
-                {item.notes.map((note, index) => (
-                  <Text key={index}>&bull; {note}</Text>
-                ))}
-              </Grid>
-            </Grid>
-          ))}
-        </Grid>
-      )}
-      {/*
+          )}
+          {/*
       {data.repositories && (
         <Grid top={3} css={{ borderTop: "1px solid $border" }}>
           <Grid top={3}>
@@ -319,6 +309,8 @@ export default function Resume(): JSX.Element {
         </Grid>
       )}
       */}
+        </Grid>
+      </Grid>
     </Grid>
   );
 }
