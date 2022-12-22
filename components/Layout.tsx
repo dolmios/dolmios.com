@@ -6,10 +6,10 @@ import { Text, Grid } from ".";
 export function Layout({ children }: { children: ReactNode }): JSX.Element {
   const router = useRouter();
   return (
-    <Grid as="main">
+    <Grid>
       {router.pathname !== "/resume" && (
-        <Grid as="header" direction="row" flex="center" top={5} bottom={4}>
-          <Grid direction="column" align="center">
+        <Grid as="header" direction="row" top={5} bottom={4}>
+          <Grid direction="column">
             <Text>✺ Jackson Dolman</Text>
           </Grid>
         </Grid>
@@ -17,13 +17,7 @@ export function Layout({ children }: { children: ReactNode }): JSX.Element {
 
       {children}
 
-      {router.pathname !== "/resume" && (
-        <Grid as="footer" direction="row" flex="center" top={4} bottom={4}>
-          <Grid direction="column" align="center">
-            <Text>✺ Jackson Dolman</Text>
-          </Grid>
-        </Grid>
-      )}
+      {router.pathname !== "/resume" && <Grid as="footer">&nbsp;</Grid>}
     </Grid>
   );
 }

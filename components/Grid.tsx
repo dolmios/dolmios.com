@@ -14,6 +14,7 @@ interface GridProps {
   top?: keyof typeof theme.space | number;
   bottom?: keyof typeof theme.space | number;
   css?: CSS;
+  minimal?: boolean;
 }
 
 const GridStyled = styled("div", {
@@ -27,10 +28,12 @@ const GridStyled = styled("div", {
         },
         display: "flex",
         flexDirection: "column",
-        flexFlow: "column wrap",
-        paddingLeft: "$6",
-        paddingRight: "$6",
+        flexFlow: "column nowrap",
+        paddingLeft: "$5",
+        paddingRight: "$5",
+        width: "100%",
       },
+      default: {},
       row: {
         display: "flex",
         flexDirection: "row",
@@ -44,7 +47,7 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
   return (
     <GridStyled
       as={props.as || "div"}
-      direction={props.direction || "row"}
+      direction={props.direction || "default"}
       css={{
         "@media (max-width: 900px)": {
           width: `${props.collapse || props.width || 100}%`,
@@ -53,8 +56,11 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
         justifyContent: props.flex || "initial",
         marginBottom: props.bottom ? `$${props.bottom}` : 0,
         marginTop: props.top ? `$${props.top}` : 0,
-        textAlign: props.align || "initial",
-        width: `${props.width || 100}%`,
+        textAlign: props.align || "left",
+        width: props.direction === "column" ? `${props.width || 100}%` : "auto",
+        ...(props.minimal && {
+          padding: "0 !important",
+        }),
         ...props.css,
       }}>
       {children}

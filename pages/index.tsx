@@ -7,51 +7,42 @@ import { useAudio } from "../hooks";
 export default function Home(): JSX.Element {
   const { listening, image } = useAudio();
   return (
-    <Grid>
+    <Grid as="main">
       <Grid as="section" direction="row">
-        <Grid direction="column" width={40} collapse={30}>
-          <Image src={image} alt={listening} fill className="fill" />
-        </Grid>
-        <Grid direction="column" width={60} collapse={70} top={6} bottom={6}>
-          <Text>
-            I'm a frontend developer based in Brooklyn, NY. I am currently working on technology for
-            short-term rentals at{" "}
-            <a href="https://cosmogroup.io" target="_blank" rel="noreferrer">
-              Cosmo
-            </a>
-            , a I co-founded in 2019. I also work with startups over at{" "}
-            <a href="https://planare.dev" target="_blank" rel="noreferrer">
-              Planare
-            </a>
-            .
+        <Grid direction="column" top={6} bottom={6} width={50}>
+          <Text as="h4">Developer, based in Brooklyn NY.</Text>
+          <Text as="p">
+            Goes as <code>dolmios</code> on the internet mostly. No relation to this delicious
+            Australian pasta sauce brand, owned by Mars Corp.
           </Text>
-          <Text top={5} bottom={5}>
-            My best work is with React (Next.js) and TypeScript. I'm interested in developing for
-            the web, and optimizing for performance and cogent code.
+          <Text as="p">
+            I'm a software engineer, currently working with startups via Planare. I'm also advising
+            and writing code for Cosmo, a company I co-founded in 2019.
           </Text>
-
           {image && image !== "" && (
-            <Tag>
-              <Grid
-                flex="center"
-                css={{
-                  display: "inline-block",
-                  marginRight: "0.5rem",
-                  position: "relative",
-                  verticalAlign: "middle",
-                }}>
-                <Image
-                  src={image}
-                  alt={listening}
-                  width={28}
-                  height={28}
-                  style={{
-                    borderRadius: "100%",
-                  }}
-                />
-              </Grid>
-              <Text inline={1}>{listening}</Text>
-            </Tag>
+            <Grid top={6}>
+              <Tag>
+                <Grid
+                  css={{
+                    display: "inline-block",
+                    marginRight: "0.5rem",
+                    verticalAlign: "middle !important",
+                  }}>
+                  <Image
+                    src={image}
+                    alt={listening}
+                    width={22}
+                    height={22}
+                    style={{
+                      borderRadius: "100%",
+                    }}
+                  />
+                </Grid>
+                <Text as="small" inline={1}>
+                  {listening}
+                </Text>
+              </Tag>
+            </Grid>
           )}
         </Grid>
       </Grid>

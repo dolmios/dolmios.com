@@ -29,7 +29,7 @@ const TagStyled = styled("div", {
         appearance: "none",
         backgroundColor: "$tag",
         border: "none",
-        color: "inherit",
+        color: "#000",
         cursor: "pointer",
         display: "inline-block",
 
@@ -37,13 +37,16 @@ const TagStyled = styled("div", {
         userSelect: "none",
       },
       card: {
+        border: "1px solid $border",
         display: "block",
-        padding: "$2",
+        padding: "$3",
       },
       tag: {
         backgroundColor: "$tag",
         borderRadius: "0.42rem",
+        color: "#000",
         display: "inline-block",
+        fontWeight: "bold",
         padding: "$1 $2",
         width: "fit-content",
       },
