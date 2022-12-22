@@ -7,7 +7,17 @@ export function useFindYoutube(
   youtubeURL: string;
 } {
   const { data, error } = useSWR(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${song}+${artist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${song}+${artist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`,
+    {
+      errorRetryCount: 0,
+      errorRetryInterval: 0,
+      refreshWhenHidden: false,
+      refreshWhenOffline: false,
+      revalidateOnFocus: false,
+      revalidateOnMount: true,
+      revalidateOnReconnect: false,
+      shouldRetryOnError: false,
+    }
   );
 
   if (error) return { youtubeURL: "" };

@@ -23,9 +23,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       {globalStyles()}
       <SWRConfig
         value={{
-          dedupingInterval: 1000,
           fetcher,
-          refreshInterval: 15000,
           revalidateOnFocus: true,
           revalidateOnReconnect: true,
         }}>
