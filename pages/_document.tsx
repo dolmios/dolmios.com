@@ -16,7 +16,7 @@ class Document extends NextDocument<Props> {
 
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang=”en”>
         <Head>
           <style id="stitches" dangerouslySetInnerHTML={{ __html: " " + this.props.css }} />
           <meta charSet="UTF-8" />
