@@ -78,11 +78,10 @@ export const globalStyles = globalCss({
       WebkitFontSmoothing: "antialiased",
     },
   },
-  // 900px width
   a: {
     "&:hover": {
       color: "inherit",
-      opacity: 0.66,
+      opacity: 0.7,
     },
     "&:visited, &:active": {
       color: "inherit",
@@ -91,10 +90,6 @@ export const globalStyles = globalCss({
     textDecoration: "none",
   },
   body: {
-    "@media (max-width: 900px)": {
-      fontSize: "14px !important",
-      lineHeight: "1.35 !important",
-    },
     "@media (prefers-color-scheme: dark)": {
       backgroundColor: "$text !important",
       color: "$background !important",
@@ -103,7 +98,6 @@ export const globalStyles = globalCss({
     color: "$text",
     fontFamily: Standard.style.fontFamily,
     fontSize: "15px",
-
     lineHeight: 1.4,
     margin: 0,
     padding: 0,

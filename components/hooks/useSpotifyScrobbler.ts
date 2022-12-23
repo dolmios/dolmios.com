@@ -35,7 +35,6 @@ export function useSpotifyScrobbler(): {
     latestTrack?.image[1]["#text"] ||
     latestTrack?.image[0]["#text"] ||
     "";
-  // for single liner, concat the track name and artist if they are each over 25 characters with an ellipsis, but if they are under 25 characters, just show them
   const singleLiner =
     trackArtist && trackName
       ? `${trackName.length > 25 ? `${trackName.slice(0, 25)}...` : trackName} - ${

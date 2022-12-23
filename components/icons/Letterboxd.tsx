@@ -1,5 +1,3 @@
-// <svg version="1" xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 192 192"><path /></svg>
-
 export function Letterboxd(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg

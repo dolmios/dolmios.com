@@ -10,27 +10,16 @@ export function Bio(): JSX.Element {
   return (
     <Grid>
       <Text as="h1">Frontend Developer</Text>
-      <Text bottom={4}>
-        Brooklyn, NY{" "}
-        <Text as="span" css={{ opacity: 0.75 }}>
-          (
-          {new Date().toLocaleString("en-US", {
-            timeStyle: "short",
-            timeZone: "America/New_York",
-          })}
-          )
-        </Text>{" "}
-        previously Melbourne{" "}
-        <Text as="span" css={{ opacity: 0.75 }}>
-          (
-          {new Date().toLocaleString("en-AU", {
-            timeStyle: "short",
-            timeZone: "Australia/Melbourne",
-          })}
-          )
-        </Text>
+      <Text as="h3" inline={4}>
+        Brooklyn, NY
       </Text>
-      <Text>
+      <Text as="h3" inline={6}>
+        {new Date().toLocaleString("en-US", {
+          timeStyle: "short",
+          timeZone: "America/New_York",
+        })}
+      </Text>
+      <Text top={6}>
         Monikered as{" "}
         <Text as="code">
           <a href="https://github.com/dolmios" target="_blank" rel="noreferrer">
