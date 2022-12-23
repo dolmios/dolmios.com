@@ -7,22 +7,22 @@ const Standard = localFont({
   preload: true,
   src: [
     {
-      path: "./fonts/standard-bold.woff2",
+      path: "./public/fonts/standard-bold.woff2",
       style: "normal",
       weight: "700",
     },
     {
-      path: "./fonts/standard-bold.woff",
+      path: "./public/fonts/standard-bold.woff",
       style: "normal",
       weight: "700",
     },
     {
-      path: "./fonts/standard-book.woff2",
+      path: "./public/fonts/standard-book.woff2",
       style: "normal",
       weight: "400",
     },
     {
-      path: "./fonts/standard-book.woff",
+      path: "./public/fonts/standard-book.woff",
       style: "normal",
       weight: "400",
     },
@@ -37,16 +37,18 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     theme: {
       colors: {
         background: "#ffffff",
-        border: "rgba(126, 126, 126, 0.399)",
-        tag: " rgb(238, 205, 91)",
-        tagHover: "rgb(185, 158, 60)",
+        border: "rgba(126, 126, 126, 0.42)",
+        tag: " rgba(225, 190, 35, 1)",
         text: "rgb(0, 0, 0)",
       },
       fonts: {
         standard: "Standard, system-ui, sans-serif",
       },
       radii: {
-        1: "0.25rem",
+        1: "0.21rem",
+      },
+      shadows: {
+        1: "0 2px 8px 1px rgba(0, 0, 0, 0.042)",
       },
       space: {
         1: "0rem",
@@ -77,10 +79,11 @@ export const globalStyles = globalCss({
       WebkitFontSmoothing: "antialiased",
     },
   },
+  // 900px width
   a: {
     "&:hover": {
       color: "inherit",
-      opacity: 0.5,
+      opacity: 0.66,
     },
     "&:visited, &:active": {
       color: "inherit",
@@ -89,6 +92,10 @@ export const globalStyles = globalCss({
     textDecoration: "none",
   },
   body: {
+    "@media (max-width: 900px)": {
+      fontSize: "14px !important",
+      lineHeight: "1.35 !important",
+    },
     "@media (prefers-color-scheme: dark)": {
       backgroundColor: "$text !important",
       color: "$background !important",
@@ -97,6 +104,7 @@ export const globalStyles = globalCss({
     color: "$text",
     fontFamily: Standard.style.fontFamily,
     fontSize: "15px",
+
     lineHeight: 1.4,
     margin: 0,
     padding: 0,
@@ -104,8 +112,10 @@ export const globalStyles = globalCss({
   code: {
     border: "1px solid $border",
     borderRadius: "$1",
+    boxShadow: "$1",
     fontSize: "inherit",
-    padding: "$1 $2",
+    padding: "$1 $3",
+    userSelect: "contain",
   },
 
   img: {
@@ -118,9 +128,18 @@ export const globalStyles = globalCss({
     minWidth: "100%",
   },
 
+  small: {
+    display: "block",
+    fontSize: "11px",
+    opacity: 0.75,
+  },
+
   svg: {
-    height: "1rem",
+    alignSelf: "center",
+    display: "inline-block",
+    height: "14px",
+    lineHeight: 0,
     verticalAlign: "middle",
-    width: "1rem",
+    width: "14px",
   },
 });

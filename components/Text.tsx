@@ -1,7 +1,7 @@
 import { CSS, CSSProperties } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled, theme } from "../stitches.config";
+import { styled } from "../stitches.config";
 
 export interface TextProps {
   align?: CSSProperties["textAlign"];
@@ -18,15 +18,15 @@ export interface TextProps {
     | "span"
     | "small"
     | "li"
-    | "a"
     | "ul"
     | "ol"
     | "strong"
     | "code";
-  top?: keyof typeof theme.space | number;
-  bottom?: keyof typeof theme.space | number;
-  inline?: keyof typeof theme.space | number;
+  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  bottom?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  inline?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
   minimal?: boolean;
+  onClick?: () => void;
 }
 
 export const TextStyled = styled("p", {
@@ -37,6 +37,10 @@ export const TextStyled = styled("p", {
     inline: {
       false: {},
       true: {
+        "*": {
+          verticalAlign: "middle",
+        },
+        alignSelf: "center",
         display: "inline-block",
         marginBottom: "0 !important",
         verticalAlign: "middle",
@@ -84,13 +88,17 @@ export function Text({ children, ...props }: TextProps): JSX.Element {
 
   return (
     <TextStyled
+      onClick={props.onClick}
       as={props.as || "p"}
       inline={props.inline ? "true" : "false"}
       weightVariants={props.minimal ? 0 : weightVariants}
       css={{
         ...(props.top && { paddingTop: `$${props.top}` }),
         ...(props.bottom && { paddingBottom: `$${props.bottom}` }),
-        ...(props.inline && { marginRight: `$${props.inline}` }),
+        ...(props.inline && {
+          "&:last-child": { marginRight: "0 !important" },
+          marginRight: `$${props.inline}`,
+        }),
         ...(props.align && { textAlign: props.align }),
         ...props.css,
       }}>

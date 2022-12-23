@@ -15,8 +15,14 @@ export default function Custom404(): JSX.Element {
         </Text>
         <Text>
           You may also view the source code for this site on{" "}
-          <a href="https://github.com/dolmios/dolmios.com">GitHub</a>, see the{" "}
-          <Text as="code">pages</Text> directory.
+          <Text as="code">
+            <a href="https://github.com/dolmios/dolmios.com">GitHub</a>
+          </Text>{" "}
+          (see the{" "}
+          <Text as="code">
+            <a href="https://github.com/dolmios/dolmios.com/tree/main/pages">pages</a>
+          </Text>{" "}
+          directory)
         </Text>
       </Grid>
     </Grid>

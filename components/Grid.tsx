@@ -1,7 +1,7 @@
 import { CSS, CSSProperties } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled, theme } from "../stitches.config";
+import { styled } from "../stitches.config";
 
 interface GridProps {
   align?: CSSProperties["textAlign"];
@@ -11,8 +11,8 @@ interface GridProps {
   collapse?: number;
   direction?: "row" | "column";
   as?: "div" | "section" | "main" | "header" | "footer" | "aside" | "nav";
-  top?: keyof typeof theme.space | number;
-  bottom?: keyof typeof theme.space | number;
+  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  bottom?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
   css?: CSS;
   minimal?: boolean;
 }

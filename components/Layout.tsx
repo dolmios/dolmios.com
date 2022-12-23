@@ -9,7 +9,7 @@ export function Layout({ children }: { children: ReactNode }): JSX.Element {
   return (
     <Grid>
       <Grid as="header" direction="row" top={4} flex="center">
-        <Grid direction="column" width={50} collapse={100}>
+        <Grid direction="column" width={50} collapse={60}>
           <Text inline={4}>
             <strong>
               <Link href="/">Jackson Dolman</Link>
@@ -28,7 +28,7 @@ export function Layout({ children }: { children: ReactNode }): JSX.Element {
             </>
           )}
         </Grid>
-        <Grid direction="column" width={50} collapse={100} align="right">
+        <Grid direction="column" width={50} collapse={40} align="right">
           <Text inline={1}>
             <a href="https://github.com/dolmios">github.com/dolmios</a>
           </Text>
