@@ -1,8 +1,6 @@
 import { ReactNode } from "react";
 
-import { Header } from "./Header";
-
-import { Grid } from ".";
+import { Grid, Header } from ".";
 
 export function Layout({ children }: { children: ReactNode }): JSX.Element {
   return (

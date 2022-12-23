@@ -1,9 +1,6 @@
-/* eslint-disable react/no-unescaped-entities */
 import Head from "next/head";
 
-import { Grid } from "../components";
-import { Bio } from "../components/Bio";
-import { Song } from "../components/Song";
+import { Grid, Song, Bio } from "../components";
 
 export default function Home(): JSX.Element {
   return (

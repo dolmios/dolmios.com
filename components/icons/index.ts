@@ -10,6 +10,5 @@ export const Icons = {
   Letterboxd,
   Literal,
   Quitter,
-
   Twitter: Quitter,
 };

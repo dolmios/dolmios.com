@@ -1,18 +1,16 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { Grid, Text, Tag, useSpotifyScrobbler, useRGBToHex, useFindColor, useFindYoutube } from ".";
+import { Grid, Text, Tag, useSpotifyScrobbler, useFindColor, useFindYouTube } from ".";
 
 export function Song(): JSX.Element {
   const [details, setDetails] = useState(false);
 
   const { fallbackURL, singleLiner, trackArtist, trackCover, trackAlbum, trackName } =
     useSpotifyScrobbler();
-  const { youtubeURL } = useFindYoutube(trackName, trackArtist);
+  const { youtubeURL } = useFindYouTube(trackName, trackArtist);
 
   const { dominantColor, textColor } = useFindColor(trackCover);
-  const { hex: dominantHex } = useRGBToHex(dominantColor);
-  const { hex: textHex } = useRGBToHex(textColor);
 
   return (
     <Grid>
@@ -89,10 +87,10 @@ export function Song(): JSX.Element {
               <Text as="strong">Cover Accent:</Text>
             </Text>
             <Text as="p" inline={3}>
-              {dominantColor} ({dominantHex})
+              {dominantColor} for background
             </Text>
             <Text as="p" inline={1}>
-              {textColor} for text ({textHex})
+              {textColor} for text
             </Text>
           </Grid>
           <Grid>

@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-export function useFindYoutube(
+export function useFindYouTube(
   song: string,
   artist: string
 ): {
