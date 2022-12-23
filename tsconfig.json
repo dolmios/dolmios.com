@@ -1,5 +1,5 @@
 {
-  "extends": "eslint-config-dolmios/configs/tsconfig/index",
+  "extends": "eslint-config-dolmios/configs/tsconfig",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
