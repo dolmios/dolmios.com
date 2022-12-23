@@ -1,6 +1,6 @@
 # dolmios.com
 
-> My personal site on the information superhighway. You can find my resume at [dolmios.com/resume](https://dolmios.com/resume).
+> My personal site on the information superhighway.
 
 ## Install
 
