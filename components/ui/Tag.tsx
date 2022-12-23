@@ -1,7 +1,7 @@
 import { CSS } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled } from "../stitches.config";
+import { styled } from "../../stitches.config";
 
 interface TagProps {
   children: ReactNode;
@@ -17,9 +17,9 @@ const TagStyled = styled("div", {
     display: "inline-block",
     verticalAlign: "middle",
   },
-  backgroundColor: "$tag",
+  background: "$tag",
+  border: "1px solid $border",
   borderRadius: "$1",
-  color: "#000",
   display: "inline-block",
   padding: "$1 $4",
   variants: {

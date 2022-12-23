@@ -1,7 +1,7 @@
 import { CSS, CSSProperties } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled } from "../stitches.config";
+import { styled } from "../../stitches.config";
 
 export interface TextProps {
   align?: CSSProperties["textAlign"];

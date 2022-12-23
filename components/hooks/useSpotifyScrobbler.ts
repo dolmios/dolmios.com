@@ -5,6 +5,7 @@ export function useSpotifyScrobbler(): {
   singleLiner: string;
   trackName: string;
   trackArtist: string;
+  trackAlbum: string;
   fallbackURL: string;
 } {
   const { data, error } = useSWR(
@@ -15,6 +16,7 @@ export function useSpotifyScrobbler(): {
     return {
       fallbackURL: "",
       singleLiner: "",
+      trackAlbum: "",
       trackArtist: "",
       trackCover: "",
       trackName: "",
@@ -24,6 +26,7 @@ export function useSpotifyScrobbler(): {
   const { recenttracks } = data || {};
   const { track } = recenttracks || {};
   const latestTrack = track[0];
+  const trackAlbum = latestTrack?.album["#text"] || "";
   const trackArtist = latestTrack?.artist["#text"] || "";
   const trackName = latestTrack?.name || "";
   const trackCover =
@@ -44,6 +47,7 @@ export function useSpotifyScrobbler(): {
   return {
     fallbackURL,
     singleLiner,
+    trackAlbum,
     trackArtist,
     trackCover,
     trackName,

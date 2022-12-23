@@ -37,8 +37,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     theme: {
       colors: {
         background: "#ffffff",
-        border: "rgba(126, 126, 126, 0.42)",
-        tag: " rgba(225, 190, 35, 1)",
+        border: "rgba(150, 150, 150, 0.42)",
         text: "rgb(0, 0, 0)",
       },
       fonts: {

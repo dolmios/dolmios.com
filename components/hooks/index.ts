@@ -1,3 +1,5 @@
-export * from "./useFindYoutube";
+export * from "./useFIndYoutube";
 export * from "./useSpotifyScrobbler";
-export * from "./useFaviconFetch";
+export * from "./useFindFavicon";
+export * from "./useFindColor";
+export * from "./useRGBToHex";
