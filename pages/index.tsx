@@ -8,11 +8,6 @@ export default function Home(): JSX.Element {
       <Head>
         <title>Jackson Dolman</title>
         <meta name="description" content="Jackson Dolman's personal website" />
-        <link rel="icon" href="/favicon.ico" />
-
-        <meta property="og:title" content="Jackson Dolman" />
-        <meta property="og:description" content="Jackson Dolman's personal website" />
-        {/* <meta property="og:image" content="https://jacksondolman.com/og-image.png" />  */}
       </Head>
       <Grid as="section" direction="row" top={6}>
         <Grid direction="column" width={44} collapse={100}>

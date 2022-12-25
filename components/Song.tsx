@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { Grid, Text, Tag, useSpotifyScrobbler, useFindColor, useFindYouTube } from ".";
+import { Grid, Text, Tag, useSpotifyScrobbler, useFindColor, useFindYouTube, Icons } from ".";
 
 export function Song(): JSX.Element {
   const [details, setDetails] = useState(false);
 
-  const { fallbackURL, singleLiner, trackArtist, trackCover, trackAlbum, trackName } =
+  const { fallbackURL, singleLiner, trackArtist, trackCover, trackAlbum, trackName, streamDate } =
     useSpotifyScrobbler();
   const { youtubeURL } = useFindYouTube(trackName, trackArtist);
 
@@ -16,7 +16,12 @@ export function Song(): JSX.Element {
     <Grid>
       <Grid bottom={4}>
         <Text as="code" css={{ cursor: "pointer" }} onClick={(): void => setDetails(!details)}>
-          Last Played Track
+          <Text as="span" inline={3} css={{ marginTop: "-2px" }}>
+            <Icons.Spotify />
+          </Text>
+          <Text as="span" inline={1}>
+            Last Played
+          </Text>
         </Text>
       </Grid>
       <Tag
@@ -76,6 +81,14 @@ export function Song(): JSX.Element {
             </Text>
             <Text as="p" inline={3}>
               {dominantColor}
+            </Text>
+          </Grid>
+          <Grid>
+            <Text as="p" inline={4}>
+              <Text as="strong">Streamed:</Text>
+            </Text>
+            <Text as="p" inline={3}>
+              {streamDate}
             </Text>
           </Grid>
         </Grid>

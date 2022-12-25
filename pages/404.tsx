@@ -9,7 +9,7 @@ export default function Custom404(): JSX.Element {
         <title>404 - Page Not Found</title>
       </Head>
       <Grid direction="column" align="left" top={6}>
-        <Text as="h1">404 - Page Not Found</Text>
+        <Text as="h2">404 - Page Not Found</Text>
         <Text>
           The page you are looking for does not exist. Please check the URL and try again.
         </Text>

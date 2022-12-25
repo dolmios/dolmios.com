@@ -1,4 +1,6 @@
-export function Letterboxd(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+import { SVGProps } from "react";
+
+export function Letterboxd(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg
       version="1"

@@ -7,6 +7,7 @@ export function useSpotifyScrobbler(): {
   trackArtist: string;
   trackAlbum: string;
   fallbackURL: string;
+  streamDate: string;
 } {
   const { data, error } = useSWR(
     `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`
@@ -16,6 +17,7 @@ export function useSpotifyScrobbler(): {
     return {
       fallbackURL: "",
       singleLiner: "",
+      streamDate: "",
       trackAlbum: "",
       trackArtist: "",
       trackCover: "",
@@ -25,6 +27,7 @@ export function useSpotifyScrobbler(): {
 
   const { recenttracks } = data || {};
   const { track } = recenttracks || {};
+
   const latestTrack = track[0];
   const trackAlbum = latestTrack?.album["#text"] || "";
   const trackArtist = latestTrack?.artist["#text"] || "";
@@ -42,10 +45,23 @@ export function useSpotifyScrobbler(): {
         } `
       : "";
   const fallbackURL = latestTrack?.url || "";
+  const streamDate = latestTrack?.date?.uts
+    ? new Date(parseInt(latestTrack?.date?.uts) * 1000).toLocaleString("en-US", {
+        day: "numeric",
+        hour: "numeric",
+        hour12: true,
+        minute: "numeric",
+        month: "long",
+        second: "numeric",
+        timeZone: "America/New_York",
+        year: "numeric",
+      })
+    : "";
 
   return {
     fallbackURL,
     singleLiner,
+    streamDate,
     trackAlbum,
     trackArtist,
     trackCover,

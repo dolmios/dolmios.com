@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import Head from "next/head";
 
 import { Grid, Tag, Text } from "../components";
@@ -85,25 +84,6 @@ export default function Resume(): JSX.Element {
         title: "Web Development Intern",
       },
     ],
-
-    /*
-    repositories: [
-      {
-        description:
-          "A user interface library for React, with components for common elements and patterns. Used to enforce a consistent design language across the company's products.",
-        name: "@cosmoau/ui",
-        stamp: "Ongoing",
-        url: "https://github.com/cosmoau/ui",
-      },
-      {
-        description:
-          "This website, including this resume. Using Next.js, Typescript, and Stitches.",
-        name: "dolmios.com",
-        stamp: "Ongoing",
-        url: "https://github.com/dolmios/dolmios.com",
-      },
-    ],
-    */
     volunteer: [
       {
         company: "Cosmo",
@@ -286,29 +266,6 @@ export default function Resume(): JSX.Element {
               ))}
             </Grid>
           )}
-          {/*
-      {data.repositories && (
-        <Grid top={3} css={{ borderTop: "1px solid $border" }}>
-          <Grid top={3}>
-            <Tag bold >REPOSITORIES</Tag>
-          </Grid>
-          {data.repositories.map((item, index) => (
-            <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
-              <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                <Grid>
-                  <Text inline={4}>
-                    <Text as="strong">{item.name}</Text>
-                  </Text>
-                  <Text inline={1}>{item.url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "")}</Text>
-                </Grid>
-                <Text align="right">{item.stamp}</Text>
-              </Grid>
-              <Text top={2}>&bull; {item.description}</Text>
-            </Grid>
-          ))}
-        </Grid>
-      )}
-      */}
         </Grid>
       </Grid>
     </Grid>
