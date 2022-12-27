@@ -16,7 +16,7 @@ export function Song(): JSX.Element {
     <Grid>
       <Grid bottom={4}>
         <Text as="code" css={{ cursor: "pointer" }} onClick={(): void => setDetails(!details)}>
-          <Text as="span" inline={3} css={{ marginTop: "-2px" }}>
+          <Text as="span" inline={3} css={{}}>
             <Icons.Spotify />
           </Text>
           <Text as="span" inline={1}>
@@ -78,6 +78,12 @@ export function Song(): JSX.Element {
           <Grid>
             <Text as="p" inline={4}>
               <Text as="strong">Accent:</Text>
+            </Text>
+            <Text
+              as="span"
+              inline={4}
+              css={{ background: dominantColor, height: "15px", width: "15px" }}>
+              &nbsp;
             </Text>
             <Text as="p" inline={3}>
               {dominantColor}

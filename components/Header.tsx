@@ -10,7 +10,7 @@ export function Header(): JSX.Element {
       <Grid
         direction="column"
         width={router.pathname !== "/resume" ? 50 : 100}
-        collapse={router.pathname !== "/resume" ? 50 : 100}>
+        collapse={router.pathname !== "/resume" ? 40 : 100}>
         <Text>
           <Text as="strong">
             <Link href="/">Jackson Dolman</Link>
@@ -32,7 +32,7 @@ export function Header(): JSX.Element {
         )}
       </Grid>
       {router.pathname !== "/resume" && (
-        <Grid direction="column" width={50} collapse={50} align="right">
+        <Grid direction="column" width={50} collapse={60} align="right">
           <Text as="code">
             <Text as="span" inline={3}>
               <Icons.GitHub />

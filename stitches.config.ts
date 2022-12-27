@@ -106,7 +106,9 @@ export const globalStyles = globalCss({
     border: "1px solid $border",
     borderRadius: "$1",
     boxShadow: "$1",
-    fontSize: "inherit",
+    display: "inline-block",
+    fontSize: "0.9rem",
+    lineHeight: 1.4,
     padding: "$1 $3",
     userSelect: "contain",
   },
@@ -128,11 +130,9 @@ export const globalStyles = globalCss({
   },
 
   svg: {
-    alignSelf: "center",
-    display: "inline-block",
-    height: "14px",
-    lineHeight: 0,
+    display: "inline-flex",
+    height: "13px",
     verticalAlign: "middle",
-    width: "14px",
+    width: "13px",
   },
 });

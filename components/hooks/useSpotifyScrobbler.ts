@@ -10,7 +10,13 @@ export function useSpotifyScrobbler(): {
   streamDate: string;
 } {
   const { data, error } = useSWR(
-    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`
+    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`,
+    {
+      refreshInterval: 10_000,
+      refreshWhenHidden: true,
+      revalidateOnMount: true,
+      revalidateOnReconnect: true,
+    }
   );
 
   if (error || !data) {
@@ -56,7 +62,7 @@ export function useSpotifyScrobbler(): {
         timeZone: "America/New_York",
         year: "numeric",
       })
-    : "";
+    : "Currently Streaming";
 
   return {
     fallbackURL,

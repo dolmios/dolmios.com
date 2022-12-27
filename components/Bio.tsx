@@ -79,6 +79,7 @@ export function Bio(): JSX.Element {
         <Text as="code" css={{ cursor: "pointer" }} onClick={(): void => setSocials(!socials)}>
           social media
         </Text>
+        .
       </Text>
       {socials && (
         <Grid top={5} bottom={5}>
