@@ -34,6 +34,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     media: {
       bp1: "(min-width: 480px)",
     },
+    prefix: "dolmios",
     theme: {
       colors: {
         background: "#ffffff",

@@ -7,14 +7,15 @@ export function useFindYouTube(
   youtubeURL: string;
 } {
   const { data, error } = useSWR(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${song}+${artist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`,
+    song && artist
+      ? `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${song}+${artist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
+      : null,
     {
-      errorRetryCount: 0,
-      errorRetryInterval: 0,
+      errorRetryCount: 1,
       refreshWhenHidden: false,
       refreshWhenOffline: false,
       revalidateOnFocus: false,
-      revalidateOnMount: true,
+      revalidateOnMount: false,
       revalidateOnReconnect: false,
       shouldRetryOnError: false,
     }
