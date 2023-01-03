@@ -5,16 +5,16 @@ import { styled } from "../../stitches.config";
 
 interface GridProps {
   align?: CSSProperties["textAlign"];
-  children: ReactNode | JSX.Element;
-  flex?: "stretch" | "center" | "flex-start" | "flex-end" | "baseline" | "initial" | "inherit";
-  width?: number;
-  collapse?: number;
-  direction?: "row" | "column";
   as?: "div" | "section" | "main" | "header" | "footer" | "aside" | "nav";
-  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
   bottom?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  children: ReactNode | JSX.Element;
+  collapse?: number;
   css?: CSS;
+  direction?: "row" | "column";
+  flex?: "stretch" | "center" | "flex-start" | "flex-end" | "baseline" | "initial" | "inherit";
   minimal?: boolean;
+  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  width?: number;
 }
 
 const GridStyled = styled("div", {
@@ -52,8 +52,6 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
   return (
     <GridStyled
       as={props.as || "div"}
-      direction={props.direction || "default"}
-      minimal={props.minimal}
       css={{
         ...(props?.direction === "row" &&
           props.flex && {
@@ -73,7 +71,9 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
             width: `${props.width}%`,
           }),
         ...props.css,
-      }}>
+      }}
+      direction={props.direction || "default"}
+      minimal={props.minimal}>
       {children}
     </GridStyled>
   );

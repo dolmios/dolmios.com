@@ -23,11 +23,10 @@ export function Bio(): JSX.Element {
           </>
         )}
       </Text>
-
       <Text top={5}>
         Monikered on the information superhighway as{" "}
         <Text as="code">
-          <a href="https://github.com/dolmios" target="_blank" rel="noreferrer">
+          <a href="https://github.com/dolmios" rel="noreferrer" target="_blank">
             dolmios
           </a>
         </Text>{" "}
@@ -40,7 +39,7 @@ export function Bio(): JSX.Element {
         </Text>
       </Text>
       {disclaimer && (
-        <Text as="small" top={5} bottom={5}>
+        <Text as="small" bottom={5} top={5}>
           © {new Date().getFullYear()} Mars, Incorporated. All Rights Reserved. ® TM DOLMIO,
           BEN&apos;S ORIGINAL™ MARS are Trademarks of Mars, Incorporated and its affiliates. An
           Affiliate of Mars, Incorporated.
@@ -49,14 +48,14 @@ export function Bio(): JSX.Element {
       <Text top={4}>
         I work with startups at{" "}
         <Text as="code">
-          <a href="https://planare.dev" target="_blank" rel="noreferrer">
+          <a href="https://planare.dev" rel="noreferrer" target="_blank">
             Planare
           </a>
         </Text>
         . I also advise several early-to-mid stage companies on their technology and product
         strategies, recently{" "}
         <Text as="code">
-          <a href="https://cosmogroup.io" target="_blank" rel="noreferrer">
+          <a href="https://cosmogroup.io" rel="noreferrer" target="_blank">
             Cosmo
           </a>
         </Text>
@@ -82,47 +81,47 @@ export function Bio(): JSX.Element {
         .
       </Text>
       {socials && (
-        <Grid top={5} bottom={5}>
+        <Grid bottom={5} top={5}>
           <Grid>
             <Icons.Arena />{" "}
-            <Text as="p" inline={1} css={{ marginLeft: "$4" }}>
+            <Text as="p" css={{ marginLeft: "$4" }} inline={1}>
               <Text as="strong" inline={4}>
                 Are.na
               </Text>
-              <a href="https://are.na/dolmios" target="_blank" rel="noreferrer">
+              <a href="https://are.na/dolmios" rel="noreferrer" target="_blank">
                 are.na/dolmios
               </a>
             </Text>
           </Grid>
           <Grid>
             <Icons.Letterboxd />{" "}
-            <Text as="p" inline={1} css={{ marginLeft: "$4" }}>
+            <Text as="p" css={{ marginLeft: "$4" }} inline={1}>
               <Text as="strong" inline={4}>
                 Letterboxd
               </Text>
-              <a href="https://letterboxd.com/dolmios/" target="_blank" rel="noreferrer">
+              <a href="https://letterboxd.com/dolmios/" rel="noreferrer" target="_blank">
                 letterboxd.com/dolmios
               </a>
             </Text>
           </Grid>
           <Grid>
             <Icons.Literal />{" "}
-            <Text as="p" inline={1} css={{ marginLeft: "$4" }}>
+            <Text as="p" css={{ marginLeft: "$4" }} inline={1}>
               <Text as="strong" inline={4}>
                 Literal
               </Text>
-              <a href="https://literal.club/dolmios" target="_blank" rel="noreferrer">
+              <a href="https://literal.club/dolmios" rel="noreferrer" target="_blank">
                 literal.club/dolmios
               </a>
             </Text>
           </Grid>
           <Grid>
             <Icons.Twitter />{" "}
-            <Text as="p" inline={1} css={{ marginLeft: "$4" }}>
+            <Text as="p" css={{ marginLeft: "$4" }} inline={1}>
               <Text as="strong" inline={4}>
                 Twitter
               </Text>
-              <a href="https://twitter.com/jacksondolman" target="_blank" rel="noreferrer">
+              <a href="https://twitter.com/jacksondolman" rel="noreferrer" target="_blank">
                 twitter.com/jacksondolman
               </a>
             </Text>

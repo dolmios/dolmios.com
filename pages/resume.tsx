@@ -119,11 +119,13 @@ export default function Resume(): JSX.Element {
   };
 
   return (
-    <Grid as="main" top={4} bottom={4}>
+    <Grid as="main" bottom={4} top={4}>
       <Head>
         <title>Resume - Jackson Dolman</title>
       </Head>
-
+      <Grid align="center" bottom={6} top={6}>
+        <Text as="h1">Working on this page. Check back soon.</Text>
+      </Grid>
       <Grid direction="row">
         <Grid direction="column">
           {data.employment && (
@@ -132,7 +134,7 @@ export default function Resume(): JSX.Element {
                 <Tag bold>EMPLOYMENT</Tag>
               </Grid>
               {data.employment.map((item, index) => (
-                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
                   <Grid css={{ display: "flex", justifyContent: "space-between" }}>
                     <Grid>
                       <Text inline={4}>
@@ -144,7 +146,7 @@ export default function Resume(): JSX.Element {
                   </Grid>
                   <Grid top={2}>
                     {item.notes.map((note, index) => (
-                      <Text key={index}>&bull; {note}</Text>
+                      <Text key={index}>&bull; {"Rewriting"}</Text>
                     ))}
                   </Grid>
                 </Grid>
@@ -153,7 +155,7 @@ export default function Resume(): JSX.Element {
           )}
 
           {data.capabilities && (
-            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
               <Grid top={4}>
                 <Tag bold>CAPABILITIES</Tag>
               </Grid>
@@ -164,7 +166,7 @@ export default function Resume(): JSX.Element {
                   </Text>
                   <Text inline={1}>
                     {data.capabilities.frontEnd.map((item, index) => (
-                      <Text as="span" key={index} inline={2}>
+                      <Text key={index} as="span" inline={2}>
                         {item}
                         {index !== data.capabilities.frontEnd.length - 1 && ", "}
                       </Text>
@@ -177,7 +179,7 @@ export default function Resume(): JSX.Element {
                   </Text>
                   <Text inline={1}>
                     {data.capabilities.supplementalBackEnd.map((item, index) => (
-                      <Text as="span" key={index} inline={2}>
+                      <Text key={index} as="span" inline={2}>
                         {item}
                         {index !== data.capabilities.supplementalBackEnd.length - 1 && ", "}
                       </Text>
@@ -190,7 +192,7 @@ export default function Resume(): JSX.Element {
                   </Text>
                   <Text inline={1}>
                     {data.capabilities.informationTechnology.map((item, index) => (
-                      <Text as="span" key={index} inline={2}>
+                      <Text key={index} as="span" inline={2}>
                         {item}
                         {index !== data.capabilities.informationTechnology.length - 1 && ", "}
                       </Text>
@@ -201,12 +203,12 @@ export default function Resume(): JSX.Element {
             </Grid>
           )}
           {data.education && (
-            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
               <Grid top={4}>
                 <Tag bold>EDUCATION</Tag>
               </Grid>
               {data.education.map((item, index) => (
-                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
                   <Grid css={{ display: "flex", justifyContent: "space-between" }}>
                     <Grid>
                       <Text inline={4}>
@@ -221,13 +223,13 @@ export default function Resume(): JSX.Element {
             </Grid>
           )}
           {data.internships && (
-            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
               <Grid top={4}>
                 <Tag bold>INTERNSHIPS</Tag>
               </Grid>
 
               {data.internships.map((item, index) => (
-                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
                   <Grid css={{ display: "flex", justifyContent: "space-between" }}>
                     <Grid>
                       <Text inline={4}>
@@ -242,12 +244,12 @@ export default function Resume(): JSX.Element {
             </Grid>
           )}
           {data.volunteer && (
-            <Grid top={4} css={{ borderTop: "1px solid $border" }}>
+            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
               <Grid top={4}>
                 <Tag bold>PROFESSIONAL & PUBLIC SERVICE</Tag>
               </Grid>
               {data.volunteer.map((item, index) => (
-                <Grid key={index} top={2} css={{ paddingLeft: "$2", paddingRight: "$2" }}>
+                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
                   <Grid css={{ display: "flex", justifyContent: "space-between" }}>
                     <Grid>
                       <Text inline={4}>
@@ -259,7 +261,7 @@ export default function Resume(): JSX.Element {
                   </Grid>
                   <Grid top={2}>
                     {item.notes.map((note, index) => (
-                      <Text key={index}>&bull; {note}</Text>
+                      <Text key={index}>&bull; {"Rewriting"}</Text>
                     ))}
                   </Grid>
                 </Grid>

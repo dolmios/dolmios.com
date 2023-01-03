@@ -7,14 +7,14 @@ export default function Home(): JSX.Element {
     <Grid as="main">
       <Head>
         <title>Jackson Dolman</title>
-        <meta name="description" content="Jackson Dolman's personal website" />
+        <meta content="Jackson Dolman's personal website" name="description" />
       </Head>
       <Grid as="section" direction="row" top={6}>
-        <Grid direction="column" width={44} collapse={100}>
+        <Grid collapse={100} direction="column" width={44}>
           <Bio />
         </Grid>
       </Grid>
-      <Grid as="section" direction="row" top={7} bottom={6}>
+      <Grid as="section" bottom={6} direction="row" top={7}>
         <Grid direction="column">
           <Song />
         </Grid>

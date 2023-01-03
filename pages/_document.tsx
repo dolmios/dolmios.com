@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger */
 import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
 
 import { getCssText } from "../stitches.config";
@@ -18,28 +19,28 @@ class Document extends NextDocument<Props> {
     return (
       <Html lang="en">
         <Head>
-          <style id="stitches" dangerouslySetInnerHTML={{ __html: " " + this.props.css }} />
+          <style dangerouslySetInnerHTML={{ __html: " " + this.props.css }} id="stitches" />
           <meta charSet="UTF-8" />
 
-          <meta property="og:url" content="https://dolmios.com" />
-          <meta property="og:title" content="Jackson Dolman" />
-          <meta property="og:description" content="Jackson Dolman's personal website" />
-          <meta property="og:site_name" content="Jackson Dolman" />
-          <meta property="og:image" content="https://dolmios.com/meta.jpg" />
-          <meta property="og:type" content="website" />
-          <meta property="og:locale" content="en_US" />
+          <meta content="https://dolmios.com" property="og:url" />
+          <meta content="Jackson Dolman" property="og:title" />
+          <meta content="Jackson Dolman's personal website" property="og:description" />
+          <meta content="Jackson Dolman" property="og:site_name" />
+          <meta content="https://dolmios.com/meta.jpg" property="og:image" />
+          <meta content="website" property="og:type" />
+          <meta content="en_US" property="og:locale" />
 
-          <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@jacksondolman" />
-          <meta name="description" content="Jackson Dolman's personal website" />
-          <link rel="icon" href="/favicon.ico" />
+          <meta content="summary" name="twitter:card" />
+          <meta content="@jacksondolman" name="twitter:site" />
+          <meta content="Jackson Dolman's personal website" name="description" />
+          <link href="/favicon.ico" rel="icon" />
 
-          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-          <link rel="manifest" href="/site.webmanifest" />
-          <meta name="msapplication-TileColor" content="#000000" />
-          <meta name="theme-color" content="#000000" />
+          <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+          <link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png" />
+          <link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png" />
+          <link href="/site.webmanifest" rel="manifest" />
+          <meta content="#000000" name="msapplication-TileColor" />
+          <meta content="#000000" name="theme-color" />
         </Head>
         <body>
           <Main />

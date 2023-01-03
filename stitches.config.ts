@@ -90,6 +90,7 @@ export const globalStyles = globalCss({
     color: "inherit",
     textDecoration: "none",
   },
+
   body: {
     "@media (prefers-color-scheme: dark)": {
       backgroundColor: "$text !important",

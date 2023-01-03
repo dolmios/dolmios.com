@@ -2,11 +2,11 @@ import { SVGProps } from "react";
 
 export function Spotify(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
-    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" {...props}>
+    <svg version="1.0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" {...props}>
       <g
-        transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)"
         fill="currentColor"
-        stroke="none">
+        stroke="none"
+        transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)">
         <path
           d="M2370 5113 c-496 -35 -999 -233 -1405 -551 -105 -82 -360 -344 -442
 -453 -487 -650 -641 -1455 -428 -2234 185 -675 666 -1266 1292 -1587 351 -181

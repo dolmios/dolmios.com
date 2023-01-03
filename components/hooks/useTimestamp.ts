@@ -3,9 +3,9 @@
 import { useState, useEffect } from "react";
 
 export function useTimestamp(): {
-  time: string;
   date: string;
   isMounted: boolean;
+  time: string;
 } {
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");

@@ -1,13 +1,13 @@
 import useSWR from "swr";
 
 export function useSpotifyScrobbler(): {
-  trackCover: string;
-  singleLiner: string;
-  trackName: string;
-  trackArtist: string;
-  trackAlbum: string;
   fallbackURL: string;
+  singleLiner: string;
   streamDate: string;
+  trackAlbum: string;
+  trackArtist: string;
+  trackCover: string;
+  trackName: string;
 } {
   const { data, error } = useSWR(
     `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`,

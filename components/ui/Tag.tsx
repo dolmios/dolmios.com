@@ -4,11 +4,11 @@ import { ReactNode } from "react";
 import { styled } from "../../stitches.config";
 
 interface TagProps {
+  bold?: boolean;
   children: ReactNode;
   css?: CSS;
   inline?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
   minimal?: boolean;
-  bold?: boolean;
   onClick?: () => void;
 }
 
@@ -39,13 +39,13 @@ const TagStyled = styled("div", {
 export function Tag({ children, ...props }: TagProps): JSX.Element {
   return (
     <TagStyled
-      onClick={props.onClick}
       bold={props.bold || false}
-      minimal={props.minimal || false}
       css={{
         ...(props.inline && { marginRight: `$${props.inline}` }),
         ...props.css,
-      }}>
+      }}
+      minimal={props.minimal || false}
+      onClick={props.onClick}>
       {children}
     </TagStyled>
   );

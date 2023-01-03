@@ -16,7 +16,7 @@ export function Song(): JSX.Element {
     <Grid>
       <Grid bottom={4}>
         <Text as="code" css={{ cursor: "pointer" }} onClick={(): void => setDetails(!details)}>
-          <Text as="span" inline={3} css={{}}>
+          <Text as="span" css={{}} inline={3}>
             <Icons.Spotify />
           </Text>
           <Text as="span" inline={1}>
@@ -35,7 +35,7 @@ export function Song(): JSX.Element {
           background: dominantColor || "transparent",
           paddingLeft: 0,
         }}>
-        <a href={youtubeURL || fallbackURL || ""} target="_blank" rel="noreferrer">
+        <a href={youtubeURL || fallbackURL || ""} rel="noreferrer" target="_blank">
           {trackCover && trackCover !== "#" && (
             <Grid
               css={{
@@ -43,7 +43,7 @@ export function Song(): JSX.Element {
                 display: "inline-flex",
                 img: { borderRadius: "$1" },
               }}>
-              <Image src={trackCover} alt={singleLiner} width={25} height={25} />
+              <Image alt={singleLiner} height={25} src={trackCover} width={25} />
             </Grid>
           )}
           <Text css={{ marginLeft: "$4" }}>{singleLiner}</Text>
@@ -81,8 +81,8 @@ export function Song(): JSX.Element {
             </Text>
             <Text
               as="span"
-              inline={4}
-              css={{ background: dominantColor, height: "15px", width: "15px" }}>
+              css={{ background: dominantColor, height: "15px", width: "15px" }}
+              inline={4}>
               &nbsp;
             </Text>
             <Text as="p" inline={3}>

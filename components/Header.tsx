@@ -6,11 +6,11 @@ import { Grid, Icons, Text } from "./";
 export function Header(): JSX.Element {
   const router = useRouter();
   return (
-    <Grid as="header" direction="row" top={4} flex="center">
+    <Grid as="header" direction="row" flex="center" top={4}>
       <Grid
+        collapse={router.pathname !== "/resume" ? 40 : 100}
         direction="column"
-        width={router.pathname !== "/resume" ? 50 : 100}
-        collapse={router.pathname !== "/resume" ? 40 : 100}>
+        width={router.pathname !== "/resume" ? 50 : 100}>
         <Text>
           <Text as="strong">
             <Link href="/">Jackson Dolman</Link>
@@ -32,7 +32,7 @@ export function Header(): JSX.Element {
         )}
       </Grid>
       {router.pathname !== "/resume" && (
-        <Grid direction="column" width={50} collapse={60} align="right">
+        <Grid align="right" collapse={60} direction="column" width={50}>
           <Text as="code">
             <Text as="span" inline={3}>
               <Icons.GitHub />
