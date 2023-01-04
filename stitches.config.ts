@@ -12,17 +12,7 @@ const Standard = localFont({
       weight: "700",
     },
     {
-      path: "./public/fonts/standard-bold.woff",
-      style: "normal",
-      weight: "700",
-    },
-    {
       path: "./public/fonts/standard-book.woff2",
-      style: "normal",
-      weight: "400",
-    },
-    {
-      path: "./public/fonts/standard-book.woff",
       style: "normal",
       weight: "400",
     },
