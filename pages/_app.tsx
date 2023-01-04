@@ -2,7 +2,7 @@ import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import { SWRConfig } from "swr";
 
-import { Layout } from "../components";
+import { Grid, Header } from "../components";
 import { globalStyles } from "../stitches.config";
 
 const fetcher = async (url: string): Promise<unknown> => {
@@ -19,7 +19,8 @@ const fetcher = async (url: string): Promise<unknown> => {
 
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <Layout>
+    <Grid>
+      <Header />
       {globalStyles()}
       <SWRConfig
         value={{
@@ -30,6 +31,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
         <Component {...pageProps} />
         <Analytics />
       </SWRConfig>
-    </Layout>
+    </Grid>
   );
 }

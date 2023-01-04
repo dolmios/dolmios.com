@@ -7,6 +7,7 @@ export function useSpotifyScrobbler(): {
   trackAlbum: string;
   trackArtist: string;
   trackCover: string;
+  trackCoverRaw: string;
   trackName: string;
 } {
   const { data, error } = useSWR(
@@ -27,6 +28,7 @@ export function useSpotifyScrobbler(): {
       trackAlbum: "",
       trackArtist: "",
       trackCover: "",
+      trackCoverRaw: "",
       trackName: "",
     };
   }
@@ -38,12 +40,16 @@ export function useSpotifyScrobbler(): {
   const trackAlbum = latestTrack?.album["#text"] || "";
   const trackArtist = latestTrack?.artist["#text"] || "";
   const trackName = latestTrack?.name || "";
+  // track cover is either latestTrack 3,2,1,0 or empty string. strip /34s/, /64s/, /174s/, /300x300/ if that text is present
+  // eg: https://lastfm.freetls.fastly.net/i/u/300x300/248297b2f72690349abee85186359ea6.jpg > https://lastfm.freetls.fastly.net/i/u/248297b2f72690349abee85186359ea6.jpg
   const trackCover =
-    latestTrack?.image[3]["#text"] ||
-    latestTrack?.image[2]["#text"] ||
-    latestTrack?.image[1]["#text"] ||
-    latestTrack?.image[0]["#text"] ||
-    "";
+    latestTrack?.image[3 || 2 || 1 || 0]["#text"]
+      .replace("/34s/", "/")
+      .replace("/64s/", "/")
+      .replace("/174s/", "/")
+      .replace("/300x300/", "/") || "";
+  const trackCoverRaw = latestTrack?.image[3 || 2 || 1 || 0]["#text"] || "";
+
   const singleLiner =
     trackArtist && trackName
       ? `${trackName.length > 25 ? `${trackName.slice(0, 25)}...` : trackName} - ${
@@ -71,6 +77,7 @@ export function useSpotifyScrobbler(): {
     trackAlbum,
     trackArtist,
     trackCover,
+    trackCoverRaw,
     trackName,
   };
 }

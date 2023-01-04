@@ -20,13 +20,13 @@ export interface TextProps {
     | "ol"
     | "strong"
     | "code";
-  bottom?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  bottom?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   children: ReactNode;
   css?: CSS;
-  inline?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  inline?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   minimal?: boolean;
   onClick?: () => void;
-  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  top?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
 }
 
 export const TextStyled = styled("p", {

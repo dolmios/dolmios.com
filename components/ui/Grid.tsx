@@ -6,14 +6,14 @@ import { styled } from "../../stitches.config";
 interface GridProps {
   align?: CSSProperties["textAlign"];
   as?: "div" | "section" | "main" | "header" | "footer" | "aside" | "nav";
-  bottom?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  bottom?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   children: ReactNode | JSX.Element;
   collapse?: number;
   css?: CSS;
   direction?: "row" | "column";
   flex?: "stretch" | "center" | "flex-start" | "flex-end" | "baseline" | "initial" | "inherit";
   minimal?: boolean;
-  top?: "1" | "2" | "3" | "4" | "5" | "6" | "7" | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  top?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
   width?: number;
 }
 

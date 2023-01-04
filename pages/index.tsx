@@ -9,14 +9,12 @@ export default function Home(): JSX.Element {
         <title>Jackson Dolman</title>
         <meta content="Jackson Dolman's personal website" name="description" />
       </Head>
-      <Grid as="section" direction="row" top={6}>
-        <Grid collapse={100} direction="column" width={44}>
+      <Grid align="center" as="section" bottom={7} direction="row" top={7}>
+        <Grid collapse={100} css={{ margin: "0 auto" }} direction="column" width={50}>
           <Bio />
-        </Grid>
-      </Grid>
-      <Grid as="section" bottom={6} direction="row" top={7}>
-        <Grid direction="column">
-          <Song />
+          <Grid top={6}>
+            <Song />
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

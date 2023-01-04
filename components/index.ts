@@ -8,7 +8,6 @@ export * from "./hooks/useSpotifyScrobbler";
 
 export * from "./icons";
 
-export * from "./Layout";
 export * from "./Bio";
 export * from "./Header";
 export * from "./Song";

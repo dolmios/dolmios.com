@@ -132,9 +132,10 @@ export const globalStyles = globalCss({
   },
 
   svg: {
-    display: "inline-flex",
-    height: "13px",
+    display: "inline-block",
+    height: "14px",
     verticalAlign: "middle",
-    width: "13px",
+    width: "14px",
+    alignContent: "center",
   },
 });

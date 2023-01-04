@@ -6,47 +6,30 @@ import { useTimestamp } from "./hooks/useTimestamp";
 import { Grid, Text, Icons } from ".";
 
 export function Bio(): JSX.Element {
-  const [disclaimer, setDisclaimer] = useState(false);
   const [socials, setSocials] = useState(false);
 
   const { isMounted, date, time } = useTimestamp();
 
   return (
     <Grid>
-      <Text as="h1">Frontend Developer</Text>
-      <Text as="h3">
-        {isMounted && (
-          <>
-            {date}
-            <br />
-            New York, {time}
-          </>
-        )}
-      </Text>
-      <Text top={5}>
+      <Text as="h1">FRONTEND DEVELOPER</Text>
+      {isMounted && (
+        <Text as="h3">
+          {date}
+          <br />
+          New York, {time}
+        </Text>
+      )}
+
+      <Text>
         Monikered on the information superhighway as{" "}
         <Text as="code">
           <a href="https://github.com/dolmios" rel="noreferrer" target="_blank">
             dolmios
           </a>
         </Text>{" "}
-        &mdash; not affiliated with the delicious pasta sauce brand owned by{" "}
-        <Text
-          as="span"
-          css={{ cursor: "pointer" }}
-          onClick={(): void => setDisclaimer(!disclaimer)}>
-          Mars Incorporated.
-        </Text>
-      </Text>
-      {disclaimer && (
-        <Text as="small" bottom={5} top={5}>
-          © {new Date().getFullYear()} Mars, Incorporated. All Rights Reserved. ® TM DOLMIO,
-          BEN&apos;S ORIGINAL™ MARS are Trademarks of Mars, Incorporated and its affiliates. An
-          Affiliate of Mars, Incorporated.
-        </Text>
-      )}
-      <Text top={4}>
-        I work with startups at{" "}
+        &mdash; not affiliated with the pasta sauce brand owned by Mars Incorporated. I work with
+        startups at{" "}
         <Text as="code">
           <a href="https://planare.dev" rel="noreferrer" target="_blank">
             Planare
@@ -62,19 +45,12 @@ export function Bio(): JSX.Element {
         .
       </Text>
       <Text top={4}>
-        I mostly work with Next.js applications, with experience working with other technologies as
-        well. My resume can be found at{" "}
+        I mostly work with Next.js, with experience among related technologies. My resume and
+        contact information can be found at
         <Link href="/resume">
           <Text as="code">dolmios.com/resume</Text>
         </Link>
-        .
-      </Text>
-      <Text top={4}>
-        If you&apos;d like to talk shop, you can reach me at{" "}
-        <Text as="code">
-          <a href="mailto:mail@dolmios.com">mail@dolmios.com</a>
-        </Text>{" "}
-        or find me on{" "}
+        . Find me on{" "}
         <Text as="code" css={{ cursor: "pointer" }} onClick={(): void => setSocials(!socials)}>
           social media
         </Text>

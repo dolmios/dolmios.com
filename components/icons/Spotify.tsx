@@ -2,7 +2,7 @@ import { SVGProps } from "react";
 
 export function Spotify(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
-    <svg version="1.0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg version="1.0" viewBox="0 0 512 512" {...props}>
       <g
         fill="currentColor"
         stroke="none"
