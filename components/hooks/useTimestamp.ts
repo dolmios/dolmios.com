@@ -1,5 +1,3 @@
-// a simple hook to fetch the hour, minute, second, month, day, and year from the current time in UTC for the EST timezone
-
 import { useState, useEffect } from "react";
 
 export function useTimestamp(): {
@@ -31,7 +29,6 @@ export function useTimestamp(): {
         timeZone: "America/New_York",
       });
       const date = est.toLocaleDateString("en-US", {
-        // Tuesday, December 1, 2020
         day: "numeric",
         month: "long",
         timeZone: "America/New_York",
@@ -39,7 +36,7 @@ export function useTimestamp(): {
       });
       setTime(time);
       setDate(date);
-    }, 1000);
+    }, 5);
     return () => clearInterval(interval);
   }, []);
 

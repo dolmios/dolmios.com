@@ -20,13 +20,13 @@ export interface TextProps {
     | "ol"
     | "strong"
     | "code";
-  bottom?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  bottom?: 1 | 2 | 3 | 4 | 5;
   children: ReactNode;
   css?: CSS;
-  inline?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  inline?: 1 | 2 | 3 | 4 | 5;
   minimal?: boolean;
   onClick?: () => void;
-  top?: 1 | 2 | 3 | 4 | 5 | 6 | 7;
+  top?: 1 | 2 | 3 | 4 | 5;
 }
 
 export const TextStyled = styled("p", {
@@ -60,7 +60,7 @@ export const TextStyled = styled("p", {
           marginBottom: 0,
         },
         fontWeight: "bold",
-        marginBottom: "$4",
+        marginBottom: "$3",
       },
       c: {
         "&:last-child": {
@@ -74,8 +74,8 @@ export const TextStyled = styled("p", {
 });
 
 export function Text({ children, ...props }: TextProps): JSX.Element {
-  const aFonts = ["h1", "h2", "h3", "h4"];
-  const bFonts = ["h5", "h6"];
+  const aFonts = ["h1", "h2", "h3"];
+  const bFonts = ["h4", "h5", "h6"];
   const cFonts = ["p"];
 
   const weightVariants = aFonts.includes(props.as || "p")

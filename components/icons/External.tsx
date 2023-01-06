@@ -1,4 +1,6 @@
-export function External(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+import { SVGProps } from "react";
+
+export function External(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg viewBox="0 0 48 48" {...props}>
       <path d="M36 24c-1.2 0-2 0.8-2 2v12c0 1.2-0.8 2-2 2h-22c-1.2 0-2-0.8-2-2v-22c0-1.2 0.8-2 2-2h12c1.2 0 2-0.8 2-2s-0.8-2-2-2h-12c-3.4 0-6 2.6-6 6v22c0 3.4 2.6 6 6 6h22c3.4 0 6-2.6 6-6v-12c0-1.2-0.8-2-2-2z" />

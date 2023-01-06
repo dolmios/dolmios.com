@@ -28,26 +28,24 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     theme: {
       colors: {
         background: "#ffffff",
-        border: "rgba(150, 150, 150, 0.42)",
+        border: "rgba(150, 150, 150, 0.420)",
         text: "rgb(0, 0, 0)",
       },
       fonts: {
         standard: "Standard, system-ui, sans-serif",
       },
       radii: {
-        1: "0.21rem",
+        1: "3px",
       },
       shadows: {
-        1: "0 2px 8px 1px rgba(0, 0, 0, 0.042)",
+        1: "0 1px 4px 0.5px rgba(0, 0, 0, 0.1)",
       },
       space: {
         1: "0rem",
-        2: "2.5px",
-        3: "5px",
-        4: "10px",
-        5: "20px",
-        6: "40px",
-        7: "80px",
+        2: "3px",
+        3: "6px",
+        4: "12px",
+        5: "24px",
       },
     },
   });
@@ -79,6 +77,7 @@ export const globalStyles = globalCss({
     },
     color: "inherit",
     textDecoration: "none",
+    borderBottom: "1px solid $border",
   },
 
   body: {
@@ -95,13 +94,9 @@ export const globalStyles = globalCss({
     padding: 0,
   },
   code: {
-    border: "1px solid $border",
-    borderRadius: "$1",
-    boxShadow: "$1",
     display: "inline-block",
     fontSize: "0.9rem",
     lineHeight: 1.4,
-    padding: "$1 $3",
     userSelect: "contain",
   },
 
@@ -127,5 +122,10 @@ export const globalStyles = globalCss({
     verticalAlign: "middle",
     width: "14px",
     alignContent: "center",
+  },
+  header: {
+    a: {
+      borderBottom: "none",
+    },
   },
 });

@@ -1,4 +1,6 @@
-export function Literal(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+import { SVGProps } from "react";
+
+export function Literal(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg fill="currentColor" height="64" version="1" viewBox="0 0 48 48" width="64" {...props}>
       <g>

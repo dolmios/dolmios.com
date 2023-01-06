@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-import { Grid, Text, Tag, useSpotifyScrobbler, useFindColor, useFindYouTube } from ".";
+import { Grid, Text, Tag, useSpotifyScrobbler, useFindColor, useFindYouTube, Icons } from ".";
 
 export function Song(): JSX.Element {
   const [details, setDetails] = useState(false);
@@ -33,73 +33,90 @@ export function Song(): JSX.Element {
           alignItems: "center",
           background: dominantColor || "transparent",
           paddingLeft: 0,
+
+          svg: {
+            marginRight: "$3",
+          },
         }}
         onClick={(): void => setDetails(!details)}>
         {trackCoverRaw && trackCoverRaw !== "#" && (
           <Grid
             css={{
-              borderRadius: "$1",
+              borderTopLeftRadius: "$1",
+              borderBottomLeftRadius: "$1",
               display: "inline-flex",
-              img: { borderRadius: "$1" },
-              opacity: details ? 0.2 : 1,
+              img: {
+                borderTopLeftRadius: "$1",
+                borderBottomLeftRadius: "$1",
+              },
+              opacity: details ? 0.42 : 1,
+              marginRight: "$3",
             }}>
-            <Image alt={singleLiner} height={30} src={trackCover || trackCoverRaw} width={30} />
+            <Image alt={singleLiner} height={25} src={trackCover || trackCoverRaw} width={25} />
           </Grid>
         )}
-        <Text css={{ marginLeft: "$4" }}>{singleLiner}</Text>
+
+        <Icons.Spotify />
+        <Text as="strong" inline={3}>
+          {trackName}
+        </Text>
+        <Text as="span">{trackArtist}</Text>
       </Tag>
 
       {details && (
-        <Grid align="left" top={7}>
-          {trackCoverRaw && trackCoverRaw !== "#" && (
-            <Grid
-              css={{
-                height: "50rem",
-                width: "100%",
-                position: "relative",
+        <Grid top={5}>
+          <Grid>
+            {trackCoverRaw && trackCoverRaw !== "#" && (
+              <Grid
+                css={{
+                  height: "420px",
+                  borderRadius: "$1",
+                  borderBottomLeftRadius: 0,
+                  borderBottomRightRadius: 0,
 
-                img: { borderRadius: "$1", objectFit: "cover" },
-              }}>
-              <Image alt={singleLiner} fill quality={100} src={trackCover || trackCoverRaw} />
-            </Grid>
-          )}
+                  img: {
+                    borderRadius: "$1",
 
-          <Text as="p" top={6}>
-            <Text as="strong">{streamDate}</Text>
-          </Text>
-
-          <Text as="p" top={6}>
-            <Text as="strong">Track:</Text> {trackName}
-          </Text>
-
-          <Text as="p">
-            <Text as="strong">Artist:</Text> {trackArtist}
-          </Text>
-
-          <Text as="p">
-            <Text as="strong">Album:</Text> {trackAlbum}
-          </Text>
-
-          <Text as="p" inline={4}>
-            <Text as="strong">Accent:</Text>
-          </Text>
-          <Text
-            as="span"
-            css={{ background: dominantColor, height: "15px", width: "15px" }}
-            inline={4}>
-            &nbsp;
-          </Text>
-          <Text as="p" inline={3}>
-            {dominantColor}
-          </Text>
-
-          <Grid top={5}>
-            <a href={youtubeURL || fallbackURL || ""} rel="noreferrer" target="_blank">
-              <code>
-                Listen to {trackName} on {youtubeURL ? "YouTube" : "Last.fm"}
-              </code>
-            </a>
+                    borderBottomLeftRadius: 0,
+                    borderBottomRightRadius: 0,
+                    objectFit: "cover",
+                  },
+                }}>
+                <Image alt={singleLiner} fill src={trackCover || trackCoverRaw} />
+              </Grid>
+            )}
           </Grid>
+          <Grid
+            align="center"
+            css={{
+              borderRadius: "$1",
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0,
+              background: dominantColor,
+
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              color: textColor || "inherit",
+            }}>
+            <Text as="small" bottom={3} inline={1} top={3}>
+              {dominantColor}
+            </Text>
+          </Grid>
+          <Text top={5}>
+            {streamDate}, from the {trackAlbum} album by {trackArtist}.
+          </Text>
+
+          <Text top={5}>
+            <a href={youtubeURL || fallbackURL || ""} rel="noopener noreferrer" target="_blank">
+              {(youtubeURL || fallbackURL || "").replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
+            </a>
+          </Text>
+          <Text top={3}>
+            <a href="https://open.spotify.com/user/jd.ol" rel="noopener noreferrer" target="_blank">
+              spotify.com/user/jd.ol
+            </a>
+          </Text>
         </Grid>
       )}
     </Grid>

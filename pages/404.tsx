@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-import { Grid, Text } from "../components";
+import { Grid, Tag, Text } from "../components";
 
 export default function Custom404(): JSX.Element {
   return (
@@ -8,22 +8,23 @@ export default function Custom404(): JSX.Element {
       <Head>
         <title>404 - Page Not Found</title>
       </Head>
-      <Grid align="left" direction="column" top={6}>
-        <Text as="h2">404 - Page Not Found</Text>
-        <Text>
-          The page you are looking for does not exist. Please check the URL and try again.
-        </Text>
-        <Text>
-          You may also view the source code for this site on{" "}
-          <Text as="code">
-            <a href="https://github.com/dolmios/dolmios.com">GitHub</a>
-          </Text>{" "}
-          (see the{" "}
-          <Text as="code">
-            <a href="https://github.com/dolmios/dolmios.com/tree/main/pages">pages</a>
-          </Text>{" "}
-          directory)
-        </Text>
+      <Grid as="section" bottom={5} direction="row" top={5}>
+        <Grid collapse={100} css={{ margin: "0 auto" }} direction="column" width={60}>
+          <Tag bold>404 (PAGE NOT FOUND)</Tag>
+
+          <Text top={5}>
+            The page you are looking for does not exist. Please check the URL and try again.
+          </Text>
+          <Text top={4}>
+            You may also view the source code for this site on GitHub:{" "}
+            <a
+              href="https://github.com/dolmios/dolmios.com/tree/main/pages"
+              rel="noopener noreferrer"
+              target="_blank">
+              github.com/dolmios/dolmios.com/tree/main/pages
+            </a>
+          </Text>
+        </Grid>
       </Grid>
     </Grid>
   );

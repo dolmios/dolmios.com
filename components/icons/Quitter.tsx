@@ -1,4 +1,6 @@
-export function Quitter(props: React.SVGProps<SVGSVGElement>): JSX.Element {
+import { SVGProps } from "react";
+
+export function Quitter(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg height="32" version="1.1" viewBox="0 0 32 32" width="32" {...props}>
       <g>

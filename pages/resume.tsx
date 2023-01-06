@@ -5,14 +5,7 @@ import { Grid, Tag, Text } from "../components";
 export default function Resume(): JSX.Element {
   const data = {
     capabilities: {
-      frontEnd: [
-        "Next.js",
-        "Typescript",
-        "React",
-        "Redux",
-        "HTML/CSS (SASS, Styled Components, et. al.)",
-        "Javascript (ES6+)",
-      ],
+      frontEnd: ["TypeScript", "React", "Next.js", "HTML", "CSS"],
       informationTechnology: [
         "Zendesk",
         "Intercom",
@@ -20,102 +13,94 @@ export default function Resume(): JSX.Element {
         "Slack",
         "Notion",
         "Adobe Photoshop",
+        "Figma",
       ],
-      supplementalBackEnd: ["Node.js", "PostgreSQL", "REST", "Firebase", "Git", "Docker"],
+      supplementalBackEnd: ["Git", "Node.js", "PostgreSQL", "GraphQL/REST", "Firebase/Supabase"],
     },
     education: [
       {
         school: "Girton Grammar School",
-        stamp: "2008 - 2013, Melbourne AU",
+        stamp: "Bendigo, 2008 - 2013",
         title: "High School Diploma",
       },
       {
         school: "Melbourne Institute of Technology",
-        stamp: "2018, Melbourne AU",
-        title: " Candidate for Bachelor of Information Technology",
+        stamp: "Melbourne, 2018",
+        title: "Candidate for Bachelor of Information Technology",
       },
     ],
 
     employment: [
       {
         company: "Cosmo",
-        notes: [
-          "Developed, implemented, and maintained the company's website, database, and backend systems.",
-          "Designed and developed a web application for the company's clients to view their data, and interact with the company's database alongside API's and other integrated systems.",
-          "Implemented internal technology systems and processes for the company.",
-        ],
-        stamp: "2019 - 2022, Melbourne AU",
+        notes:
+          "Designed and developed a company's website, web apps, and backend systems with TypeScript, Supabase and Next.js. Managed a small marketing team while implementing internal technology systems and processes.",
+        stamp: "Melbourne, 2019 - 2022",
         title: "Technical Director & Co-Founder",
       },
       {
         company: "Lower & East",
-        notes: [
-          "Provided website design and development services for small-medium sized businesses and organizations across multiple sectors.",
-          "Noted clients include Crime Stoppers Victoria, Irrigated Cropping Council, InLife Independent Living.",
-        ],
-        stamp: "2016 - 2022, Melbourne AU",
-        title: "Managing Director",
+        notes:
+          "Provided website design and development services for small-medium sized businesses and organizations, notably Crime Stoppers Australia, Irrigated Cropping Council, and InLife Independent Living.",
+        stamp: "Melbourne, 2016 - 2022",
+        title: "Owner",
       },
       {
         company: "Uptake Digital",
-        notes: [
-          "Web development for a wide range of clients, including web platforms, e-commerce sites, and large-scale website projects.",
-          "Oversaw documentation for all internal and external projects, including development of project data flows.",
-          "Utilized Zendesk to provide customer service and sales service for general IT.",
-        ],
-        stamp: "2019 - 2020, Melbourne AU",
-        title: "Web Developer",
+        title: "Web Developer & IT Support",
+        notes:
+          "Responsible for web development, documentation, IT support and general hardware tasks. Utilized Zendesk to provide ticketing support for a wide range of clients, including onboarding with the Microsoft 365 suite.",
+        stamp: "Melbourne, 2019 - 2020",
       },
     ],
     internships: [
       {
         company: "JCP Investment Partners",
-        stamp: "2017, Melbourne AU",
-        title: "Information Technology Intern",
+        stamp: "2017",
+        title: "Information Technology",
       },
       {
         company: "Uptake Digital",
-        stamp: "2015, Bendigo AU",
-        title: "Web Development Intern",
+        stamp: "2015",
+        title: "Web Development",
       },
       {
         company: "Turncode Productions",
-        stamp: "2015, Melbourne AU",
-        title: "Web Development Intern",
+        stamp: "2015",
+        title: "Web Development",
       },
     ],
     volunteer: [
       {
         company: "Cosmo",
-        notes: ["Advising the board of directors on technology concerns."],
+        notes: "Advising the board of directors on technology concerns.",
         stamp: "Present",
-        title: "Advisor",
+        title: "Technology Advisor",
       },
       {
-        company: "Synergize Hub",
-        notes: [
+        company: "Synergize Hub Bendigo",
+        notes:
           "Contributed to recruitment and organization policy, alongside managing the organization's website.",
-        ],
-        stamp: "2019",
-        title: "Committee Member",
+        stamp: "2018 - 2019",
+        title: "Co-op Committee Member",
       },
       {
         company: "Red Shield Appeal (Salvation Army Australia)",
-        notes: [
+        notes:
           "Local outreach raising awareness, collecting donations and fielding questions regarding homeless services and social services.",
-        ],
         stamp: "2013 - 2017",
         title: "Volunteer",
       },
       {
         company: "Zonta Club of Bendigo",
-        notes: [
+        notes:
           "Prepared birthing kits for distribution overseas, for women without access to sound medical care.",
-        ],
-        stamp: "2014-2016",
+        stamp: "2014 - 2016",
         title: "Volunteer",
       },
     ],
+    summary:
+      "I am a frontend developer based in Brooklyn, New York. I grew up in Melbourne, Australia and relocated to the U.S. in 2022 (Form I-551). I'm currently working as a freelance developer, and am open to new opportunities, full time or contract.",
   };
 
   return (
@@ -123,151 +108,146 @@ export default function Resume(): JSX.Element {
       <Head>
         <title>Resume - Jackson Dolman</title>
       </Head>
-      <Grid align="center" bottom={6} top={6}>
-        <Text as="h1">Working on this page. Check back soon.</Text>
-      </Grid>
       <Grid direction="row">
         <Grid direction="column">
-          {data.employment && (
-            <Grid css={{ borderTop: "1px solid $border" }}>
-              <Grid top={4}>
-                <Tag bold>EMPLOYMENT</Tag>
-              </Grid>
-              {data.employment.map((item, index) => (
-                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
-                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                    <Grid>
-                      <Text inline={4}>
-                        <Text as="strong">{item.company}</Text>
-                      </Text>
-                      <Text inline={1}>{item.title}</Text>
-                    </Grid>
-                    <Text align="right">{item.stamp}</Text>
-                  </Grid>
-                  <Grid top={2}>
-                    {item.notes.map((note, index) => (
-                      <Text key={index}>&bull; {"Rewriting"}</Text>
-                    ))}
-                  </Grid>
-                </Grid>
-              ))}
+          <Grid>
+            <Tag bold>SUMMARY</Tag>
+            <Grid
+              css={{
+                maxWidth: "1000px",
+                borderLeft: "2px solid $border",
+                paddingLeft: "$3",
+              }}
+              top={3}>
+              <Text>{data.summary || ""}</Text>
             </Grid>
-          )}
-
-          {data.capabilities && (
-            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
-              <Grid top={4}>
-                <Tag bold>CAPABILITIES</Tag>
-              </Grid>
-              <Grid css={{ padding: "0 $2" }}>
-                <Grid top={2}>
-                  <Text inline={4}>
-                    <Text as="strong">Front-end</Text>
-                  </Text>
-                  <Text inline={1}>
-                    {data.capabilities.frontEnd.map((item, index) => (
-                      <Text key={index} as="span" inline={2}>
-                        {item}
-                        {index !== data.capabilities.frontEnd.length - 1 && ", "}
-                      </Text>
-                    ))}
-                  </Text>
-                </Grid>
-                <Grid top={2}>
-                  <Text inline={4}>
-                    <Text as="strong">Supplemental back-end</Text>
-                  </Text>
-                  <Text inline={1}>
-                    {data.capabilities.supplementalBackEnd.map((item, index) => (
-                      <Text key={index} as="span" inline={2}>
-                        {item}
-                        {index !== data.capabilities.supplementalBackEnd.length - 1 && ", "}
-                      </Text>
-                    ))}
-                  </Text>
-                </Grid>
-                <Grid top={2}>
-                  <Text inline={4}>
-                    <Text as="strong">Information technology</Text>
-                  </Text>
-                  <Text inline={1}>
-                    {data.capabilities.informationTechnology.map((item, index) => (
-                      <Text key={index} as="span" inline={2}>
-                        {item}
-                        {index !== data.capabilities.informationTechnology.length - 1 && ", "}
-                      </Text>
-                    ))}
-                  </Text>
-                </Grid>
-              </Grid>
-            </Grid>
-          )}
-          {data.education && (
-            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
-              <Grid top={4}>
-                <Tag bold>EDUCATION</Tag>
-              </Grid>
-              {data.education.map((item, index) => (
-                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
-                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                    <Grid>
-                      <Text inline={4}>
-                        <Text as="strong">{item.school}</Text>
-                      </Text>
-                      <Text inline={1}>{item.title}</Text>
-                    </Grid>
-                    <Text align="right">{item.stamp}</Text>
+          </Grid>
+          <Grid top={4}>
+            <Tag bold>EMPLOYMENT</Tag>
+            {data.employment.map((item, index) => (
+              <Grid
+                key={index}
+                css={{
+                  marginTop: index === 0 ? "$3" : "$2",
+                }}>
+                <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                  <Grid>
+                    <Text inline={4}>
+                      <Text as="strong">{item.company}</Text>
+                    </Text>
+                    <Text inline={1}>{item.title}</Text>
                   </Grid>
+                  <Text align="right">{item.stamp}</Text>
                 </Grid>
-              ))}
-            </Grid>
-          )}
-          {data.internships && (
-            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
-              <Grid top={4}>
-                <Tag bold>INTERNSHIPS</Tag>
+                <Grid
+                  css={{
+                    maxWidth: "1000px",
+                    borderLeft: "2px solid $border",
+                    paddingLeft: "$3",
+                  }}>
+                  <Text>{item.notes}</Text>
+                </Grid>
               </Grid>
-
-              {data.internships.map((item, index) => (
-                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
-                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                    <Grid>
-                      <Text inline={4}>
-                        <Text as="strong">{item.company}</Text>
-                      </Text>
-                      <Text inline={1}>{item.title}</Text>
-                    </Grid>
-                    <Text align="right">{item.stamp}</Text>
-                  </Grid>
-                </Grid>
-              ))}
+            ))}
+          </Grid>
+          <Grid top={4}>
+            <Tag bold>CAPABILITIES</Tag>
+            <Grid top={3}>
+              <Text inline={4}>
+                <Text as="strong">Frontend</Text>
+              </Text>
+              <Text inline={1}>
+                {data.capabilities.frontEnd.map((item, index) => (
+                  <Text key={index} as="span" inline={2}>
+                    {item}
+                    {index !== data.capabilities.frontEnd.length - 1 && ", "}
+                  </Text>
+                ))}
+              </Text>
             </Grid>
-          )}
-          {data.volunteer && (
-            <Grid css={{ borderTop: "1px solid $border" }} top={4}>
-              <Grid top={4}>
-                <Tag bold>PROFESSIONAL & PUBLIC SERVICE</Tag>
+            <Grid top={2}>
+              <Text inline={4}>
+                <Text as="strong">Supplemental Backend</Text>
+              </Text>
+              <Text inline={1}>
+                {data.capabilities.supplementalBackEnd.map((item, index) => (
+                  <Text key={index} as="span" inline={2}>
+                    {item}
+                    {index !== data.capabilities.supplementalBackEnd.length - 1 && ", "}
+                  </Text>
+                ))}
+              </Text>
+            </Grid>
+            <Grid top={2}>
+              <Text inline={4}>
+                <Text as="strong">Information Technology</Text>
+              </Text>
+              <Text inline={1}>
+                {data.capabilities.informationTechnology.map((item, index) => (
+                  <Text key={index} as="span" inline={2}>
+                    {item}
+                    {index !== data.capabilities.informationTechnology.length - 1 && ", "}
+                  </Text>
+                ))}
+              </Text>
+            </Grid>
+          </Grid>
+          <Grid top={4}>
+            <Tag bold>EDUCATION</Tag>
+            {data.education.map((item, index) => (
+              <Grid
+                key={index}
+                css={{
+                  marginTop: index === 0 ? "$3" : "$2",
+                }}>
+                <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                  <Grid>
+                    <Text inline={4}>
+                      <Text as="strong">{item.school}</Text>
+                    </Text>
+                    <Text inline={1}>{item.title}</Text>
+                  </Grid>
+                  <Text align="right">{item.stamp}</Text>
+                </Grid>
               </Grid>
-              {data.volunteer.map((item, index) => (
-                <Grid key={index} css={{ paddingLeft: "$2", paddingRight: "$2" }} top={2}>
-                  <Grid css={{ display: "flex", justifyContent: "space-between" }}>
-                    <Grid>
-                      <Text inline={4}>
-                        <Text as="strong">{item.company}</Text>
-                      </Text>
-                      <Text inline={1}>{item.title}</Text>
-                    </Grid>
-                    <Text align="right">{item.stamp}</Text>
+            ))}
+          </Grid>
+          <Grid top={4}>
+            <Tag bold>INTERNSHIPS</Tag>
+            {data.internships.map((item, index) => (
+              <Grid
+                key={index}
+                css={{
+                  marginTop: index === 0 ? "$3" : "$2",
+                }}>
+                <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                  <Grid>
+                    <Text inline={4}>
+                      <Text as="strong">{item.company}</Text>
+                    </Text>
+                    <Text inline={1}>{item.title}</Text>
                   </Grid>
-                  <Grid top={2}>
-                    {item.notes.map((note, index) => (
-                      <Text key={index}>&bull; {"Rewriting"}</Text>
-                    ))}
-                  </Grid>
+                  <Text align="right">{item.stamp}</Text>
                 </Grid>
-              ))}
-            </Grid>
-          )}
+              </Grid>
+            ))}
+          </Grid>
+          <Grid top={4}>
+            <Tag bold>PROFESSIONAL & PUBLIC SERVICE</Tag>
+            {data.volunteer.map((item, index) => (
+              <Grid key={index} css={{ marginTop: index === 0 ? "$3" : "$2" }}>
+                <Grid css={{ display: "flex", justifyContent: "space-between" }}>
+                  <Grid>
+                    <Text inline={4}>
+                      <Text as="strong">{item.company}</Text>
+                    </Text>
+                    <Text inline={1}>{item.title}</Text>
+                  </Grid>
+                  <Text align="right">{item.stamp}</Text>
+                </Grid>
+              </Grid>
+            ))}
+          </Grid>
         </Grid>
       </Grid>
     </Grid>

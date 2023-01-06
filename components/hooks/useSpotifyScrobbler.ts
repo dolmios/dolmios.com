@@ -40,8 +40,6 @@ export function useSpotifyScrobbler(): {
   const trackAlbum = latestTrack?.album["#text"] || "";
   const trackArtist = latestTrack?.artist["#text"] || "";
   const trackName = latestTrack?.name || "";
-  // track cover is either latestTrack 3,2,1,0 or empty string. strip /34s/, /64s/, /174s/, /300x300/ if that text is present
-  // eg: https://lastfm.freetls.fastly.net/i/u/300x300/248297b2f72690349abee85186359ea6.jpg > https://lastfm.freetls.fastly.net/i/u/248297b2f72690349abee85186359ea6.jpg
   const trackCover =
     latestTrack?.image[3 || 2 || 1 || 0]["#text"]
       .replace("/34s/", "/")
@@ -68,7 +66,7 @@ export function useSpotifyScrobbler(): {
         timeZone: "America/New_York",
         year: "numeric",
       })
-    : "Currently Streaming";
+    : "Currently streaming";
 
   return {
     fallbackURL,
