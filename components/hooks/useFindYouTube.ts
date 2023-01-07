@@ -12,12 +12,6 @@ export function useFindYouTube(
       : null,
     {
       errorRetryCount: 1,
-      refreshWhenHidden: false,
-      refreshWhenOffline: false,
-      revalidateOnFocus: false,
-      revalidateOnMount: false,
-      revalidateOnReconnect: false,
-      shouldRetryOnError: false,
     }
   );
 

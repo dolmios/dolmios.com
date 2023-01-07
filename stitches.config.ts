@@ -28,7 +28,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     theme: {
       colors: {
         background: "#ffffff",
-        border: "rgba(150, 150, 150, 0.420)",
+        border: "rgba(140, 140, 140, 0.447)",
         text: "rgb(0, 0, 0)",
       },
       fonts: {
@@ -38,14 +38,14 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         1: "3px",
       },
       shadows: {
-        1: "0 1px 4px 0.5px rgba(0, 0, 0, 0.1)",
+        1: "0 1px 1px 1px rgba(0, 0, 0, 0.05)",
       },
       space: {
         1: "0rem",
-        2: "3px",
-        3: "6px",
-        4: "12px",
-        5: "24px",
+        2: "3.25px",
+        3: "6.5px",
+        4: "13px",
+        5: "26px",
       },
     },
   });
@@ -68,16 +68,14 @@ export const globalStyles = globalCss({
     },
   },
   a: {
-    "&:hover": {
+    "&:hover, :hover": {
       color: "inherit",
-      opacity: 0.7,
+      opacity: 0.5,
     },
     "&:visited, &:active": {
       color: "inherit",
     },
     color: "inherit",
-    textDecoration: "none",
-    borderBottom: "1px solid $border",
   },
 
   body: {

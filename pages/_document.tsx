@@ -21,6 +21,7 @@ class Document extends NextDocument<Props> {
         <Head>
           <style dangerouslySetInnerHTML={{ __html: " " + this.props.css }} id="stitches" />
           <meta charSet="UTF-8" />
+          <meta content="width=device-width, initial-scale=1" name="viewport" />
 
           <meta content="https://dolmios.com" property="og:url" />
           <meta content="Jackson Dolman" property="og:title" />

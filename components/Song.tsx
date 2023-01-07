@@ -69,17 +69,17 @@ export function Song(): JSX.Element {
             {trackCoverRaw && trackCoverRaw !== "#" && (
               <Grid
                 css={{
-                  height: "420px",
+                  height: "42vh",
                   borderRadius: "$1",
                   borderBottomLeftRadius: 0,
                   borderBottomRightRadius: 0,
 
                   img: {
                     borderRadius: "$1",
-
                     borderBottomLeftRadius: 0,
                     borderBottomRightRadius: 0,
                     objectFit: "cover",
+                    objectPosition: "top",
                   },
                 }}>
                 <Image alt={singleLiner} fill src={trackCover || trackCoverRaw} />
@@ -106,17 +106,38 @@ export function Song(): JSX.Element {
           <Text top={5}>
             {streamDate}, from the {trackAlbum} album by {trackArtist}.
           </Text>
-
           <Text top={5}>
-            <a href={youtubeURL || fallbackURL || ""} rel="noopener noreferrer" target="_blank">
-              {(youtubeURL || fallbackURL || "").replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
+            <a href={fallbackURL} rel="noopener noreferrer" target="_blank">
+              {fallbackURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
             </a>
           </Text>
+          {youtubeURL && (
+            <Text top={3}>
+              <a href={youtubeURL} rel="noopener noreferrer" target="_blank">
+                {youtubeURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
+              </a>
+            </Text>
+          )}
+
           <Text top={3}>
             <a href="https://open.spotify.com/user/jd.ol" rel="noopener noreferrer" target="_blank">
-              spotify.com/user/jd.ol
+              spotify.com/user/jd.ol{" "}
             </a>
           </Text>
+          {youtubeURL && (
+            <Grid top={5}>
+              <iframe
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                allowTransparency
+                height={210}
+                src={`https://www.youtube.com/embed/${youtubeURL.split("v=")[1]}`}
+                style={{ borderRadius: "0.5rem", border: 0, overflow: "hidden", maxWidth: "100%" }}
+                title={singleLiner}
+                width={420}
+              />
+            </Grid>
+          )}
         </Grid>
       )}
     </Grid>

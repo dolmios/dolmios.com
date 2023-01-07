@@ -20,7 +20,7 @@ export default function Resume(): JSX.Element {
     education: [
       {
         school: "Girton Grammar School",
-        stamp: "Bendigo, 2008 - 2013",
+        stamp: "Bendigo, 2013 - 2018",
         title: "High School Diploma",
       },
       {
@@ -74,21 +74,21 @@ export default function Resume(): JSX.Element {
       {
         company: "Cosmo",
         notes: "Advising the board of directors on technology concerns.",
-        stamp: "Present",
+        stamp: "2022 - Present",
         title: "Technology Advisor",
       },
       {
         company: "Synergize Hub Bendigo",
         notes:
           "Contributed to recruitment and organization policy, alongside managing the organization's website.",
-        stamp: "2018 - 2019",
+        stamp: "2019 - 2020",
         title: "Co-op Committee Member",
       },
       {
         company: "Red Shield Appeal (Salvation Army Australia)",
         notes:
           "Local outreach raising awareness, collecting donations and fielding questions regarding homeless services and social services.",
-        stamp: "2013 - 2017",
+        stamp: "2013 - 2016",
         title: "Volunteer",
       },
       {
