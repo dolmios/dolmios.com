@@ -33,6 +33,10 @@ export function Song(): JSX.Element {
           alignItems: "center",
           background: dominantColor || "transparent",
           paddingLeft: 0,
+          whiteSpace: "nowrap",
+          overflow: "scroll",
+          textOverflow: "ellipsis",
+          paddingRight: "$3",
 
           svg: {
             marginRight: "$3",

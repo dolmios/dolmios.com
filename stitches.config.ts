@@ -76,6 +76,10 @@ export const globalStyles = globalCss({
       color: "inherit",
     },
     color: "inherit",
+    textDecoration: "none",
+    wordBreak: "break-word",
+    overflowWrap: "break-word",
+    hyphens: "auto",
   },
 
   body: {
