@@ -95,12 +95,6 @@ export const globalStyles = globalCss({
     margin: 0,
     padding: 0,
   },
-  code: {
-    display: "inline-block",
-    fontSize: "0.9rem",
-    lineHeight: 1.4,
-    userSelect: "contain",
-  },
 
   img: {
     display: "block",

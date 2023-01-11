@@ -34,7 +34,8 @@ export function Song(): JSX.Element {
           background: dominantColor || "transparent",
           paddingLeft: 0,
           whiteSpace: "nowrap",
-          overflow: "scroll",
+          overflowY: "hidden",
+          overflowX: "auto",
           textOverflow: "ellipsis",
           paddingRight: "$3",
 
@@ -48,7 +49,7 @@ export function Song(): JSX.Element {
             css={{
               borderTopLeftRadius: "$1",
               borderBottomLeftRadius: "$1",
-              display: "inline-flex",
+
               img: {
                 borderTopLeftRadius: "$1",
                 borderBottomLeftRadius: "$1",
