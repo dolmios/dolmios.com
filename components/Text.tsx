@@ -1,7 +1,7 @@
 import { CSS, CSSProperties } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled } from "../../stitches.config";
+import { styled } from "../stitches.config";
 
 export interface TextProps {
   align?: CSSProperties["textAlign"];
@@ -20,13 +20,13 @@ export interface TextProps {
     | "ol"
     | "strong"
     | "code";
-  bottom?: 1 | 2 | 3 | 4 | 5;
+  bottom?: 1 | 2 | 3 | 4 | 5 | 6;
   children: ReactNode;
   css?: CSS;
-  inline?: 1 | 2 | 3 | 4 | 5;
+  inline?: 1 | 2 | 3 | 4 | 5 | 6;
   minimal?: boolean;
   onClick?: () => void;
-  top?: 1 | 2 | 3 | 4 | 5;
+  top?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 export const TextStyled = styled("p", {

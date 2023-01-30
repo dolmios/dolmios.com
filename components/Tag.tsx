@@ -1,7 +1,7 @@
 import { CSS } from "@stitches/react";
 import { ReactNode } from "react";
 
-import { styled } from "../../stitches.config";
+import { styled } from "../stitches.config";
 
 interface TagProps {
   bold?: boolean;
