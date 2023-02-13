@@ -32,18 +32,18 @@ export default function Resume(): JSX.Element {
 
     employment: [
       {
+        company: "Planare",
+        notes:
+          "Provided website design and development services for small-medium sized businesses and organizations, notably Crime Stoppers Australia, Irrigated Cropping Council, and InLife Independent Living. This business was based in Melbourne, Australia from 2016-2022.",
+        stamp: "Brooklyn, 2016 - Present",
+        title: "Owner",
+      },
+      {
         company: "Cosmo",
         notes:
           "Designed and developed a company's website, web apps, and backend systems with TypeScript, Supabase and Next.js. Managed a small marketing team while implementing internal technology systems and processes.",
-        stamp: "Melbourne, 2019 - 2022",
-        title: "Technical Director & Co-Founder",
-      },
-      {
-        company: "Lower & East",
-        notes:
-          "Provided website design and development services for small-medium sized businesses and organizations, notably Crime Stoppers Australia, Irrigated Cropping Council, and InLife Independent Living.",
-        stamp: "Melbourne, 2016 - 2022",
-        title: "Owner",
+        stamp: "Melbourne, 2019 - 2023",
+        title: "Chief Technology Officer, Founder",
       },
       {
         company: "Uptake Digital",
@@ -74,8 +74,8 @@ export default function Resume(): JSX.Element {
       {
         company: "Cosmo",
         notes: "Advising the board of directors on technology concerns.",
-        stamp: "2022 - Present",
-        title: "Technology Advisor",
+        stamp: "2023 - Present",
+        title: "Advisor",
       },
       {
         company: "Synergize Hub Bendigo",
@@ -85,17 +85,17 @@ export default function Resume(): JSX.Element {
         title: "Co-op Committee Member",
       },
       {
-        company: "Red Shield Appeal (Salvation Army Australia)",
-        notes:
-          "Local outreach raising awareness, collecting donations and fielding questions regarding homeless services and social services.",
-        stamp: "2013 - 2016",
-        title: "Volunteer",
-      },
-      {
         company: "Zonta Club of Bendigo",
         notes:
           "Prepared birthing kits for distribution overseas, for women without access to sound medical care.",
         stamp: "2014 - 2016",
+        title: "Volunteer",
+      },
+      {
+        company: "Red Shield Appeal (Salvation Army Australia)",
+        notes:
+          "Local outreach raising awareness, collecting donations and fielding questions regarding homeless services and social services.",
+        stamp: "2013 - 2016",
         title: "Volunteer",
       },
     ],
