@@ -1,7 +1,6 @@
 import localFont from "@next/font/local";
 import { createStitches } from "@stitches/react";
 
-
 const Standard = localFont({
   display: "swap",
   fallback: ["system-ui", "sans-serif"],
@@ -28,7 +27,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     prefix: "dolmios",
     theme: {
       colors: {
-        background: "#ffffff",
+        background: "#f0efef",
         border: "rgba(140, 140, 140, 0.447)",
         text: "rgb(0, 0, 0)",
       },
@@ -36,7 +35,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
         standard: "Standard, system-ui, sans-serif",
       },
       radii: {
-        1: "7px"
+        1: "7px",
       },
       shadows: {
         1: "0 1px 1px 1px rgba(0, 0, 0, 0.05)",
@@ -92,7 +91,7 @@ export const globalStyles = globalCss({
     backgroundColor: "$background",
     color: "$text",
     fontFamily: Standard.style.fontFamily,
-    fontSize: "16px",
+    fontSize: "15px",
     lineHeight: 1.4,
     margin: 0,
     padding: 0,
@@ -110,7 +109,7 @@ export const globalStyles = globalCss({
 
   small: {
     display: "block",
-    fontSize: "11px",
+    fontSize: "10px",
     opacity: 0.75,
   },
 

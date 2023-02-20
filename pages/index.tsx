@@ -46,16 +46,32 @@ export default function Home(): JSX.Element {
       top={5}>
       <Head>
         <title>Jackson Dolman</title>
-        <meta content="(a frontend developer based in Brooklyn)" name="description" />
+        <meta content="(a frontend developer based in brooklyn)" name="description" />
       </Head>
       <Grid as="section" direction="row">
-        <Grid collapse={100} direction="column" width={60}>
+        <Grid align="justify" collapse={100} direction="column" width={42}>
           <Text>
+            Thank you for visiting my personal website. I&apos;m a frontend developer based in NY,
+            serving up web apps and websites for a variety of organizations and startups since 2016.
+            I am currently exploring new full time opportunities since relocating to the U.S. from
+            Australia in 2022.
+          </Text>
+          <Text top={5}>Feel free to reach out to me by email, or via my dev shop, Planare.</Text>
+          <Text
+            css={{
+              marginLeft: "$3",
+            }}
+            top={3}>
+            ✺{" "}
             <a href="mail@dolmios.com" rel="noopener noreferrer" target="_blank">
               mail@dolmios.com{" "}
             </a>
           </Text>
-          <Text>
+          <Text
+            css={{
+              marginLeft: "$3",
+            }}>
+            ✺{" "}
             <a href="https://planare.dev" rel="noopener noreferrer" target="_blank">
               planare.dev
             </a>
