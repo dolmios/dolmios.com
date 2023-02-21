@@ -169,17 +169,11 @@ export function Song(): JSX.Element {
         css={{
           "*": {
             color: textColor || "inherit",
-            lineHeight: "normal",
-            verticalAlign: "middle",
           },
           cursor: "pointer",
-          alignItems: "center",
           background: dominantColor || "transparent",
           paddingLeft: 0,
-          whiteSpace: "nowrap",
-          overflowY: "hidden",
-          overflowX: "auto",
-          textOverflow: "ellipsis",
+
           paddingRight: "$3",
 
           svg: {
@@ -187,12 +181,16 @@ export function Song(): JSX.Element {
             marginRight: "$3",
           },
         }}
+        overflow
         onClick={(): void => setDetails(!details)}>
         {trackCoverRaw && trackCoverRaw !== "#" && (
           <Grid
             css={{
               borderTopLeftRadius: "$1",
               borderBottomLeftRadius: "$1",
+              position: "sticky",
+              top: 0,
+              left: 0,
 
               img: {
                 borderTopLeftRadius: "$1",

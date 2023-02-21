@@ -25,7 +25,7 @@
     "eslint-config-dolmios": "^1.4.0",
     "next-sitemap": "^3.1.52",
     "prettier": "^2.8.4",
-    "vercel": "^28.16.2"
+    "vercel": "^28.16.3"
   },
   "homepage": "https://github.com/dolmios",
   "keywords": [

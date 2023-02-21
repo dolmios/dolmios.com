@@ -4,12 +4,20 @@ import { Grid, Tag, Text } from "../components";
 
 export default function Custom404(): JSX.Element {
   return (
-    <Grid as="main">
+    <Grid
+      as="main"
+      bottom={5}
+      css={{
+        svg: {
+          marginRight: "$3",
+        },
+      }}
+      top={5}>
       <Head>
         <title>404 - Page Not Found</title>
       </Head>
-      <Grid as="section" bottom={5} direction="row" top={5}>
-        <Grid collapse={100} css={{ margin: "0 auto" }} direction="column" width={60}>
+      <Grid as="section" direction="row">
+        <Grid direction="column">
           <Tag bold>404 (PAGE NOT FOUND)</Tag>
 
           <Text top={5}>

@@ -10,6 +10,7 @@ interface TagProps {
   inline?: 1 | 2 | 3 | 4 | 5;
   minimal?: boolean;
   onClick?: () => void;
+  overflow?: boolean;
 }
 
 const TagStyled = styled("div", {
@@ -21,10 +22,13 @@ const TagStyled = styled("div", {
   lineHeight: 1.4,
   padding: "0 $3",
   userSelect: "contain",
+  maxWidth: "100%",
+  alignItems: "center",
 
   "*": {
     display: "inline-block",
     verticalAlign: "middle",
+    lineHeight: "normal",
   },
   background: "$tag",
   variants: {
@@ -36,6 +40,18 @@ const TagStyled = styled("div", {
     minimal: {
       true: {
         padding: 0,
+      },
+    },
+    overflow: {
+      true: {
+        whiteSpace: "nowrap",
+        overflowY: "hidden",
+        overflowX: "auto",
+        scrollbarWidth: "none",
+        msOverflowStyle: "none",
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
       },
     },
   },
@@ -50,6 +66,7 @@ export function Tag({ children, ...props }: TagProps): JSX.Element {
         ...props.css,
       }}
       minimal={props.minimal || false}
+      overflow={props.overflow || false}
       onClick={props.onClick}>
       {children}
     </TagStyled>

@@ -17,7 +17,7 @@ specifiers:
   react-dom: 18.2.0
   swr: ^2.0.3
   typescript: ^4.9.5
-  vercel: ^28.16.2
+  vercel: ^28.16.3
 
 dependencies:
   '@next/font': 13.1.6
@@ -38,7 +38,7 @@ devDependencies:
   eslint-config-dolmios: 1.4.0
   next-sitemap: 3.1.52_dlcnecpznf2wc36zwuq5m2ie5q
   prettier: 2.8.4
-  vercel: 28.16.2
+  vercel: 28.16.3
 
 packages:
 
@@ -68,11 +68,11 @@ packages:
     dependencies:
       '@ampproject/remapping': 2.2.0
       '@babel/code-frame': 7.18.6
-      '@babel/generator': 7.21.0
+      '@babel/generator': 7.21.1
       '@babel/helper-compilation-targets': 7.20.7_@babel+core@7.21.0
       '@babel/helper-module-transforms': 7.21.0
       '@babel/helpers': 7.21.0
-      '@babel/parser': 7.21.0
+      '@babel/parser': 7.21.1
       '@babel/template': 7.20.7
       '@babel/traverse': 7.21.0
       '@babel/types': 7.21.0
@@ -85,8 +85,8 @@ packages:
       - supports-color
     dev: true
 
-  /@babel/generator/7.21.0:
-    resolution: {integrity: sha512-z/zN3SePOtxN1/vPFdqrkuJGCD2Vx469+dSbNRD+4TF2+6e4Of5exHqAtcfL/2Nwu0RN0QsFwjyDBFwdUMzNSA==}
+  /@babel/generator/7.21.1:
+    resolution: {integrity: sha512-1lT45bAYlQhFn/BHivJs43AiW2rg3/UbLyShGfF3C0KmHvO5fSghWd5kBJy30kpRRucGzXStvnnCFniCR2kXAA==}
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.21.0
@@ -336,8 +336,8 @@ packages:
       js-tokens: 4.0.0
     dev: true
 
-  /@babel/parser/7.21.0:
-    resolution: {integrity: sha512-ONjtg4renj14A9pj3iA5T5+r5Eijxbr2eNIkMBTC74occDSsRZUpe8vowmowAjFR1imWlkD8eEmjYXiREZpGZg==}
+  /@babel/parser/7.21.1:
+    resolution: {integrity: sha512-JzhBFpkuhBNYUY7qs+wTzNmyCWUHEaAFpQQD2YfU1rPL38/L43Wvid0fFkiOCnHvsGncRZgEPyGnltABLcVDTg==}
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
@@ -1219,7 +1219,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@babel/parser': 7.21.0
+      '@babel/parser': 7.21.1
       '@babel/types': 7.21.0
     dev: true
 
@@ -1228,12 +1228,12 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@babel/generator': 7.21.0
+      '@babel/generator': 7.21.1
       '@babel/helper-environment-visitor': 7.18.9
       '@babel/helper-function-name': 7.21.0
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
-      '@babel/parser': 7.21.0
+      '@babel/parser': 7.21.1
       '@babel/types': 7.21.0
       debug: 4.3.4
       globals: 11.12.0
@@ -1775,8 +1775,8 @@ packages:
         optional: true
     dependencies:
       '@babel/core': 7.21.0
-      '@babel/generator': 7.21.0
-      '@babel/parser': 7.21.0
+      '@babel/generator': 7.21.1
+      '@babel/parser': 7.21.1
       '@babel/plugin-syntax-jsx': 7.18.6_@babel+core@7.21.0
       '@babel/plugin-syntax-typescript': 7.20.0_@babel+core@7.21.0
       '@babel/preset-env': 7.20.2_@babel+core@7.21.0
@@ -1805,7 +1805,7 @@ packages:
       json5: 2.2.3
       lodash: 4.17.21
       lodash.debounce: 4.0.8
-      lru-cache: 7.16.1
+      lru-cache: 7.16.2
       minimatch: 3.1.2
       node-fetch: 2.6.9
       ora: 5.4.1
@@ -2283,8 +2283,8 @@ packages:
     resolution: {integrity: sha512-gJvAL0SbAOR1gS6MMr0EHnKlD3Ri1F0eniIfDpV5qgSNqjzVSSVI3tT8ag4KCS70H1tawj16XMR7oPRcKmyebQ==}
     dev: true
 
-  /@vercel/next/3.5.0:
-    resolution: {integrity: sha512-phwrUB451zhm1lSlc5ZpTK97iwPyTHuoM26YL7R/3siXjGOVwSG/4j31lwH16HgOama0OLM1VdhDXCN39jLkPA==}
+  /@vercel/next/3.5.1:
+    resolution: {integrity: sha512-iEG/AAfs1o7JxIxeUxxsT8b/MPmhpWVCrs5qXycQ7O9XILCKpgvX9RR4m8ToS3BjDWR6qNTHdE3BLXUeYo4olw==}
     dev: true
 
   /@vercel/nft/0.22.5:
@@ -2347,8 +2347,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vercel/remix/1.3.4:
-    resolution: {integrity: sha512-iiEAanyxzdhGxTdJT6RZkJCaXP47eKPguIsgNmlxYjK20iT9XrSSIYEOpwKYfg1Qi8efUUU26SEBDjOrYUossQ==}
+  /@vercel/remix/1.3.5:
+    resolution: {integrity: sha512-nFb9KbSWv1KmfjY+tRKRJHS7cqiWN/L903XHXXzOYFwsT+d0nuhevsw9yTVHVywlTG6t3iGO31/pcXIJpQHtRg==}
     dependencies:
       '@remix-run/dev': 1.12.0
       '@vercel/nft': 0.22.5
@@ -2752,7 +2752,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001457
-      electron-to-chromium: 1.4.303
+      electron-to-chromium: 1.4.305
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -3277,8 +3277,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium/1.4.303:
-    resolution: {integrity: sha512-XaqiQhVsGO5ymf/Lg6XEGpv2h8b5AFqQDQ9fQckolNP2VtD2VL1pn1TIx1SSYsf0srfXVi2Sm7n/K3slJSX3ig==}
+  /electron-to-chromium/1.4.305:
+    resolution: {integrity: sha512-WETy6tG0CT5gm1O+xCbyapWNsCcmIvrn4NHViIGYo2AT8FV2qUCXdaB+WqYxSv/vS5mFqhBYnfZAAkVArjBmUg==}
     dev: true
 
   /emoji-regex/8.0.0:
@@ -5277,8 +5277,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lru-cache/7.16.1:
-    resolution: {integrity: sha512-9kkuMZHnLH/8qXARvYSjNvq8S1GYFFzynQTAfKeaJ0sIrR3PUPuu37Z+EiIANiZBvpfTf2B5y8ecDLSMWlLv+w==}
+  /lru-cache/7.16.2:
+    resolution: {integrity: sha512-t6D6OM05Y3f+61zNnXh/+0D69kAgJKVEWLuWL1r38CIHRPTWpNjwpR7S+nmiQlG5GmUB1BDiiMjU1Ihs4YBLlg==}
     engines: {node: '>=12'}
     dev: true
 
@@ -5292,7 +5292,7 @@ packages:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
     dependencies:
-      semver: 6.1.1
+      semver: 6.3.0
     dev: true
 
   /make-error/1.3.6:
@@ -6190,7 +6190,7 @@ packages:
       http-proxy-agent: 4.0.1
       https-proxy-agent: 5.0.1
       pac-resolver: 5.0.1
-      raw-body: 2.5.1
+      raw-body: 2.5.2
       socks-proxy-agent: 5.0.1
     transitivePeerDependencies:
       - supports-color
@@ -6547,6 +6547,16 @@ packages:
 
   /raw-body/2.5.1:
     resolution: {integrity: sha512-qqJBtEyVgS0ZmPGdCFPWJ3FreoqvG4MVQln/kCgF7Olq95IbOp0/BWyMwbdtn4VTvkM8Y7khCQ2Xgk/tcrCXig==}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      bytes: 3.1.2
+      http-errors: 2.0.0
+      iconv-lite: 0.4.24
+      unpipe: 1.0.0
+    dev: true
+
+  /raw-body/2.5.2:
+    resolution: {integrity: sha512-8zGqypfENjCIqGhgXToC8aB2r7YrBX+AQAfIPs/Mlk+BtPTztOvTS01NRW/3Eh60J+a48lt8qsCzirQ6loCVfA==}
     engines: {node: '>= 0.8'}
     dependencies:
       bytes: 3.1.2
@@ -7592,8 +7602,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vercel/28.16.2:
-    resolution: {integrity: sha512-qgKZ7SCu3vLYe7XsPzljjrM1NV09hqSgPHvtMHCLKgtu66LSWYxRm4f4T1GvWKlZ9OZ9Fy76IfyIVegjrejx1A==}
+  /vercel/28.16.3:
+    resolution: {integrity: sha512-Jo+sV18ykRIG/Osae14hF3H3f7JIpSEfs5PruwK5Y5htILIB+ydrcC/eTiuQbQxYy4LIuU4thz2GA4k2KqobPw==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
@@ -7601,11 +7611,11 @@ packages:
       '@vercel/build-utils': 6.3.0
       '@vercel/go': 2.3.7
       '@vercel/hydrogen': 0.0.53
-      '@vercel/next': 3.5.0
+      '@vercel/next': 3.5.1
       '@vercel/node': 2.9.6
       '@vercel/python': 3.1.49
       '@vercel/redwood': 1.1.5
-      '@vercel/remix': 1.3.4
+      '@vercel/remix': 1.3.5
       '@vercel/ruby': 1.3.66
       '@vercel/static-build': 1.3.10
     transitivePeerDependencies:
