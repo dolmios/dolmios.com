@@ -7,25 +7,25 @@
     "url": "https://github.com/dolmios/dolmios.com/issues"
   },
   "dependencies": {
-    "@next/font": "^13.1.6",
+    "@next/font": "^13.2.1",
     "@stitches/react": "^1.2.8",
     "@vercel/analytics": "^0.1.10",
-    "next": "^13.1.6",
+    "next": "^13.2.1",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
-    "swr": "^2.0.3",
+    "swr": "^2.0.4",
     "typescript": "^4.9.5"
   },
   "devDependencies": {
-    "@next/env": "^13.1.6",
-    "@types/node": "^18.14.0",
+    "@next/env": "^13.2.1",
+    "@types/node": "^18.14.1",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "eslint": "^8.34.0",
-    "eslint-config-dolmios": "^1.4.0",
+    "eslint-config-dolmios": "^1.4.1",
     "next-sitemap": "^3.1.52",
     "prettier": "^2.8.4",
-    "vercel": "^28.16.3"
+    "vercel": "^28.16.7"
   },
   "homepage": "https://github.com/dolmios",
   "keywords": [

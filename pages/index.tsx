@@ -62,10 +62,7 @@ export default function Home(): JSX.Element {
               marginLeft: "$3",
             }}
             top={3}>
-            ✺{" "}
-            <a href="mail@dolmios.com" rel="noopener noreferrer" target="_blank">
-              mail@dolmios.com{" "}
-            </a>
+            ✺ <a href="mailto:mail@dolmios.com">mail@dolmios.com</a>
           </Text>
           <Text
             css={{
