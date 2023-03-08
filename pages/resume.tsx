@@ -43,7 +43,7 @@ export default function Resume(): JSX.Element {
         notes:
           "Designed and developed a company's website, web apps, and backend systems with TypeScript, Supabase and Next.js. Managed a small marketing team while implementing internal technology systems and processes.",
         stamp: "Melbourne, 2019 - 2023",
-        title: "Chief Technology Officer, Founder",
+        title: "Technology Lead (Founder)",
       },
       {
         company: "Uptake Digital",
@@ -75,7 +75,7 @@ export default function Resume(): JSX.Element {
         company: "Cosmo",
         notes: "Advising the board of directors on technology concerns.",
         stamp: "2023 - Present",
-        title: "Advisor",
+        title: "Software Engineering Advisor",
       },
       {
         company: "Synergize Hub Bendigo",
@@ -100,7 +100,7 @@ export default function Resume(): JSX.Element {
       },
     ],
     summary:
-      "I am a frontend developer based in Brooklyn, New York. I grew up in Melbourne, Australia and relocated to the U.S. in 2022 (Form I-551). I'm currently working as a freelance developer, and am open to new opportunities, full time or contract.",
+      "I am a frontend developer based in New York City. I grew up in Melbourne, Australia and relocated to the U.S. in 2022 (Form I-551). I'm currently working as a freelance developer, and am open to new opportunities, full time or contract.",
   };
 
   return (
