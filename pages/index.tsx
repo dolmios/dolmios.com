@@ -65,6 +65,18 @@ export default function Home(): JSX.Element {
               marginLeft: "$3",
             }}>
             ✺{" "}
+            <a
+              href="https://workingnotworking.com/166253-jackson"
+              rel="noopener noreferrer"
+              target="_blank">
+              workingnotworking.com
+            </a>
+          </Text>
+          <Text
+            css={{
+              marginLeft: "$3",
+            }}>
+            ✺{" "}
             <a href="https://planare.dev" rel="noopener noreferrer" target="_blank">
               planare.dev
             </a>
