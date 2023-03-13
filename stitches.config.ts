@@ -1,5 +1,5 @@
-import localFont from "@next/font/local";
 import { createStitches } from "@stitches/react";
+import localFont from "next/font/local";
 
 const Standard = localFont({
   display: "swap",
