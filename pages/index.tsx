@@ -18,6 +18,7 @@ export default function Home(): JSX.Element {
     if (isMounted) {
       const interval = setInterval(() => {
         const now = new Date();
+
         setTime(now.toLocaleTimeString("en-US", { hour: "numeric", minute: "numeric" }));
         setDate(
           now.toLocaleDateString("en-US", {
@@ -27,6 +28,7 @@ export default function Home(): JSX.Element {
           })
         );
       }, 1000);
+
       return () => clearInterval(interval);
     }
   }, [isMounted]);
@@ -48,7 +50,7 @@ export default function Home(): JSX.Element {
       <Grid as="section" direction="row">
         <Grid align="justify" collapse={100} direction="column" width={42}>
           <Tag bold>Frontend Developer</Tag>
-          <Text>
+          <Text top={4}>
             Thank you for visiting my personal website. I&apos;m a frontend developer based in NY,
             serving up web apps and websites for a variety of organizations and startups. I&apos;m
             currently working out of my dev shop, Planare.

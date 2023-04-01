@@ -5,6 +5,7 @@ import { Grid, Text } from "./";
 
 export function Header(): JSX.Element {
   const router = useRouter();
+
   return (
     <Grid as="header" direction="row" flex="center" top={4}>
       <Grid direction="column">

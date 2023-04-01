@@ -30,9 +30,11 @@ export const useFindColor = (
       ctx.drawImage(img, 0, 0);
       const data = ctx.getImageData(0, 0, 10, 1).data;
       const rgb = data[0] + "," + data[1] + "," + data[2];
+
       setDominantColor(`rgb(${rgb})`);
 
       const luminance = 0.2126 * data[0] + 0.7152 * data[1] + 0.0722 * data[2];
+
       setTextColor(luminance > 128 ? "rgb(0,0,0)" : "rgb(255, 255, 255)");
     };
   }, [src]);

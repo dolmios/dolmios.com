@@ -11,6 +11,7 @@ const fetcher = async (url: string): Promise<unknown> => {
 
   if (!res.ok) {
     const error = new Error("An error occurred while fetching the data.");
+
     error.message = await res.text();
     throw error;
   }
