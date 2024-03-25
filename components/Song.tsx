@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { Grid, Text, Tag, Icon } from ".";
 
 export const useFindColor = (
-  src: string
+  src: string,
 ): {
   dominantColor: string;
   textColor: string;
@@ -28,7 +28,7 @@ export const useFindColor = (
       if (!ctx) return;
 
       ctx.drawImage(img, 0, 0);
-      const data = ctx.getImageData(0, 0, 10, 1).data;
+      const { data } = ctx.getImageData(0, 0, 10, 1);
       const rgb = data[0] + "," + data[1] + "," + data[2];
 
       setDominantColor(`rgb(${rgb})`);
@@ -44,7 +44,7 @@ export const useFindColor = (
 
 export function useFindYouTube(
   song: string,
-  artist: string
+  artist: string,
 ): {
   youtubeURL: string;
 } {
@@ -54,7 +54,7 @@ export function useFindYouTube(
       : null,
     {
       errorRetryCount: 1,
-    }
+    },
   );
 
   if (error) return { youtubeURL: "" };
@@ -83,7 +83,7 @@ export function useSpotifyScrobbler(): {
       refreshWhenHidden: true,
       revalidateOnMount: true,
       revalidateOnReconnect: true,
-    }
+    },
   );
 
   if (error || !data) {
@@ -102,7 +102,7 @@ export function useSpotifyScrobbler(): {
   const { recenttracks } = data || {};
   const { track } = recenttracks || {};
 
-  const latestTrack = track[0];
+  const [latestTrack] = track || [];
   const trackAlbum = latestTrack?.album["#text"] || "";
   const trackArtist = latestTrack?.artist["#text"] || "";
   const trackName = latestTrack?.name || "";

@@ -27,7 +27,7 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     prefix: "dolmios",
     theme: {
       colors: {
-        background: "#f0efef",
+        background: "#ffffff",
         border: "rgba(140, 140, 140, 0.447)",
         text: "rgb(0, 0, 0)",
       },

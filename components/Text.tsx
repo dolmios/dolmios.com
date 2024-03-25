@@ -81,10 +81,10 @@ export function Text({ children, ...props }: TextProps): JSX.Element {
   const weightVariants = aFonts.includes(props.as || "p")
     ? "a"
     : bFonts.includes(props.as || "p")
-    ? "b"
-    : cFonts.includes(props.as || "p")
-    ? "c"
-    : 0;
+      ? "b"
+      : cFonts.includes(props.as || "p")
+        ? "c"
+        : 0;
 
   return (
     <TextStyled

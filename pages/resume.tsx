@@ -35,19 +35,19 @@ export default function Resume(): JSX.Element {
         company: "Planare",
         notes:
           "Provided website design and development services for small-medium sized businesses and organizations, notably Crime Stoppers Australia, Irrigated Cropping Council, and InLife Independent Living. This business was based in Melbourne, Australia from 2016-2022.",
-        stamp: "Brooklyn, 2016 - Present",
+        stamp: "Remote, 2016 - Present",
         title: "Owner",
       },
       {
         company: "Cosmo",
         notes:
           "Designed and developed a company's website, web apps, and backend systems with TypeScript, Supabase and Next.js. Managed a small marketing team while implementing internal technology systems and processes.",
-        stamp: "Melbourne, 2019 - 2023",
-        title: "Technology Lead (Founder)",
+        stamp: "Remote, 2019 - Present",
+        title: "Head of Technology (Co-Founder)",
       },
       {
         company: "Uptake Digital",
-        title: "Web Developer & IT Support",
+        title: "Web Developer/IT Support Specialist",
         notes:
           "Responsible for web development, documentation, IT support and general hardware tasks. Utilized Zendesk to provide ticketing support for a wide range of clients, including onboarding with the Microsoft 365 suite.",
         stamp: "Melbourne, 2019 - 2020",
@@ -72,12 +72,6 @@ export default function Resume(): JSX.Element {
     ],
     volunteer: [
       {
-        company: "Cosmo",
-        notes: "Advising the board of directors on technology concerns.",
-        stamp: "2023 - Present",
-        title: "Software Engineering Advisor",
-      },
-      {
         company: "Synergize Hub Bendigo",
         notes:
           "Contributed to recruitment and organization policy, alongside managing the organization's website.",
@@ -100,7 +94,7 @@ export default function Resume(): JSX.Element {
       },
     ],
     summary:
-      "I am a frontend developer based in New York City. I grew up in Melbourne, Australia and relocated to the U.S. in 2022 (Form I-551). I'm currently working as a freelance developer, and am open to new opportunities, full time or contract.",
+      "Brooklyn-based Frontend Developer, originally from Melbourne. Passionate about building with cutting-edge web technologies.",
   };
 
   return (

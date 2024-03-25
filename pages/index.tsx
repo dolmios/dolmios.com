@@ -25,12 +25,14 @@ export default function Home(): JSX.Element {
             weekday: "long",
             month: "long",
             day: "numeric",
-          })
+          }),
         );
       }, 1000);
 
       return () => clearInterval(interval);
     }
+    
+    return () => {};
   }, [isMounted]);
 
   return (
@@ -67,11 +69,8 @@ export default function Home(): JSX.Element {
               marginLeft: "$3",
             }}>
             ✺{" "}
-            <a
-              href="https://workingnotworking.com/166253-jackson"
-              rel="noopener noreferrer"
-              target="_blank">
-              workingnotworking.com
+            <a href="https://wellfound.com/u/dolmios" rel="noopener noreferrer" target="_blank">
+              wellfound.com
             </a>
           </Text>
           <Text

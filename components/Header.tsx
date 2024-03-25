@@ -22,11 +22,7 @@ export function Header(): JSX.Element {
 
         {router.pathname === "/resume" && (
           <Grid>
-            <Text inline={3}>Brooklyn, NY 11237</Text>
-
-            <Text inline={3}>
-              <a href="tel:+19294389964">(929) 438-9964</a>
-            </Text>
+            <Text inline={3}>Brooklyn, NY</Text>
 
             <Text inline={3}>
               <a href="mailto:mail@dolmios.com">mail@dolmios.com</a>
