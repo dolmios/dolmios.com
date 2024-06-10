@@ -29,10 +29,10 @@ export default function Home(): JSX.Element {
         );
       }, 1000);
 
-      return () => clearInterval(interval);
+      return (): void => clearInterval(interval);
     }
     
-    return () => {};
+    return (): void => {};
   }, [isMounted]);
 
   return (
