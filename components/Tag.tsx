@@ -18,7 +18,6 @@ const TagStyled = styled("div", {
   borderRadius: "$1",
   boxShadow: "$1",
   display: "inline-block",
-  fontSize: "0.9rem",
   lineHeight: 1.4,
   padding: "0 $3",
   userSelect: "contain",

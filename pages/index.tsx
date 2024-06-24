@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
 
       return (): void => clearInterval(interval);
     }
-    
+
     return (): void => {};
   }, [isMounted]);
 
@@ -80,6 +80,15 @@ export default function Home(): JSX.Element {
             ✺{" "}
             <a href="https://planare.dev" rel="noopener noreferrer" target="_blank">
               planare.dev
+            </a>
+          </Text>
+          <Text
+            css={{
+              marginLeft: "$3",
+            }}>
+            ✺{" "}
+            <a href="https://a35.dolmios.com" rel="noopener noreferrer" target="_blank">
+              artefact35
             </a>
           </Text>
 

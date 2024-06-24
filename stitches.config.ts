@@ -91,7 +91,7 @@ export const globalStyles = globalCss({
     backgroundColor: "$background",
     color: "$text",
     fontFamily: Standard.style.fontFamily,
-    fontSize: "15px",
+    fontSize: "18px",
     lineHeight: 1.4,
     margin: 0,
     padding: 0,
@@ -105,6 +105,7 @@ export const globalStyles = globalCss({
   main: {
     maxWidth: "48rem",
     minWidth: "100%",
+    margin: "0 auto",
   },
 
   small: {
