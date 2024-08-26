@@ -84,12 +84,8 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    "@media (prefers-color-scheme: dark)": {
-      backgroundColor: "$text !important",
-      color: "$background !important",
-    },
-    backgroundColor: "$background",
-    color: "$text",
+    backgroundColor: "$text !important",
+    color: "$background !important",
     fontFamily: Standard.style.fontFamily,
     fontSize: "18px",
     lineHeight: 1.4,
