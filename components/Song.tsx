@@ -107,12 +107,12 @@ export function useSpotifyScrobbler(): {
   const trackArtist = latestTrack?.artist["#text"] || "";
   const trackName = latestTrack?.name || "";
   const trackCover =
-    latestTrack?.image[3 || 2 || 1 || 0]["#text"]
+    latestTrack?.image?.[3]?.["#text"]
       .replace("/34s/", "/")
       .replace("/64s/", "/")
       .replace("/174s/", "/")
       .replace("/300x300/", "/") || "";
-  const trackCoverRaw = latestTrack?.image[3 || 2 || 1 || 0]["#text"] || "";
+  const trackCoverRaw = latestTrack?.image?.[3]?.["#text"] ?? "";
 
   const singleLiner =
     trackArtist && trackName

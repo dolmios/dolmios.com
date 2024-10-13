@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // permit all domains for images
   images: {
-    domains: ["lastfm.freetls.fastly.net"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
   reactStrictMode: true,
   swcMinify: true,

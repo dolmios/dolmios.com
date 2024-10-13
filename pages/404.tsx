@@ -7,34 +7,33 @@ export default function Custom404(): JSX.Element {
   return (
     <Grid
       as="main"
-      bottom={5}
       css={{
-        svg: {
-          marginRight: "$3",
-        },
-      }}
-      top={5}>
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+        textAlign: "center",
+        height: "100vh",
+        padding: "$3",
+      }}>
       <Head>
         <title>404 - Page Not Found</title>
       </Head>
-      <Grid as="section" direction="row">
-        <Grid collapse={100} direction="column" width={42}>
-          <Tag bold>Error 404</Tag>
 
-          <Text top={5}>
-            The page you are looking for does not exist. Please check the URL and try again.
-          </Text>
-          <Link href="/">
-            <Text
-              css={{
-                marginLeft: "$3",
-              }}
-              top={3}>
-              ✺ Return to homepage
-            </Text>
-          </Link>
-        </Grid>
-      </Grid>
+      <Text as="h1">Page Not Found</Text>
+
+      <Text
+        bottom={5}
+        css={{
+          opacity: 0.6,
+        }}>
+        The page you are looking for does not exist. Please check the URL and try again.
+      </Text>
+
+      <Tag bold link>
+        {" "}
+        <Link href="/">✺ Return to homepage</Link>
+      </Tag>
     </Grid>
   );
 }

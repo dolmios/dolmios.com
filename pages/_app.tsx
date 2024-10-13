@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 import { SWRConfig } from "swr";
 
-import { Grid, Header } from "../components";
+import { Grid } from "../components";
 import { globalStyles } from "../stitches.config";
 
 const fetcher = async (url: string): Promise<unknown> => {
@@ -27,7 +27,6 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
-      <Header />
       <SWRConfig
         value={{
           fetcher,

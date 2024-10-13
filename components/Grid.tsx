@@ -1,4 +1,4 @@
-import { CSS, CSSProperties } from "@stitches/react";
+import { type CSS, type CSSProperties } from "@stitches/react";
 import { ReactNode } from "react";
 
 import { styled } from "../stitches.config";
@@ -23,18 +23,18 @@ const GridStyled = styled("div", {
     direction: {
       column: {
         maxWidth: "100%",
-        paddingLeft: "$4",
-        paddingRight: "$4",
         width: "100%",
       },
       default: {},
       row: {
         display: "flex",
         flexDirection: "row",
-        flexFlow: "row wrap",
+        paddingLeft: "$4",
+        paddingRight: "$4",
         maxWidth: "100%",
         minWidth: "100%",
         width: "100%",
+        gap: "$4",
       },
     },
     minimal: {
@@ -63,11 +63,12 @@ export function Grid({ children, ...props }: GridProps): JSX.Element {
           textAlign: props.align,
         }),
         ...(props?.direction === "column" &&
-          props.width &&
-          props.collapse && {
-            "@media (max-width: 900px)": {
-              width: `${props.collapse}% !important`,
-            },
+          props.width && {
+            ...(props.collapse && {
+              "@media (max-width: 900px)": {
+                width: `${props.collapse}% !important`,
+              },
+            }),
             width: `${props.width}%`,
           }),
         ...props.css,

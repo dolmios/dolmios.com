@@ -27,9 +27,9 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     prefix: "dolmios",
     theme: {
       colors: {
-        background: "#ffffff",
+        background: "#000",
         border: "rgba(140, 140, 140, 0.447)",
-        text: "rgb(0, 0, 0)",
+        text: "#fff",
       },
       fonts: {
         standard: "Standard, system-ui, sans-serif",
@@ -71,7 +71,6 @@ export const globalStyles = globalCss({
   a: {
     "&:hover, :hover": {
       color: "inherit",
-      opacity: 0.5,
     },
     "&:visited, &:active": {
       color: "inherit",
