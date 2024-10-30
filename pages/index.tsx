@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
         <br />
         Frontend Developer
         <br />
-        Brooklyn, NY
+        Ridgewood, NY
       </Text>
 
       <Text
