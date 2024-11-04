@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // permit all domains for images
   images: {
     remotePatterns: [
       {
@@ -10,7 +9,6 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 module.exports = nextConfig;

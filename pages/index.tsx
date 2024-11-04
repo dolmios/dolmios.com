@@ -23,9 +23,9 @@ export default function Home(): JSX.Element {
       <Text as="h1">
         Jackson Dolman
         <br />
-        Frontend Developer
+        Detail-Oriented Frontend Engineer
         <br />
-        Ridgewood, NY
+        Based in N.Y.
       </Text>
 
       <Text
