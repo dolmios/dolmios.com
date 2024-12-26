@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import type { JSX } from "react";
 
 import { Grid, Tag, Text } from "../components";
 

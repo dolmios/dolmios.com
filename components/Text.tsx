@@ -1,5 +1,5 @@
 import { type CSS, type CSSProperties } from "@stitches/react";
-import { ReactNode } from "react";
+import { ReactNode, type JSX } from "react";
 
 import { styled } from "../stitches.config";
 

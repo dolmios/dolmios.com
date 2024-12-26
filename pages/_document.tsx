@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-danger */
 import NextDocument, { DocumentContext, Head, Html, Main, NextScript } from "next/document";
+import type { JSX } from "react";
 
 import { getCssText } from "../stitches.config";
 

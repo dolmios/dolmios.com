@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { SVGProps, type JSX } from "react";
 
 export const Australia = (props: SVGProps<SVGSVGElement>): JSX.Element => (
   <svg height="640" viewBox="0 0 1280 640" width="1280" {...props}>

@@ -1,5 +1,5 @@
 import NextImage from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type JSX } from "react";
 import useSWR from "swr";
 
 import { Grid, Text, Tag, Icon } from ".";
@@ -210,7 +210,6 @@ export function Song(): JSX.Element {
         </Text>
         <Text as="span">{trackArtist}</Text>
       </Tag>
-
       {details && (
         <Grid top={6}>
           <Text as="h1">

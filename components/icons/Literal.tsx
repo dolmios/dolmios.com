@@ -1,4 +1,4 @@
-import { SVGProps } from "react";
+import { SVGProps, type JSX } from "react";
 
 export function Literal(props: SVGProps<SVGSVGElement>): JSX.Element {
   return (

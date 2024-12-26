@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 export function Arena(props: React.SVGProps<SVGSVGElement>): JSX.Element {
   return (
     <svg fill="currentColor" viewBox="0 0 256 256" {...props}>

@@ -1,6 +1,8 @@
+import { keyframes } from "@stitches/react";
 import { Analytics } from "@vercel/analytics/react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import type { JSX } from "react";
 import { SWRConfig } from "swr";
 
 import { Grid } from "../components";
@@ -19,9 +21,17 @@ const fetcher = async (url: string): Promise<unknown> => {
   return res.json();
 };
 
+const fadeIn = keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 1 },
+});
+
 export default function App({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <Grid>
+    <Grid
+      css={{
+        animation: `${fadeIn} 3s ease`,
+      }}>
       {globalStyles()}
 
       <Head>
