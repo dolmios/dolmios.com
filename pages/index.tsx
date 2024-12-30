@@ -52,8 +52,8 @@ export default function Home(): JSX.Element {
         <Balancer>
           Jackson Dolman
           <br />
-          Frontend developer specializing in next-gen web technology. <br />
-          Based in BROOKLYN, NY
+          Frontend developer <br />
+          BROOKLYN, NY
         </Balancer>
       </Text>
 
@@ -63,9 +63,10 @@ export default function Home(): JSX.Element {
           maxWidth: "40rem",
         }}>
         <Balancer>
-          As another year wraps up, I&apos;m refreshing my web presence. I&apos;m currently open to
-          projects starting Q2 2025. Feel free to reach out if you&apos;d like to explore working
-          together.
+          Working with startups and established businesses, I develop modern web applications,
+          scalable architectures, and performant user experiences. I&apos;m currently refreshing my
+          web presence. I&apos;m currently open to projects starting Q2 2025. Feel free to reach out
+          if you&apos;d like to explore working together.
         </Balancer>
       </Text>
       <Grid
@@ -92,7 +93,7 @@ export default function Home(): JSX.Element {
             opacity: 0.8,
           }}>
           <a
-            href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners"
+            href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners#:~:text=Special%20recognition%20goes%20to%20Jackson%20Dolman%2C%20whose%20technical%20expertise%20and%20dedication%20have%20made%20the%20Cosmo%20App%20a%20reality."
             target="_blank">
             Recent Feature: &quot;Cosmo App V2: A New Era in Short-Term Rental Portfolio
             Management&quot; (November 2024)
