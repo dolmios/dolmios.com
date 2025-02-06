@@ -48,7 +48,6 @@ export default function Home(): JSX.Element {
           Currently developing a platform for a grant compliance agency, with availability for new
           projects from Q2 2025.
         </Text>
-        <Text>Also, Managing Director at Planare, a software consultancy.</Text>
 
         <a
           href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners#:~:text=Special%20recognition%20goes%20to%20Jackson%20Dolman%2C%20whose%20technical%20expertise%20and%20dedication%20have%20made%20the%20Cosmo%20App%20a%20reality."
