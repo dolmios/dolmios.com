@@ -1,294 +1,154 @@
-import NextImage from "next/image";
-import { useEffect, useState, type JSX } from "react";
-import useSWR from "swr";
+import Image from "next/image";
+import React, { JSX } from "react";
 
-import { Grid, Text, Tag, Icon } from ".";
+import { useSong } from "../hooks/useSong"; // Assuming useSong is in the same directory
 
-export const useFindColor = (
-  src: string,
-): {
-  dominantColor: string;
-  textColor: string;
-} => {
-  const [dominantColor, setDominantColor] = useState<string>("");
-  const [textColor, setTextColor] = useState<string>("");
-
-  useEffect(() => {
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    const img = new Image();
-
-    img.crossOrigin = "Anonymous";
-    img.src = src;
-
-    img.onload = (): void => {
-      canvas.height = img.height;
-      canvas.width = img.width;
-
-      if (!ctx) return;
-
-      ctx.drawImage(img, 0, 0);
-      const { data } = ctx.getImageData(0, 0, 10, 1);
-      const rgb = data[0] + "," + data[1] + "," + data[2];
-
-      setDominantColor(`rgb(${rgb})`);
-
-      const luminance = 0.2126 * data[0] + 0.7152 * data[1] + 0.0722 * data[2];
-
-      setTextColor(luminance > 128 ? "rgb(0,0,0)" : "rgb(255, 255, 255)");
-    };
-  }, [src]);
-
-  return { dominantColor, textColor };
-};
-
-export function useFindYouTube(
-  song: string,
-  artist: string,
-): {
-  youtubeURL: string;
-} {
-  const { data, error } = useSWR(
-    song && artist
-      ? `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${song}+${artist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
-      : null,
-    {
-      errorRetryCount: 1,
-    },
-  );
-
-  if (error) return { youtubeURL: "" };
-  if (!data) return { youtubeURL: "" };
-
-  const vTag = data?.items[0]?.id?.videoId || "";
-  const youtubeURL = `https://www.youtube.com/watch?v=${vTag}`;
-
-  return { youtubeURL };
-}
-
-export function useSpotifyScrobbler(): {
-  fallbackURL: string;
-  singleLiner: string;
-  streamDate: string;
-  trackAlbum: string;
-  trackArtist: string;
-  trackCover: string;
-  trackCoverRaw: string;
-  trackName: string;
-} {
-  const { data, error } = useSWR(
-    `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=dolmios&api_key=${process.env.NEXT_PUBLIC_SCROBBLER_API_KEY}&format=json`,
-    {
-      refreshInterval: 10_000,
-      refreshWhenHidden: true,
-      revalidateOnMount: true,
-      revalidateOnReconnect: true,
-    },
-  );
-
-  if (error || !data) {
-    return {
-      fallbackURL: "",
-      singleLiner: "",
-      streamDate: "",
-      trackAlbum: "",
-      trackArtist: "",
-      trackCover: "",
-      trackCoverRaw: "",
-      trackName: "",
-    };
-  }
-
-  const { recenttracks } = data || {};
-  const { track } = recenttracks || {};
-
-  const [latestTrack] = track || [];
-  const trackAlbum = latestTrack?.album["#text"] || "";
-  const trackArtist = latestTrack?.artist["#text"] || "";
-  const trackName = latestTrack?.name || "";
-  const trackCover =
-    latestTrack?.image?.[3]?.["#text"]
-      .replace("/34s/", "/")
-      .replace("/64s/", "/")
-      .replace("/174s/", "/")
-      .replace("/300x300/", "/") || "";
-  const trackCoverRaw = latestTrack?.image?.[3]?.["#text"] ?? "";
-
-  const singleLiner =
-    trackArtist && trackName
-      ? `${trackName.length > 25 ? `${trackName.slice(0, 25)}...` : trackName} - ${
-          trackArtist.length > 25 ? `${trackArtist.slice(0, 25)}...` : trackArtist
-        } `
-      : "";
-  const fallbackURL = latestTrack?.url || "";
-  const streamDate = latestTrack?.date?.uts
-    ? new Date(parseInt(latestTrack?.date?.uts) * 1000).toLocaleString("en-US", {
-        day: "numeric",
-        hour: "numeric",
-        hour12: true,
-        minute: "numeric",
-        month: "long",
-        second: "numeric",
-        timeZone: "America/New_York",
-        year: "numeric",
-      })
-    : "Currently streaming";
-
-  return {
-    fallbackURL,
-    singleLiner,
-    streamDate,
-    trackAlbum,
-    trackArtist,
-    trackCover,
-    trackCoverRaw,
-    trackName,
-  };
-}
+import { Grid, Text, Tag } from ".";
 
 export function Song(): JSX.Element {
-  const [details, setDetails] = useState(false);
-
   const {
     fallbackURL,
     singleLiner,
+    trackAlbum,
     trackArtist,
     trackCover,
     trackCoverRaw,
-    trackAlbum,
     trackName,
-    streamDate,
-  } = useSpotifyScrobbler();
-  const { youtubeURL } = useFindYouTube(trackName, trackArtist);
+    youtubeURL,
+    dominantColor,
+    textColor,
+    loading,
+    error,
+  } = useSong();
 
-  const { dominantColor, textColor } = useFindColor(trackCover || trackCoverRaw);
-
-  if (!trackName) return <> </>;
+  if (loading && !error) return <Text>Loading...</Text>;
+  if (error) return <Text>Error loading song data. Quota probably exceeded.</Text>;
 
   return (
-    <Grid>
-      <Tag
+    <Grid
+      css={{
+        width: "100%",
+        height: "100%",
+        borderRadius: "$1",
+        padding: "$4",
+        backgroundColor: dominantColor,
+        "*": {
+          color: textColor + " !important",
+        },
+      }}>
+      {/* Song Info at the Top */}
+      <Grid
         css={{
-          "*": {
-            color: textColor || "inherit",
-          },
-          cursor: "pointer",
+          display: "flex",
+          alignItems: "center",
           background: dominantColor || "transparent",
-          paddingLeft: 0,
-
-          paddingRight: "$3",
-
-          svg: {
-            marginLeft: "$3",
-            marginRight: "$3",
-          },
-        }}
-        overflow
-        onClick={(): void => setDetails(!details)}>
-        {trackCoverRaw && trackCoverRaw !== "#" && (
-          <Grid
-            css={{
-              borderTopLeftRadius: "$1",
-              borderBottomLeftRadius: "$1",
-              position: "sticky",
-              top: 0,
-              left: 0,
-
-              img: {
-                borderTopLeftRadius: "$1",
-                borderBottomLeftRadius: "$1",
-              },
-              opacity: details ? 0.42 : 1,
-            }}>
-            <NextImage alt={singleLiner} height={25} src={trackCover || trackCoverRaw} width={25} />
-          </Grid>
+          borderColor: textColor,
+        }}>
+        {trackCoverRaw && (
+          <Image
+            alt={singleLiner}
+            height={50}
+            src={trackCover || trackCoverRaw}
+            style={{ borderRadius: "5px", marginRight: "10px" }}
+            width={50}
+          />
         )}
-
-        <Icon.Spotify />
-        <Text as="strong" inline={3}>
+        <Text
+          as="h1"
+          css={{ marginLeft: "10px", textTransform: "capitalize", opacity: 0.5 }}
+          inline={3}>
           {trackName}
         </Text>
-        <Text as="span">{trackArtist}</Text>
-      </Tag>
-      {details && (
-        <Grid top={6}>
-          <Text as="h1">
-            {streamDate}, from the {trackAlbum} album by {trackArtist}.
-          </Text>
+        <Text as="h1" css={{ marginLeft: "10px" }}>
+          {trackArtist} ({trackAlbum})
+        </Text>
+      </Grid>
 
-          {trackCoverRaw && trackCoverRaw !== "#" && (
-            <Grid
-              css={{
-                height: "80vh",
-                borderRadius: "$1",
-                borderBottomLeftRadius: 0,
-                borderBottomRightRadius: 0,
+      <Grid
+        css={{
+          display: "grid",
+          gap: "10px",
+          // 50/50
+          gridTemplateColumns: "1fr 1fr",
+          gridTemplateRows: "auto",
+          height: "100%",
+          justifyContent: "center",
+          alignItems: "center",
 
-                img: {
-                  borderRadius: "$1",
-                  borderBottomLeftRadius: 0,
-                  borderBottomRightRadius: 0,
+          phone: {
+            gridTemplateColumns: "1fr 1fr",
+            gridTemplateRows: "auto",
+          },
+        }}>
+        {/* Left Side: YouTube Video or Fallback Image */}
+        <Grid css={{ padding: "10px" }}>
+          {youtubeURL ? (
+            <iframe
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              height="100%"
+              src={`https://www.youtube.com/embed/${youtubeURL.split("v=")[1]}`}
+              style={{
+                borderRadius: "5px",
+                border: 0,
+                overflow: "hidden",
+              }}
+              title={singleLiner}
+              width="100%"
+            />
+          ) : (
+            trackCoverRaw && (
+              <Image
+                alt={singleLiner}
+                fill
+                src={trackCover || trackCoverRaw}
+                style={{
+                  borderRadius: "5px",
                   objectFit: "cover",
-                  objectPosition: "top",
-                },
-              }}>
-              <NextImage alt={singleLiner} fill src={trackCover || trackCoverRaw} />
-            </Grid>
+                  width: "100%",
+                  height: "auto",
+                }}
+              />
+            )
           )}
+        </Grid>
 
-          <Grid
-            align="center"
+        {/* Right Side: Color and Links */}
+        <Grid
+          css={{
+            padding: "10px",
+            gap: "10px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+          <Tag
             css={{
-              borderRadius: "$1",
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-              background: dominantColor,
-
-              width: "100%",
-              alignItems: "center",
-              justifyContent: "center",
-              color: textColor || "inherit",
+              color: textColor,
+              backgroundColor: dominantColor,
             }}>
-            <Text as="small" bottom={2} top={2}>
-              {dominantColor}
-            </Text>
-          </Grid>
-
-          <Text top={5}>
+            Dominant Color: {dominantColor}
+          </Tag>
+          <Tag>
             <a href={fallbackURL} rel="noopener noreferrer" target="_blank">
               {fallbackURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
             </a>
-          </Text>
+          </Tag>
           {youtubeURL && (
-            <Text>
+            <Tag>
               <a href={youtubeURL} rel="noopener noreferrer" target="_blank">
                 {youtubeURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
               </a>
-            </Text>
+            </Tag>
           )}
-
-          <Text>
+          <Tag>
             <a href="https://open.spotify.com/user/jd.ol" rel="noopener noreferrer" target="_blank">
-              spotify.com/user/jd.ol{" "}
+              spotify.com/user/jd.ol
             </a>
-          </Text>
-
-          {youtubeURL && (
-            <Grid top={5}>
-              <iframe
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                allowTransparency
-                height={420}
-                src={`https://www.youtube.com/embed/${youtubeURL.split("v=")[1]}`}
-                style={{ borderRadius: "3px", border: 0, overflow: "hidden", maxWidth: "100%" }}
-                title={singleLiner}
-                width={420}
-              />
-            </Grid>
-          )}
+          </Tag>
         </Grid>
-      )}
+      </Grid>
     </Grid>
   );
 }

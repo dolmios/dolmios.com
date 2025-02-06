@@ -22,7 +22,7 @@ const Standard = localFont({
 export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme, config } =
   createStitches({
     media: {
-      bp1: "(min-width: 480px)",
+      phone: "(max-width: 800px)",
     },
     prefix: "dolmios",
     theme: {

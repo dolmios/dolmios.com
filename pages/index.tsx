@@ -12,102 +12,84 @@ export default function Home(): JSX.Element {
       css={{
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "flex-start",
         flexDirection: "column",
-        textAlign: "center",
-        height: "100vh",
-        padding: "$3",
+        minHeight: "100vh",
+        padding: "$4",
       }}>
       <Head>
-        <title>JACKSON DOLMAN</title>
+        <title>dolmios.com</title>
         <meta
-          content="Full-stack web developer specializing in modern applications, scalable architectures, and performant user experiences. Now accepting projects for Q2 2025."
+          content="Jackson Dolman is a full-stack web developer based in New York City. Working with startups and founders to build modern apps and websites that scale."
           name="description"
         />
       </Head>
 
-      <Tag
-        css={{
-          position: "absolute",
-          top: "$3",
-          left: "$3",
-        }}
-        small>
-        🇦🇺 Currently in: Melbourne, AU (
-        {new Date().toLocaleTimeString("en-AU", {
-          timeZone: "Australia/Melbourne",
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })}
-        )
-      </Tag>
-
-      <Text
-        as="h1"
-        css={{
-          maxWidth: "60rem",
-          textTransform: "uppercase",
-        }}>
-        <Balancer>
-          Jackson Dolman
-          <br />
-          Frontend developer <br />
-          BROOKLYN, NY
-        </Balancer>
-      </Text>
-
-      <Text
-        bottom={5}
+      <Grid
         css={{
           maxWidth: "40rem",
         }}>
-        <Balancer>
-          Working with startups and established businesses, I develop modern web applications,
-          scalable architectures, and performant user experiences. I&apos;m currently refreshing my
-          web presence. I&apos;m currently open to projects starting Q2 2025. Feel free to reach out
-          if you&apos;d like to explore working together.
-        </Balancer>
-      </Text>
-      <Grid
-        css={{
-          display: "flex",
-          alignItems: "center",
-          gap: "$3",
-          justifyContent: "center",
-        }}
-        top={5}>
-        <Image
-          alt="Cosmo App V2"
-          height={33}
-          src="https://cosmogroup.io/images/blog/2024-11-01/01.jpg"
-          width={33}
-        />
-        <Text
-          as="small"
-          css={{
-            "&:hover": {
-              opacity: 1,
-            },
-            transition: "opacity 0.2s",
-            opacity: 0.8,
-          }}>
-          <a
-            href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners#:~:text=Special%20recognition%20goes%20to%20Jackson%20Dolman%2C%20whose%20technical%20expertise%20and%20dedication%20have%20made%20the%20Cosmo%20App%20a%20reality."
-            target="_blank">
-            Recent Feature: &quot;Cosmo App V2: A New Era in Short-Term Rental Portfolio
-            Management&quot; (November 2024)
-          </a>
+        <Text as="h1">
+          <Balancer>Jackson Dolman &mdash; Full-Stack Developer based in New York City.</Balancer>
         </Text>
-      </Grid>
 
-      <Tag
-        css={{
-          marginTop: "$6",
-        }}
-        link>
-        <a href="mailto:contact@dolmios.com">✺ contact@dolmios.com</a>
-      </Tag>
+        <Text>
+          Shipping modern web applications with architecture built for scale and interfaces that are
+          a pleasure to use. Over a decade of development expertise across Australia and the US.
+          Founded a successful startup in 2019, bringing both technical depth and founder
+          perspective to every project.
+        </Text>
+        <Text top={3}>
+          Focused on selective, long-term partnerships with founders building meaningful products.
+          Experience in early-stage development means understanding how to optimize runway and
+          minimize costs while building robust foundations that support sustained growth.
+        </Text>
+        <Text bottom={5} top={4}>
+          Currently developing a platform for a grant compliance agency, with availability for new
+          projects from Q2 2025.
+        </Text>
+        <Text>Also, Managing Director at Planare, a software consultancy.</Text>
+
+        <a
+          href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners#:~:text=Special%20recognition%20goes%20to%20Jackson%20Dolman%2C%20whose%20technical%20expertise%20and%20dedication%20have%20made%20the%20Cosmo%20App%20a%20reality."
+          target="_blank">
+          <Grid
+            css={{
+              alignItems: "center",
+              gap: "$4",
+              background: "$background",
+              display: "inline-flex",
+              width: "fit-content",
+              color: "$text",
+              padding: "$2 $3",
+              transition: "background 0.5s, color 0.2s",
+
+              "&:hover": {
+                background: "rgba(255, 255, 255, 0.1)",
+                color: "$background",
+              },
+            }}
+            top={5}>
+            <Image
+              alt="Cosmo App V2"
+              height={33}
+              src="https://cosmogroup.io/images/blog/2024-11-01/01.jpg"
+              width={33}
+            />
+            <Text as="small">
+              Recent Feature: &quot;Cosmo App V2: A New Era in Short-Term Rental Portfolio
+              Management&quot; (November 2024)
+            </Text>
+          </Grid>
+        </a>
+        <Tag
+          css={{
+            marginTop: "$6",
+          }}
+          link>
+          <a href="mailto:contact@dolmios.com">✺ contact@dolmios.com</a>
+        </Tag>
+      </Grid>
     </Grid>
   );
 }
