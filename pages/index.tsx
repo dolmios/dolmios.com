@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Image from "next/image";
+import Link from "next/link";
 import type { JSX } from "react";
-import { Balancer } from "react-wrap-balancer";
 
-import { Grid, Text, Tag } from "../components";
+import { Grid, Text, Tag, Box, Projects, Mindmap, AnalogClock, Song, LatestMatchbook } from "../components";
 
 export default function Home(): JSX.Element {
   return (
@@ -11,83 +10,103 @@ export default function Home(): JSX.Element {
       as="main"
       css={{
         display: "flex",
-        justifyContent: "center",
-        alignItems: "flex-start",
         flexDirection: "column",
         minHeight: "100vh",
-        padding: "$4",
+        gap: "$4",
       }}>
       <Head>
-        <title>dolmios.com</title>
+        <title>Jackson Dolman</title>
         <meta
-          content="Jackson Dolman is a full-stack web developer based in New York City. Working with startups and founders to build modern apps and websites that scale."
+          content="Jackson Dolman is a full-stack web developer based in New York City."
           name="description"
         />
       </Head>
-
+      
+      <Box border padding={3}>
+        <Text>Jackson Dolman is a full-stack developer based in New York City.</Text>
+        <Text bottom={3} top={2}>
+          He is currently leading design at <Link href="#">farewell</Link>
+          {' '}and wearing all the hats at <Link href="#">Numeric<sup>123</sup></Link>.
+        </Text>
+          <Tag bold link>Available for Q2 2025 ✺</Tag>
+      </Box>
+      
+      {/* Skills Mindmap */}
+      <Mindmap />
+      
       <Grid
         css={{
-          maxWidth: "40rem",
+          display: "grid",
+          gridTemplateColumns: "4fr 4fr 2fr",
+          gap: "$4",
+          
+          "@media (max-width: 768px)": {
+            gridTemplateColumns: "1fr",
+          },
         }}>
-        <Text as="h1">
-          <Balancer>Jackson Dolman &mdash; Full-Stack Developer based in New York City.</Balancer>
-        </Text>
-
-        <Text>
-          Shipping modern web applications with architecture built for scale and interfaces that are
-          a pleasure to use. Over a decade of development expertise across Australia and the US.
-          Founded a successful startup in 2019, bringing both technical depth and founder
-          perspective to every project.
-        </Text>
-        <Text top={3}>
-          Focused on selective, long-term partnerships with founders building meaningful products.
-          Experience in early-stage development means understanding how to optimize runway and
-          minimize costs while building robust foundations that support sustained growth.
-        </Text>
-        <Text bottom={5} top={4}>
-          Currently developing a platform for a grant compliance agency, with availability for new
-          projects from Q2 2025.
-        </Text>
-
-        <a
-          href="https://cosmogroup.io/blog/introducing-cosmo-app-v2-for-airbnb-owners#:~:text=Special%20recognition%20goes%20to%20Jackson%20Dolman%2C%20whose%20technical%20expertise%20and%20dedication%20have%20made%20the%20Cosmo%20App%20a%20reality."
-          target="_blank">
-          <Grid
+        <Box border shadow>
+          <Text
+            as="h2"
             css={{
-              alignItems: "center",
-              gap: "$4",
-              background: "$background",
-              display: "inline-flex",
-              width: "fit-content",
-              color: "$text",
+              fontSize: "14px",
+              fontWeight: "normal",
+              textTransform: "uppercase",
+              marginBottom: 0,
               padding: "$2 $3",
-              transition: "background 0.5s, color 0.2s",
-
-              "&:hover": {
-                background: "rgba(255, 255, 255, 0.1)",
-                color: "$background",
-              },
-            }}
-            top={5}>
-            <Image
-              alt="Cosmo App V2"
-              height={33}
-              src="https://cosmogroup.io/images/blog/2024-11-01/01.jpg"
-              width={33}
-            />
-            <Text as="small">
-              Recent Feature: &quot;Cosmo App V2: A New Era in Short-Term Rental Portfolio
-              Management&quot; (November 2024)
-            </Text>
+              borderBottom: "1px solid $border",
+            }}>
+            Services
+          </Text>
+          <Grid css={{ padding: "$3" }}>
+            <Text css={{ margin: "$1 0" }}>Full-Stack Development</Text>
+            <Text css={{ margin: "$1 0" }}>Digital Product Design</Text>
+            <Text css={{ margin: "$1 0" }}>API Integrations</Text>
+            <Text css={{ margin: "$1 0" }}>Cloud Architecture</Text>
+            <Text css={{ margin: "$1 0" }}>Technical Strategy</Text>
+            <Text css={{ margin: "$1 0" }}>UI/UX Implementation</Text>
           </Grid>
-        </a>
-        <Tag
-          css={{
-            marginTop: "$6",
-          }}
-          link>
-          <a href="mailto:contact@dolmios.com">✺ contact@dolmios.com</a>
-        </Tag>
+        </Box>
+        
+        <Box border shadow>
+          <Text
+            as="h2"
+            css={{
+              fontSize: "14px",
+              fontWeight: "normal",
+              textTransform: "uppercase",
+              marginBottom: 0,
+              padding: "$2 $3",
+              borderBottom: "1px solid $border",
+            }}>
+            Clients
+          </Text>
+          <Grid css={{ padding: "$3" }}>
+            <Text css={{ margin: "$1 0" }}>Cosmo Group</Text>
+            <Text css={{ margin: "$1 0" }}>Tech Innovators</Text>
+            <Text css={{ margin: "$1 0" }}>Future Labs</Text>
+            <Text css={{ margin: "$1 0" }}>Product Systems</Text>
+          </Grid>
+        </Box>
+        
+        <AnalogClock />
+      </Grid>
+      
+      {/* Projects section */}
+      <Projects />
+      
+      {/* Currently Listening & Latest Matchbook */}
+      <Grid 
+        css={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr", // Two equal columns
+          gap: "$4",
+          "@media (max-width: 1024px)": { // Stack on smaller screens
+            gridTemplateColumns: "1fr",
+          },
+        }}
+      >
+        <Song />
+        <LatestMatchbook />
       </Grid>
     </Grid>
   );

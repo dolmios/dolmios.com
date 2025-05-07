@@ -1,0 +1,19 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="sunsetGradient" x1="0%" y1="0%" x2="0%" y2="100%" gradientTransform="rotate(0 .5 .5)">
+      <stop offset="0%" stop-color="#2B1A3F" /> 
+      <stop offset="30%" stop-color="#5D2B6A" />
+      <stop offset="60%" stop-color="#D95B5A" />
+      <stop offset="100%" stop-color="#FFC837" />
+      <animateTransform
+        attributeName="gradientTransform"
+        type="rotate"
+        from="0 .5 .5"
+        to="360 .5 .5"
+        dur="30s" 
+        repeatCount="indefinite"
+      />
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#sunsetGradient)" />
+</svg> 

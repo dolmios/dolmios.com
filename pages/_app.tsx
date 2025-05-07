@@ -5,7 +5,7 @@ import Head from "next/head";
 import type { JSX } from "react";
 import { SWRConfig } from "swr";
 
-import { Grid } from "../components";
+import { Grid, Header, Footer } from "../components";
 import { globalStyles } from "../stitches.config";
 
 const fetcher = async (url: string): Promise<unknown> => {
@@ -43,7 +43,10 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           revalidateOnFocus: true,
           revalidateOnReconnect: true,
         }}>
+        {/* Header with name and contact info */}
+        <Header />
         <Component {...pageProps} />
+        <Footer />
         <Analytics />
       </SWRConfig>
     </Grid>

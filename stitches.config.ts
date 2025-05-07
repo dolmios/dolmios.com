@@ -27,9 +27,9 @@ export const { styled, css, globalCss, keyframes, getCssText, theme, createTheme
     prefix: "dolmios",
     theme: {
       colors: {
-        background: "#fff",
-        border: "rgba(255, 255, 255, 0.5)",
-        text: "#000",
+        background: "rgb(0, 4, 7)",
+        border: "rgba(255, 255, 255, 0.08)",
+        text: "#fff",
       },
       fonts: {
         standard: "Standard, system-ui, sans-serif",
@@ -83,13 +83,13 @@ export const globalStyles = globalCss({
   },
 
   body: {
-    backgroundColor: "$text !important",
-    color: "$background !important",
+    backgroundColor: "$background !important",
+    color: "$text",
     fontFamily: Standard.style.fontFamily,
-    fontSize: "17px",
+    fontSize: "20px",
     lineHeight: 1.4,
     margin: 0,
-    padding: 0,
+    padding: '0 $4',
   },
 
   img: {
@@ -98,8 +98,8 @@ export const globalStyles = globalCss({
   },
 
   main: {
-    maxWidth: "48rem",
-    minWidth: "100%",
+   width: "100%",
+   maxWidth: "2000px",
     margin: "0 auto",
   },
 
