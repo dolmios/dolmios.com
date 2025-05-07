@@ -1,34 +1,21 @@
-import { type CSS } from "@stitches/react";
 import { type JSX } from "react";
-
-import { styled } from "../stitches.config";
-
-import { Grid } from "./Grid";
-import { Tag } from "./Tag";
+import { Block, Tag } from "../ui";
+import styles from "./Footer.module.css";
 
 interface FooterProps {
-  css?: CSS;
+  className?: string;
 }
 
-const FooterContainer = styled("footer", {
-  width: "100%",
-  padding: "$3 0",
-  marginTop: "$5",
-  borderTop: "1px solid $border",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  opacity: 0.7,
-});
-
-export function Footer({ css }: FooterProps): JSX.Element {
+export function Footer({ className }: FooterProps): JSX.Element {
   const currentYear = new Date().getFullYear();
 
   return (
-    <FooterContainer css={css}>
-      <Grid css={{ display: "flex", gap: "$2" }}>
-        <Tag css={{ background: 'transparent', border: 'none', boxShadow: 'none', color: '$text' }} small>© {currentYear} Jackson Dolman</Tag>
-      </Grid>
-    </FooterContainer>
+    <footer className={`${styles.footer} ${className || ''}`}>
+      <Block className={styles.container}>
+        <Tag css={{ background: 'transparent', border: 'none', boxShadow: 'none', color: 'var(--text)' }} small>
+          © {currentYear} Jackson Dolman
+        </Tag>
+      </Block>
+    </footer>
   );
 } 

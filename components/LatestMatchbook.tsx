@@ -1,12 +1,9 @@
-import { styled, type CSS } from "@stitches/react";
 import Image from "next/image";
 import { type JSX } from "react";
 
 import gradient from "../public/gradient.svg";
-
-import { Box } from "./Box";
-import { Grid } from "./Grid";
-import { Text } from "./Text";
+import { Card, Typography } from "../ui";
+import styles from "./LatestMatchbook.module.css";
 
 interface MatchbookData {
   id: string;
@@ -64,32 +61,9 @@ const allMatchbooks: MatchbookData[] = [
 // Get the 3 latest matchbooks
 const latestThreeMatchbooks = allMatchbooks.slice(-3);
 
-const MatchbookImageContainer = styled("div", {
-  position: 'relative',
-  width: '60px', // 4 part of 4:3 ratio
-  height: '45px', // 3 part of 4:3 ratio
-  minWidth: '60px',
-  borderRadius: '4px',
-  overflow: 'hidden',
-  boxShadow: '0 1px 6px rgba(0,0,0,0.1)',
-  backgroundColor: "rgba(255, 255, 255, 0.05)",
-});
-
-interface LatestMatchbookProps {
-  css?: CSS;
-}
-
 const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }) => (
-  <Grid
-    css={{
-      display: "grid",
-      gridTemplateColumns: "auto 1fr",
-      gap: "$2",
-      alignItems: "center",
-      width: '100%',
-    }}
-  >
-    <MatchbookImageContainer>
+  <div className={styles.matchbookItem}>
+    <div className={styles.imageContainer}>
       <Image
         alt={matchbook.title}
         fill
@@ -97,57 +71,30 @@ const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }) => 
         src={gradient}
         style={{ objectFit: "cover", opacity: 0.7 }}
       />
-    </MatchbookImageContainer>
-    <Grid css={{ display: "flex", flexDirection: "column", gap: "$0", overflow: "hidden" }}>
-      <Text as="h4" css={{ fontSize: "13px", fontWeight: 500, margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+    </div>
+    <div className={styles.matchbookInfo}>
+      <Typography as="h4" className={styles.matchbookTitle}>
         {matchbook.title}
-      </Text>
-      <Text css={{ opacity: 0.7, margin: 0, fontSize: "11px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+      </Typography>
+      <Typography className={styles.matchbookMeta}>
         {matchbook.location}, {matchbook.year}
-      </Text>
-      {/* Story is likely too much for this density, keeping it omitted */}
-    </Grid>
-  </Grid>
+      </Typography>
+    </div>
+  </div>
 );
 
-export function LatestMatchbook({ css }: LatestMatchbookProps): JSX.Element | null {
-  if (latestThreeMatchbooks.length < 3) { // Check for at least 3 matchbooks
-    return null; 
+export function LatestMatchbook(): JSX.Element | null {
+  if (latestThreeMatchbooks.length < 3) {
+    return null;
   }
 
   return (
-    <Box border css={{ padding: 0, position: 'relative', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', ...css }}>
-      <Text
-        as="h2"
-        css={{
-          fontSize: "14px",
-          fontWeight: "normal",
-          textTransform: "uppercase",
-          margin: 0,
-          padding: "$2 $3",
-          borderBottom: "1px solid $border",
-          position: 'relative',
-          zIndex: 2,
-          flexShrink: 0,
-        }}
-      >
-        Latest Matchbooks
-      </Text>
-
-      <Grid
-        css={{
-          flexGrow: 1,
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr", // Three items side-by-side
-          gap: "$2", // Slightly reduced gap for 3 items
-          padding: "$3 $2", // Adjust padding slightly if needed
-          alignItems: "center",
-        }}
-      >
+    <Card border header="Latest Matchbooks" className={styles.fill}>
+      <div className={styles.matchbookGrid}>
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[0]} />
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[1]} />
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[2]} />
-      </Grid>
-    </Box>
+      </div>
+    </Card>
   );
 } 

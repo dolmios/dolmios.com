@@ -1,0 +1,15 @@
+.footer {
+  width: 100%;
+  padding: var(--space-3) 0;
+  margin-top: var(--space-5);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.container {
+  display: flex;
+  gap: var(--space-2);
+} 

@@ -1,0 +1,71 @@
+/* Typography component styles */
+.typography {
+  /* Base styles for all typography */
+}
+
+/* Responsive Element styling */
+.h1 {
+  font-size: clamp(2.2rem, 4vw + 1rem, 3.5rem);
+  font-weight: bold;
+  margin-bottom: var(--space-5);
+}
+.h2 {
+  font-size: clamp(1.7rem, 2.5vw + 1rem, 2.5rem);
+  font-weight: bold;
+  margin-bottom: var(--space-5);
+}
+.h3 {
+  font-size: clamp(1.3rem, 1.5vw + 1rem, 1.7rem);
+  font-weight: bold;
+  margin-bottom: var(--space-5);
+}
+.h4 {
+  font-size: clamp(1.1rem, 1vw + 1rem, 1.3rem);
+  font-weight: bold;
+  margin-bottom: var(--space-3);
+}
+.h5 {
+  font-size: clamp(1rem, 0.8vw + 1rem, 1.1rem);
+  font-weight: bold;
+  margin-bottom: var(--space-3);
+}
+.h6 {
+  font-size: clamp(0.95rem, 0.5vw + 1rem, 1rem);
+  font-weight: bold;
+  margin-bottom: var(--space-3);
+}
+.p {
+  font-size: 1rem;
+  margin-bottom: var(--space-2);
+}
+
+/* Let browser defaults handle these */
+.span, .small, .strong, .code,
+.li, .ul, .ol {
+  display: block;
+}
+
+/* Inline variant */
+.inline {
+  display: inline-block;
+}
+
+/* Spacing utilities */
+.top1 { margin-top: var(--space-1); }
+.top2 { margin-top: var(--space-2); }
+.top3 { margin-top: var(--space-3); }
+.top4 { margin-top: var(--space-4); }
+.top5 { margin-top: var(--space-5); }
+.top6 { margin-top: var(--space-6); }
+
+.bottom1 { margin-bottom: var(--space-1); }
+.bottom2 { margin-bottom: var(--space-2); }
+.bottom3 { margin-bottom: var(--space-3); }
+.bottom4 { margin-bottom: var(--space-4); }
+.bottom5 { margin-bottom: var(--space-5); }
+.bottom6 { margin-bottom: var(--space-6); }
+
+/* Last child margin handling */
+.typography:last-child {
+  margin-bottom: 0;
+}

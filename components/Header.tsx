@@ -1,108 +1,13 @@
-import { type CSS } from "@stitches/react";
+'use client';
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type JSX } from "react";
 
-import { styled } from "../stitches.config";
+import { Typography } from "../ui";
+import styles from "./Header.module.css";
 
-import { Text } from "./Text";
-
-interface HeaderProps {
-  css?: CSS;
-}
-
-const HeaderContainer = styled("header", {
-  width: "100%",
-  marginBottom: "$4",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "stretch",
-});
-
-const Divider = styled("div", {
-  borderTop: "1px solid $border",
-  width: "100%",
-  margin: "$2 0",
-});
-
-const NameRow = styled("div", {
-  width: "100%",
-  margin: "$2 0",
-});
-
-const HomeLink = styled("a", {
-  textDecoration: "none",
-  color: "inherit",
-  display: "inline-block",
-  position: "relative",
-  width: "100%",
-});
-
-const NameContainer = styled("div", {
-  position: "relative",
-  overflow: "hidden",
-  whiteSpace: "nowrap",
-  
-  "@media (max-width: 768px)": {
-    whiteSpace: "normal",
-  },
-});
-
-const NameText = styled("span", {
-  display: "inline-block",
-  transition: "transform 0.4s ease-in-out, opacity 0.4s ease-in-out",
-  transformOrigin: "left",
-  
-  ".home-link:hover &": {
-    transform: "translateY(-100%)",
-    opacity: 0,
-  },
-});
-
-const HomeText = styled("span", {
-  position: "absolute",
-  bottom: "-100%",
-  left: 0,
-  opacity: 0,
-  transition: "transform 0.4s ease-in-out, opacity 0.4s ease-in-out",
-  transformOrigin: "left",
-  width: "100%",
-  
-  ".home-link:hover &": {
-    transform: "translateY(-100%)",
-    opacity: 1,
-  },
-});
-
-const ContactRow = styled("div", {
-  display: "flex",
-  justifyContent: "space-between",
-  width: "100%",
-  marginTop: "$2",
-  marginBottom: "$2",
-  
-  "@media (max-width: 768px)": {
-    flexDirection: "column",
-    gap: "$2",
-  },
-});
-
-const ContactGroup = styled("div", {
-  display: "flex",
-  gap: "$2",
-  alignItems: "center",
-  
-  "@media (max-width: 768px)": {
-    justifyContent: "flex-start",
-  },
-});
-
-const SocialLinks = styled("div", {
-  display: "flex",
-  gap: "$3",
-});
-
-export function Header({ css }: HeaderProps): JSX.Element {
+export function Header(): JSX.Element {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   
@@ -113,59 +18,52 @@ export function Header({ css }: HeaderProps): JSX.Element {
     margin: 0,
     whiteSpace: "nowrap",
     width: "100%",
-    
-    "@media (max-width: 768px)": {
-      fontSize: "70px",
-    },
   };
   
   return (
-    <HeaderContainer css={css}>
-      <Divider />
+    <header className={styles.container}>
+      <div className={styles.divider} />
       
-      <NameRow>
+      <div className={styles.nameRow}>
         {isHomePage ? (
-          <Link href="/" legacyBehavior passHref>
-            <HomeLink className="home-link">
-              <Text as="h1" css={nameStyles}>
-                <NameContainer>
-                  <NameText>Jackson Dolman</NameText>
-                  <HomeText>dolmios</HomeText>
-                </NameContainer>
-              </Text>
-            </HomeLink>
+          <Link href="/" className={styles.homeLink}>
+            <Typography as="h1" css={nameStyles}>
+              <div className={styles.nameContainer}>
+                <span className={styles.nameText}>Jackson Dolman</span>
+                <span className={styles.homeText}>dolmios</span>
+              </div>
+            </Typography>
           </Link>
         ) : (
-          <Link href="/" legacyBehavior passHref>
-            <HomeLink className="home-link">
-              <Text as="h1" css={nameStyles}>
-                <NameContainer>
-                  <NameText>Jackson Dolman</NameText>
-                  <HomeText>
-                      ☜
-                    back to dashboard</HomeText>
-                </NameContainer>
-              </Text>
-            </HomeLink>
+          <Link href="/" className={styles.homeLink}>
+            <Typography as="h1" css={nameStyles}>
+              <div className={styles.nameContainer}>
+                <span className={styles.nameText}>Jackson Dolman</span>
+                <span className={styles.homeText}>
+                  ☜
+                  back to dashboard
+                </span>
+              </div>
+            </Typography>
           </Link>
         )}
-      </NameRow>
+      </div>
       
-      <ContactRow>
-        <ContactGroup>
-          <Text>Inquiries →</Text>
+      <div className={styles.contactRow}>
+        <div className={styles.contactGroup}>
+          <Typography>Inquiries →</Typography>
           <Link href="mailto:contact@dolmios.com">Email</Link>
-        </ContactGroup>
+        </div>
         
-        <SocialLinks>
+        <div className={styles.socialLinks}>
           <Link href="/matchbooks">Matchbooks</Link>
           <Link href="https://linkedin.com/in/yourprofile" rel="noopener noreferrer" target="_blank">LinkedIn</Link>
           <Link href="https://github.com/yourusername" rel="noopener noreferrer" target="_blank">GitHub</Link>
           <Link href="https://instagram.com/yourhandle" rel="noopener noreferrer" target="_blank">Instagram</Link>
-        </SocialLinks>
-      </ContactRow>
+        </div>
+      </div>
       
-      <Divider />
-    </HeaderContainer>
+      <div className={styles.divider} />
+    </header>
   );
 } 

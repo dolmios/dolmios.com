@@ -1,0 +1,24 @@
+.block {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.minimal {
+  padding: 0 !important;
+} 

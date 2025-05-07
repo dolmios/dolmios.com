@@ -1,0 +1,92 @@
+.container {
+  width: 100%;
+  margin-bottom: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.divider {
+  border-top: 1px solid var(--border);
+  width: 100%;
+  margin: var(--space-2) 0;
+}
+
+.nameRow {
+  width: 100%;
+  margin: var(--space-2) 0;
+}
+
+.homeLink {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.nameContainer {
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.nameText {
+  display: inline-block;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transform-origin: left;
+}
+
+.homeText {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  opacity: 0;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+  transform-origin: left;
+  width: 100%;
+}
+
+.homeLink:hover .nameText {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.homeLink:hover .homeText {
+  transform: translateY(-100%);
+  opacity: 1;
+}
+
+.contactRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.contactGroup {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.socialLinks {
+  display: flex;
+  gap: var(--space-3);
+}
+
+@media (max-width: 768px) {
+  .nameContainer {
+    white-space: normal;
+  }
+
+  .contactRow {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .contactGroup {
+    justify-content: flex-start;
+  }
+} 
