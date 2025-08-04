@@ -1,61 +1,73 @@
-import { Card, Tag, Typography, Block } from "@/ui";
-import gradient from "../public/gradient.svg";
 import { projects } from "@/data/projects";
+import { Card, Badge, Text, Stack } from "stoop";
+import Image from "next/image";
 
-export function Projects({ css }: { css?: React.CSSProperties }) {
+export function Projects() {
   return (
-    <Card header="Selected Projects" border css={{ padding: 0, overflow: "hidden", position: "relative", height: "auto", ...css }}>
-      <Block
-        direction="row"
-        gap={4}
-        css={{
+    <Stack>
+      <Stack
+        style={{
           overflowX: "auto",
           scrollSnapType: "x mandatory",
           scrollBehavior: "smooth",
-          padding: "var(--space-3)",
+
           scrollbarWidth: "none",
           msOverflowStyle: "none",
         }}
+        direction="row"
+        gap="medium"
       >
         {projects.map((project, index) => (
+          <Stack key={index} css={{
+            width: "33%",
+            flexShrink: 0,
+            scrollSnapAlign: "start",
+          }}>
           <Card
             key={index}
-            css={{
-              width: `${project.variant === "portrait" ? 300 : 420}px !important`,
-              flexShrink: 0,
-              scrollSnapAlign: "start",
-            }}
-            image={{ url: gradient, alt: project.title, height: 250 }}
+           padding="minimal"
+           css={{
+            padding: 0,
+            border: 0
+           }}
           >
+            <Stack css={{
+              height: "20rem",
+              width: "100%",
+              position: "relative", 
+              img: {
+                objectFit: "cover",
+                objectPosition: "center",
+                height: "100%",
+                width: "100%",
+              }
+            }}>
+                <Image src="https://cdn.prod.website-files.com/6450bd5a51a4509928f3d530/6560d086fbb07020b486cb65_Studio-Kiln-Alexander-Brand-Identity-App-Genre-Characters.png" alt={project.title} fill />
+            </Stack>
+            <Stack css={{
+              padding: "$medium"
+            }}>
 
-              <Typography as="h3" css={{ fontSize: "18px", fontWeight: 500, marginBottom: "var(--space-2)" }}>
+              <Text as="h5">
                 {project.title}
-              </Typography>
-              <Typography
-                as="p"
-                css={{
-                  opacity: 0.7,
-                  lineHeight: 1.5,
-                  overflow: "hidden",
-                  display: "-webkit-box",
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: "vertical",
-                  textOverflow: "ellipsis",
-                }}
+              </Text>
+              <Text
+                as="small"
               >
                 {project.description}
-              </Typography>
-              <Block direction="row" gap={2} top={2}>
+              </Text>
+                <Stack direction="row" gap="small" top="small">
                 {project.tags.map((tag, i) => (
-                  <Tag key={i} small>
-                    {tag}
-                  </Tag>
-                ))}
-              </Block>
-
+                  <Badge key={i}>
+                      {tag}
+                  </Badge>
+                    ))}
+                </Stack>
+              </Stack>
           </Card>
+          </Stack>
         ))}
-      </Block>
-    </Card>
+      </Stack>
+    </Stack>
   );
 } 

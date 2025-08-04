@@ -1,8 +1,8 @@
 // type project inline
 export const projects: {
-    title: string;
     description: string;
     tags: string[];
+    title: string;
     variant: "landscape" | "portrait";
 }[] = [
     {

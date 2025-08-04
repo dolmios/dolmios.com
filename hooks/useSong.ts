@@ -103,23 +103,21 @@ export function useSong(): {
                     const { data } = ctx.getImageData(x, y, 1, 1);
                     const [r, g, b] = [data[0], data[1], data[2]];
                     
-                    // Skip colors that are too dark or too light (close to black or white)
-                    const brightness = (r + g + b) / 3;
+                                // Skip colors that are too dark or too light (close to black or white)
+            const brightness = (r + g + b) / 3;
 
-                    if (brightness < 30 || brightness > 225) continue;
-                    
-                    // Skip grayscale colors (where R, G, and B are very close)
-                    const isGrayscale = Math.abs(r - g) < 15 && Math.abs(g - b) < 15 && Math.abs(r - b) < 15;
-
-                    if (isGrayscale) continue;
-                    
-                    // Calculate saturation: higher values mean more vivid colors
-                    const max = Math.max(r, g, b);
-                    const min = Math.min(r, g, b);
-                    const saturation = max === 0 ? 0 : (max - min) / max;
-                    
-                    // Skip colors with very low saturation (grayish)
-                    if (saturation < 0.15) continue;
+            if (brightness < 20 || brightness > 235) continue;
+            
+            // For grayscale images, we want to capture the dominant gray tones
+            const isGrayscale = Math.abs(r - g) < 20 && Math.abs(g - b) < 20 && Math.abs(r - b) < 20;
+            
+            // Calculate saturation: higher values mean more vivid colors
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const saturation = max === 0 ? 0 : (max - min) / max;
+            
+            // For grayscale images, don't skip low saturation colors
+            if (!isGrayscale && saturation < 0.15) continue;
                     
                     // Create a key for this color (rounded to reduce variations)
                     const roundFactor = 15;
@@ -139,54 +137,25 @@ export function useSong(): {
             // Sort colors by count and pick the most common vibrant color
             const sortedColors = Object.values(colorCounts).sort((a, b) => b.count - a.count);
             
-            // Fallback to a pleasant default for dark mode if no good colors found
-            const defaultColor = "80,140,200";
+            // If no vibrant colors found, use a neutral gray that matches the image
+            const defaultColor = "120,120,120";
             const dominantRgb = sortedColors.length > 0 
                 ? sortedColors[0].rgb.join(',') 
                 : defaultColor;
             
-            // Slightly boost saturation and brightness for better visibility in dark mode
+            console.log('Color extraction results:', {
+                totalColors: sortedColors.length,
+                topColors: sortedColors.slice(0, 3).map(c => ({ rgb: c.rgb, count: c.count })),
+                selectedColor: dominantRgb
+            });
+            
+            // Use the raw dominant color without any adjustments
             const [r, g, b] = dominantRgb.split(',').map(Number);
             
-            // Adjust color for dark mode visibility
-            const adjustForDarkMode = (rgb: number[]): number[] => {
-                const [r, g, b] = rgb;
-                const brightness = (r + g + b) / 3;
-                
-                // Boost brightness if too dark
-                if (brightness < 80) {
-                    const factor = 1.3;
-
-                    return [
-                        Math.min(255, Math.round(r * factor)),
-                        Math.min(255, Math.round(g * factor)),
-                        Math.min(255, Math.round(b * factor))
-                    ];
-                }
-                
-                // If already bright enough, adjust saturation instead
-                const max = Math.max(r, g, b);
-                const multipliers = [1.2, 1.2, 1.2];
-                
-                // Identify which channel is dominant and preserve its ratio
-                if (max === r) multipliers[0] = 1;
-                else if (max === g) multipliers[1] = 1;
-                else multipliers[2] = 1;
-                
-                return [
-                    Math.min(255, Math.round(r * multipliers[0])),
-                    Math.min(255, Math.round(g * multipliers[1])),
-                    Math.min(255, Math.round(b * multipliers[2]))
-                ];
-            };
+            setDominantColor(`rgb(${r}, ${g}, ${b})`);
             
-            const adjustedColor = adjustForDarkMode([r, g, b]);
-            const finalRgb = adjustedColor.join(',');
-            
-            setDominantColor(`rgb(${finalRgb})`);
-            
-            // Set text color based on adjusted color brightness
-            const luminance = 0.299 * adjustedColor[0] + 0.587 * adjustedColor[1] + 0.114 * adjustedColor[2];
+            // Set text color based on original color brightness
+            const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
 
             setTextColor(luminance > 160 ? "rgb(24, 24, 27)" : "rgb(250, 250, 250)");
         };

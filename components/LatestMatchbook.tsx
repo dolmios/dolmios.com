@@ -2,8 +2,7 @@ import Image from "next/image";
 import { type JSX } from "react";
 
 import gradient from "../public/gradient.svg";
-import { Card, Typography } from "../ui";
-import styles from "./LatestMatchbook.module.css";
+import { Card, Text } from "stoop";
 
 interface MatchbookData {
   id: string;
@@ -61,9 +60,62 @@ const allMatchbooks: MatchbookData[] = [
 // Get the 3 latest matchbooks
 const latestThreeMatchbooks = allMatchbooks.slice(-3);
 
+const matchbookItemStyle = {
+  display: "grid",
+  gridTemplateColumns: "auto 1fr",
+  gap: "var(--space-2)",
+  alignItems: "center",
+  width: "100%",
+};
+
+const imageContainerStyle = {
+  position: "relative" as const,
+  width: 60,
+  height: 45,
+  minWidth: 60,
+  borderRadius: 4,
+  overflow: "hidden" as const,
+  boxShadow: "0 1px 6px rgba(0,0,0,0.1)",
+  backgroundColor: "rgba(255, 255, 255, 0.05)",
+};
+
+const matchbookInfoStyle = {
+  display: "flex",
+  flexDirection: "column" as const,
+  gap: 0,
+  overflow: "hidden" as const,
+};
+
+const matchbookTitleStyle = {
+  fontSize: 13,
+  fontWeight: 500,
+  margin: 0,
+  whiteSpace: "nowrap" as const,
+  overflow: "hidden" as const,
+  textOverflow: "ellipsis" as const,
+};
+
+const matchbookMetaStyle = {
+  opacity: 0.7,
+  margin: 0,
+  fontSize: 11,
+  whiteSpace: "nowrap" as const,
+  overflow: "hidden" as const,
+  textOverflow: "ellipsis" as const,
+};
+
+const matchbookGridStyle = {
+  flexGrow: 1,
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr 1fr",
+  gap: "var(--space-2)",
+  padding: "var(--space-3) var(--space-2)",
+  alignItems: "center",
+};
+
 const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }) => (
-  <div className={styles.matchbookItem}>
-    <div className={styles.imageContainer}>
+  <div style={matchbookItemStyle}>
+    <div style={imageContainerStyle}>
       <Image
         alt={matchbook.title}
         fill
@@ -72,13 +124,13 @@ const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }) => 
         style={{ objectFit: "cover", opacity: 0.7 }}
       />
     </div>
-    <div className={styles.matchbookInfo}>
-      <Typography as="h4" className={styles.matchbookTitle}>
+    <div style={matchbookInfoStyle}>
+        <Text as="h4" css={matchbookTitleStyle}>
         {matchbook.title}
-      </Typography>
-      <Typography className={styles.matchbookMeta}>
+      </Text>
+      <Text css={matchbookMetaStyle}>
         {matchbook.location}, {matchbook.year}
-      </Typography>
+      </Text>
     </div>
   </div>
 );
@@ -89,8 +141,8 @@ export function LatestMatchbook(): JSX.Element | null {
   }
 
   return (
-    <Card border header="Latest Matchbooks" className={styles.fill}>
-      <div className={styles.matchbookGrid}>
+    <Card variant="default" css={{ height: "100%" }}>
+      <div style={matchbookGridStyle}>
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[0]} />
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[1]} />
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[2]} />

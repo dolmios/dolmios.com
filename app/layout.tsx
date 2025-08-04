@@ -1,17 +1,19 @@
+"use client";
+
 import { Analytics } from "@vercel/analytics/react";
-import type { Metadata, Viewport } from "next";
 
-import { Header, Footer } from "@/components";
+import { Header } from "@/components/Header";
 import { SWRProvider } from "@/components/SWRProvider";
-import { Block } from "@/ui";
 
-import "@/ui/global.css";
+import { StoopProvider } from "stoop";
 
+/*
 export const viewport: Viewport = {
   themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
 };
+
 
 export const metadata: Metadata = {
   title: "Jackson Dolman",
@@ -48,6 +50,7 @@ export const metadata: Metadata = {
     ],
   },
 };
+*/
 
 export default function RootLayout({
   children,
@@ -57,17 +60,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <StoopProvider>
         <SWRProvider>
-          <Block
-            css={{
-              animation: "fadeIn 3s ease",
-            }}>
             <Header />
             {children}
-            <Footer />
-            <Analytics />
-          </Block>
-        </SWRProvider>
+              <Analytics />
+          </SWRProvider>
+        </StoopProvider>
       </body>
     </html>
   );

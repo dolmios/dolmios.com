@@ -1,10 +1,11 @@
 import Link from "next/link";
 import type { JSX } from "react";
 
+import styles from "./page.module.css";
+
+import gradient from "@/public/gradient.svg";
 import { Block, Typography, Tag } from "@/ui";
 import { Card } from "@/ui/Card";
-import gradient from "@/public/gradient.svg";
-import styles from "./page.module.css";
 
 interface Matchbook {
   id: string;
