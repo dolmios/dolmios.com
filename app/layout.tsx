@@ -60,7 +60,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <StoopProvider>
+        <StoopProvider config={{
+         theme: "dark",
+
+        }}>
         <SWRProvider>
             <Header />
             {children}

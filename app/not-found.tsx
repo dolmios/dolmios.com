@@ -3,7 +3,7 @@
 import Link from "next/link";
 import type { JSX } from "react";
 
-import { Card, Text, Stack, Badge, Button } from "stoop";
+import { Text, Stack, Button } from "stoop";
 
 
 export default function NotFound(): JSX.Element {
