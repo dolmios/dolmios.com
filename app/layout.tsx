@@ -1,11 +1,11 @@
 "use client";
 
+import type { JSX, ReactNode } from "react";
+
 import { Analytics } from "@vercel/analytics/react";
 
-import { Header } from "@/components/Header";
 import { SWRProvider } from "@/components/SWRProvider";
-
-import { StoopProvider } from "stoop";
+import { StoopProvider } from "@/ui";
 
 /*
 export const viewport: Viewport = {
@@ -13,7 +13,6 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
-
 
 export const metadata: Metadata = {
   title: "Jackson Dolman",
@@ -55,22 +54,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
-}) {
+  children: ReactNode;
+}): JSX.Element {
   return (
     <html lang="en">
       <body>
-        <StoopProvider config={{
-         theme: "dark",
-
-        }}>
-        <SWRProvider>
-            <Header />
+        <StoopProvider config={{ theme: "light" }}>
+          <SWRProvider>
             {children}
-              <Analytics />
+            <Analytics />
           </SWRProvider>
         </StoopProvider>
       </body>
     </html>
   );
-} 
+}

@@ -144,9 +144,9 @@ export function useSong(): {
                 : defaultColor;
             
             console.log('Color extraction results:', {
-                totalColors: sortedColors.length,
-                topColors: sortedColors.slice(0, 3).map(c => ({ rgb: c.rgb, count: c.count })),
-                selectedColor: dominantRgb
+                selectedColor: dominantRgb,
+                topColors: sortedColors.slice(0, 3).map(c => ({ count: c.count, rgb: c.rgb })),
+                totalColors: sortedColors.length
             });
             
             // Use the raw dominant color without any adjustments
@@ -162,18 +162,18 @@ export function useSong(): {
     }, [trackCoverRaw]);
 
     return {
+        dominantColor,
+        error: spotifyError,
         fallbackURL,
+        loading: !spotifyData,
         singleLiner,
         streamDate,
+        textColor,
         trackAlbum,
         trackArtist,
         trackCover,
         trackCoverRaw,
         trackName,
         youtubeURL,
-        dominantColor,
-        textColor,
-        loading: !spotifyData,
-        error: spotifyError,
     };
 }

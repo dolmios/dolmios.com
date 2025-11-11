@@ -2,7 +2,7 @@ import React, { type JSX } from "react";
 
 export function useWaves(waveColor: string): JSX.Element {
   // Helper to generate SVG background as a data URL
-  const getWaveWithColor = (waveType: 'low' | 'medium', color: string, opacity: number = 1) => {
+  const getWaveWithColor = (waveType: 'low' | 'medium', color: string, opacity = 1): string => {
     let wavePath = "";
 
     if (waveType === 'medium') {
@@ -17,7 +17,7 @@ export function useWaves(waveColor: string): JSX.Element {
   };
 
   return (
-    <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, top: 0, overflow: 'hidden', zIndex: 1 }}>
+    <div style={{ bottom: 0, left: 0, overflow: 'hidden', position: 'absolute', right: 0, top: 0, zIndex: 1 }}>
       <style>
         {`
           @keyframes waveMove1 {
@@ -30,32 +30,32 @@ export function useWaves(waveColor: string): JSX.Element {
           }
         `}
       </style>
-      <div 
-        style={{ 
-          position: 'absolute', 
-          width: '120%', 
-          height: '100%', 
-          backgroundRepeat: 'repeat-x', 
-          backgroundSize: '1200px 100%', 
-          transformOrigin: 'center bottom', 
-          backgroundImage: getWaveWithColor('medium', waveColor, 0.25), 
+      <div
+        style={{
           animation: 'waveMove1 8s linear infinite',
-          bottom: 0
+          backgroundImage: getWaveWithColor('medium', waveColor, 0.25),
+          backgroundRepeat: 'repeat-x',
+          backgroundSize: '1200px 100%',
+          bottom: 0,
+          height: '100%',
+          position: 'absolute',
+          transformOrigin: 'center bottom',
+          width: '120%'
         }}
       />
-      <div 
-        style={{ 
-          position: 'absolute', 
-          width: '120%', 
-          height: '100%', 
-          backgroundRepeat: 'repeat-x', 
-          backgroundSize: '1200px 100%', 
-          transformOrigin: 'center bottom', 
-          backgroundImage: getWaveWithColor('low', waveColor, 0.15), 
+      <div
+        style={{
           animation: 'waveMove2 12s linear infinite reverse',
-          bottom: 0
+          backgroundImage: getWaveWithColor('low', waveColor, 0.15),
+          backgroundRepeat: 'repeat-x',
+          backgroundSize: '1200px 100%',
+          bottom: 0,
+          height: '100%',
+          position: 'absolute',
+          transformOrigin: 'center bottom',
+          width: '120%'
         }}
       />
     </div>
   );
-} 
+}

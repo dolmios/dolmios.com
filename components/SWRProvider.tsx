@@ -1,6 +1,7 @@
 'use client';
 
-import type { ReactNode } from "react";
+import type { JSX, ReactNode } from "react";
+
 import { SWRConfig } from "swr";
 
 const fetcher = async (url: string): Promise<unknown> => {
@@ -16,7 +17,7 @@ const fetcher = async (url: string): Promise<unknown> => {
   return res.json();
 };
 
-export function SWRProvider({ children }: { children: ReactNode }) {
+export function SWRProvider({ children }: { children: ReactNode }): JSX.Element {
   return (
     <SWRConfig
       value={{
@@ -27,4 +28,4 @@ export function SWRProvider({ children }: { children: ReactNode }) {
       {children}
     </SWRConfig>
   );
-} 
+}

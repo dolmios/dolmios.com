@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { type JSX } from "react";
 
+import { Card, Text } from "@/ui";
+
 import gradient from "../public/gradient.svg";
-import { Card, Text } from "stoop";
 
 interface MatchbookData {
   id: string;
@@ -15,45 +16,45 @@ interface MatchbookData {
 const allMatchbooks: MatchbookData[] = [
   {
     id: "m1",
-    title: "The Carlyle",
     location: "New York",
-    year: "2019",
     story: "A classic spot, late night jazz.",
+    title: "The Carlyle",
+    year: "2019",
   },
   {
     id: "m2",
-    title: "Cafe Bohemia",
     location: "Paris",
-    year: "2018",
     story: "Artistic vibes, morning coffee.",
+    title: "Cafe Bohemia",
+    year: "2018",
   },
   {
     id: "m3",
-    title: "Dante",
     location: "New York",
-    year: "2020",
     story: "Negronis on point, historic bar.",
+    title: "Dante",
+    year: "2020",
   },
   {
     id: "m4",
-    title: "Hotel Alfonso XIII",
     location: "Seville",
-    year: "2017",
     story: "Spanish charm, solo trip memory.",
+    title: "Hotel Alfonso XIII",
+    year: "2017",
   },
   {
     id: "m5",
-    title: "Bar Pisellino",
     location: "New York",
-    year: "2021",
     story: "Perfect aperitivo, summer evening.",
+    title: "Bar Pisellino",
+    year: "2021",
   },
   {
     id: "m6",
-    title: "Claridge's",
     location: "London",
-    year: "2019",
     story: "Timeless elegance, afternoon tea.",
+    title: "Claridge's",
+    year: "2019",
   },
 ];
 
@@ -61,22 +62,22 @@ const allMatchbooks: MatchbookData[] = [
 const latestThreeMatchbooks = allMatchbooks.slice(-3);
 
 const matchbookItemStyle = {
-  display: "grid",
-  gridTemplateColumns: "auto 1fr",
-  gap: "var(--space-2)",
   alignItems: "center",
+  display: "grid",
+  gap: "var(--space-2)",
+  gridTemplateColumns: "auto 1fr",
   width: "100%",
 };
 
 const imageContainerStyle = {
-  position: "relative" as const,
-  width: 60,
+  backgroundColor: "rgba(255, 255, 255, 0.05)",
+  borderRadius: 4,
+  boxShadow: "0 1px 6px rgba(0,0,0,0.1)",
   height: 45,
   minWidth: 60,
-  borderRadius: 4,
   overflow: "hidden" as const,
-  boxShadow: "0 1px 6px rgba(0,0,0,0.1)",
-  backgroundColor: "rgba(255, 255, 255, 0.05)",
+  position: "relative" as const,
+  width: 60,
 };
 
 const matchbookInfoStyle = {
@@ -90,30 +91,30 @@ const matchbookTitleStyle = {
   fontSize: 13,
   fontWeight: 500,
   margin: 0,
-  whiteSpace: "nowrap" as const,
   overflow: "hidden" as const,
   textOverflow: "ellipsis" as const,
+  whiteSpace: "nowrap" as const,
 };
 
 const matchbookMetaStyle = {
-  opacity: 0.7,
-  margin: 0,
   fontSize: 11,
-  whiteSpace: "nowrap" as const,
+  margin: 0,
+  opacity: 0.7,
   overflow: "hidden" as const,
   textOverflow: "ellipsis" as const,
+  whiteSpace: "nowrap" as const,
 };
 
 const matchbookGridStyle = {
-  flexGrow: 1,
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr 1fr",
-  gap: "var(--space-2)",
-  padding: "var(--space-3) var(--space-2)",
   alignItems: "center",
+  display: "grid",
+  flexGrow: 1,
+  gap: "var(--space-2)",
+  gridTemplateColumns: "1fr 1fr 1fr",
+  padding: "var(--space-3) var(--space-2)",
 };
 
-const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }) => (
+const SingleMatchbookDisplay = ({ matchbook }: { matchbook: MatchbookData }): JSX.Element => (
   <div style={matchbookItemStyle}>
     <div style={imageContainerStyle}>
       <Image
@@ -141,7 +142,7 @@ export function LatestMatchbook(): JSX.Element | null {
   }
 
   return (
-    <Card variant="default" css={{ height: "100%" }}>
+    <Card css={{ height: "100%" }} variant="default">
       <div style={matchbookGridStyle}>
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[0]} />
         <SingleMatchbookDisplay matchbook={latestThreeMatchbooks[1]} />
@@ -149,4 +150,4 @@ export function LatestMatchbook(): JSX.Element | null {
       </div>
     </Card>
   );
-} 
+}
