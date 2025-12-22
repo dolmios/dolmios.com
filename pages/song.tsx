@@ -17,7 +17,6 @@ export default function Home(): JSX.Element {
         alignItems: "center",
         flexDirection: "column",
         textAlign: "center",
-        height: "100vh",
         padding: "$3",
       }}>
       <Head>
