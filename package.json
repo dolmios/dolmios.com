@@ -46,7 +46,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "node scripts/dev.js",
+    "dev": "next dev -p 420",
     "env:link": "vercel link",
     "env:local": "vercel env pull .env.local",
     "lint": "eslint . --ext js,jsx,ts,tsx,ts --fix",
