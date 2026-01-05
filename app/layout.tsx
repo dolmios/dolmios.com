@@ -1,6 +1,7 @@
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
 import { Providers } from "./providers";
@@ -69,16 +70,24 @@ export const viewport: Viewport = {
   width: "device-width",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: ReactNode;
-}): ReactNode {
+}): Promise<ReactNode> {
+  const cookieStore = await cookies();
+  const themeCookie = cookieStore.get("dolmios-theme");
+  const initialTheme = themeCookie?.value || "light";
+
   return (
-    <html className={standardFont.variable} lang="en" suppressHydrationWarning>
+    <html 
+      className={standardFont.variable} 
+      data-theme={initialTheme}
+      lang="en" 
+      suppressHydrationWarning>
       <body suppressHydrationWarning>
         <Styles />
-        <Providers>
+        <Providers initialTheme={initialTheme}>
           {children}
           <Analytics />
         </Providers>

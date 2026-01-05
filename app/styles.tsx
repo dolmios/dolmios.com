@@ -2,13 +2,22 @@
 
 import { useServerInsertedHTML } from "next/navigation";
 import { getCssText } from "stoop-ui";
+import { useRef } from "react";
 
 /**
  * Injects SSR-generated CSS into the document head.
  * Prevents FOUC by including critical CSS in the initial HTML.
  */
 export function Styles(): null {
+  const isInjected = useRef(false);
+
   useServerInsertedHTML(() => {
+    // Prevent multiple injections during SSR streaming
+    if (isInjected.current) {
+      return null;
+    }
+
+    isInjected.current = true;
     const cssText = getCssText();
 
     if (!cssText) {
