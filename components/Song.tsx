@@ -1,9 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import React, { JSX } from "react";
+import { Badge, Stack, Text } from "stoop-ui";
 
 import { useSong } from "../hooks/useSong"; // Assuming useSong is in the same directory
-
-import { Grid, Text, Tag } from ".";
 
 export function Song(): JSX.Element {
   const {
@@ -25,25 +26,25 @@ export function Song(): JSX.Element {
   if (error) return <Text>Error loading song data. Quota probably exceeded.</Text>;
 
   return (
-    <Grid
+    <Stack
       css={{
         width: "100%",
         height: "100%",
-        borderRadius: "$1",
-        padding: "$4",
+        borderRadius: "$small",
+        padding: "$medium",
         backgroundColor: dominantColor,
         "*": {
           color: textColor + " !important",
         },
       }}>
       {/* Song Info at the Top */}
-      <Grid
+      <Stack
+        align="center"
         css={{
-          display: "flex",
-          alignItems: "center",
           background: dominantColor || "transparent",
           borderColor: textColor,
-        }}>
+        }}
+        direction="row">
         {trackCoverRaw && (
           <Image
             alt={singleLiner}
@@ -56,15 +57,15 @@ export function Song(): JSX.Element {
         <Text
           as="h1"
           css={{ marginLeft: "10px", textTransform: "capitalize", opacity: 0.5 }}
-          inline={3}>
+          variant="h1">
           {trackName}
         </Text>
-        <Text as="h1" css={{ marginLeft: "10px" }}>
+        <Text as="h1" css={{ marginLeft: "10px" }} variant="h1">
           {trackArtist} ({trackAlbum})
         </Text>
-      </Grid>
+      </Stack>
 
-      <Grid
+      <Stack
         css={{
           display: "grid",
           gap: "10px",
@@ -75,13 +76,13 @@ export function Song(): JSX.Element {
           justifyContent: "center",
           alignItems: "center",
 
-          phone: {
+          mobile: {
             gridTemplateColumns: "1fr 1fr",
             gridTemplateRows: "auto",
           },
         }}>
         {/* Left Side: YouTube Video or Fallback Image */}
-        <Grid css={{ padding: "10px" }}>
+        <Stack css={{ padding: "10px" }}>
           {youtubeURL ? (
             <iframe
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -111,44 +112,43 @@ export function Song(): JSX.Element {
               />
             )
           )}
-        </Grid>
+        </Stack>
 
         {/* Right Side: Color and Links */}
-        <Grid
+        <Stack
+          align="center"
           css={{
             padding: "10px",
-            gap: "10px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-          <Tag
+          }}
+          direction="column"
+          gap="small"
+          justify="center">
+          <Badge
             css={{
               color: textColor,
               backgroundColor: dominantColor,
             }}>
             Dominant Color: {dominantColor}
-          </Tag>
-          <Tag>
+          </Badge>
+          <Badge variant="outline">
             <a href={fallbackURL} rel="noopener noreferrer" target="_blank">
               {fallbackURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
             </a>
-          </Tag>
+          </Badge>
           {youtubeURL && (
-            <Tag>
+            <Badge variant="outline">
               <a href={youtubeURL} rel="noopener noreferrer" target="_blank">
                 {youtubeURL.replace(/(^\w+:|^)\/\//, "").replace("www.", "")}
               </a>
-            </Tag>
+            </Badge>
           )}
-          <Tag>
+          <Badge variant="outline">
             <a href="https://open.spotify.com/user/jd.ol" rel="noopener noreferrer" target="_blank">
               spotify.com/user/jd.ol
             </a>
-          </Tag>
-        </Grid>
-      </Grid>
-    </Grid>
+          </Badge>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 }
