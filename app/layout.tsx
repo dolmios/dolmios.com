@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import type { ReactNode } from "react";
 
 import { Providers } from "./providers";
+import { Styles } from "./styles";
 
 const standardFont = localFont({
   display: "swap",
@@ -74,8 +75,9 @@ export default function RootLayout({
   children: ReactNode;
 }): ReactNode {
   return (
-    <html className={standardFont.variable} lang="en">
-      <body>
+    <html className={standardFont.variable} lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Styles />
         <Providers>
           {children}
           <Analytics />
