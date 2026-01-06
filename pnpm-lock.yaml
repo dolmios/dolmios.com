@@ -24,11 +24,11 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1(react@19.2.3)
       stoop:
-        specifier: ^0.4.1
-        version: 0.4.1(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^0.5.0
+        version: 0.5.0(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       stoop-ui:
-        specifier: ^0.1.2
-        version: 0.1.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^0.1.3
+        version: 0.1.3(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       swr:
         specifier: ^2.3.8
         version: 2.3.8(react@19.2.3)
@@ -36,8 +36,8 @@ importers:
         specifier: ^5.9.3
         version: 5.9.3
       vercel:
-        specifier: ^50.1.4
-        version: 50.1.4(typescript@5.9.3)
+        specifier: ^50.1.5
+        version: 50.1.5(typescript@5.9.3)
     devDependencies:
       '@next/env':
         specifier: ^16.1.1
@@ -1303,8 +1303,8 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  axe-core@4.11.0:
-    resolution: {integrity: sha512-ilYanEU8vxxBexpJd8cWM4ElSQq4QctCLKih0TSfjIfCQTeyH/6zVrmIJfLPrKTKJRbiG+cfnZbQIjAlJmF1jQ==}
+  axe-core@4.11.1:
+    resolution: {integrity: sha512-BASOg+YwO2C+346x3LZOeoovTIoTrRqEsqMa6fmfAV0P+U9mFr9NsyOEpiYvFjbc64NMrSswhV50WdXzdb/Z5A==}
     engines: {node: '>=4'}
 
   axobject-query@4.1.0:
@@ -2726,14 +2726,14 @@ packages:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
 
-  stoop-ui@0.1.2:
-    resolution: {integrity: sha512-EuQYtEZ0RvdHZoqulwnO9/n0emRyntINyIBxzbTe+VxMJ1/fTJgBmWjc7XRgUX4BlT7KLOJ7GYqJPgZ6ao4SUQ==}
+  stoop-ui@0.1.3:
+    resolution: {integrity: sha512-mBY9ZVo4XqfVFqvEJR90MwF9F6P/q+M9tATcxWYVLW2zBeGhNREAVGEOVNAQoQXjT5ha9m8ooV8whPiOCLjk7w==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  stoop@0.4.1:
-    resolution: {integrity: sha512-pgxbbCr1DeNapY2N3w8jozE0MdwCnHInhBcWhMLrlgJNZQZKqJjAf6ohDOLG94DqmTrFX5jV3JDHaQo5zQzOKw==}
+  stoop@0.5.0:
+    resolution: {integrity: sha512-W9/FklY1xRtBZ39cQi/jDhgYuM8PNufqvGNZ7SIYsdPLt5wSgs8K0ErVNEHtkgU4pomEdv9m1jXv7qmIN/kB0Q==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -2950,8 +2950,8 @@ packages:
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
 
-  vercel@50.1.4:
-    resolution: {integrity: sha512-zEXQ0ildXpPWqIgbL2zpQOpSee8cop5tvUYjfgrBKL2RuikdMmdyIdQX0blGOrVl+L+Jnl5enKHhv6m8XJGA9A==}
+  vercel@50.1.5:
+    resolution: {integrity: sha512-ELp+Hpdw2DEwg7RPUTND5voE1RJexND+9TBrwN+wMJ4WzTVK5dx8dAZILVytMnmWFVLs1EWrfRRr317KM/WZew==}
     engines: {node: '>= 18'}
     hasBin: true
 
@@ -4236,7 +4236,7 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.1.0
 
-  axe-core@4.11.0: {}
+  axe-core@4.11.1: {}
 
   axobject-query@4.1.0: {}
 
@@ -4701,7 +4701,7 @@ snapshots:
       array-includes: 3.1.9
       array.prototype.flatmap: 1.3.3
       ast-types-flow: 0.0.8
-      axe-core: 4.11.0
+      axe-core: 4.11.1
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
@@ -5821,16 +5821,16 @@ snapshots:
 
   statuses@1.5.0: {}
 
-  stoop-ui@0.1.2(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  stoop-ui@0.1.3(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@floating-ui/dom': 1.7.4
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      stoop: 0.4.1(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+      stoop: 0.5.0(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
     transitivePeerDependencies:
       - '@types/react'
 
-  stoop@0.4.1(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  stoop@0.5.0(@types/react@19.2.7)(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
@@ -6084,7 +6084,7 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  vercel@50.1.4(typescript@5.9.3):
+  vercel@50.1.5(typescript@5.9.3):
     dependencies:
       '@vercel/backends': 0.0.17(typescript@5.9.3)
       '@vercel/blob': 1.0.2
