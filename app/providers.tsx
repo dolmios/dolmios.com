@@ -16,18 +16,15 @@ const fetcher = async (url: string): Promise<unknown> => {
   return res.json();
 };
 
-export function Providers({ 
+export function Providers({
   children,
   initialTheme,
-}: { 
+}: {
   children: ReactNode;
   initialTheme: string;
 }): ReactNode {
   return (
-    <ThemeProvider 
-      cookieKey="dolmios-theme"
-      defaultTheme={initialTheme} 
-      storageKey="dolmios-theme">
+    <ThemeProvider cookieKey="dolmios-theme" defaultTheme={initialTheme} storageKey="dolmios-theme">
       <SWRConfig
         value={{
           fetcher,

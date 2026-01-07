@@ -14,10 +14,7 @@ export function useSong(): {
     trackCover: string;
     trackCoverRaw: string;
     trackName: string;
-    youtubeURL: string;
-}
-    
-    {
+} {
     const [dominantColor, setDominantColor] = useState<string>("");
     const [textColor, setTextColor] = useState<string>("");
 
@@ -46,8 +43,7 @@ export function useSong(): {
     const trackCoverRaw = latestTrack?.image?.[3]?.["#text"] ?? "";
     const singleLiner =
         trackArtist && trackName
-            ? `${trackName.length > 25 ? `${trackName.slice(0, 25)}...` : trackName} - ${trackArtist.length > 25 ? `${trackArtist.slice(0, 25)}...` : trackArtist
-            } `
+            ? `${trackName.length > 25 ? `${trackName.slice(0, 25)}...` : trackName} - ${trackArtist.length > 25 ? `${trackArtist.slice(0, 25)}...` : trackArtist}`
             : "";
     const fallbackURL = latestTrack?.url || "";
     const streamDate = latestTrack?.date?.uts
@@ -62,18 +58,6 @@ export function useSong(): {
             year: "numeric",
         })
         : "Currently streaming";
-
-    const { data: youtubeData, error: youtubeError } = useSWR(
-        trackName && trackArtist
-            ? `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${trackName}+${trackArtist}&type=video&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`
-            : null,
-        {
-            errorRetryCount: 1,
-        }
-    );
-
-    const vTag = youtubeData?.items[0]?.id?.videoId || "";
-    const youtubeURL = `https://www.youtube.com/watch?v=${vTag}`;
 
     useEffect(() => {
         if (!trackCoverRaw) return;
@@ -100,18 +84,17 @@ export function useSong(): {
     }, [trackCoverRaw]);
 
     return {
+        dominantColor,
+        error: spotifyError,
         fallbackURL,
+        loading: !spotifyData,
         singleLiner,
         streamDate,
+        textColor,
         trackAlbum,
         trackArtist,
         trackCover,
         trackCoverRaw,
         trackName,
-        youtubeURL,
-        dominantColor,
-        textColor,
-        loading: !spotifyData || !youtubeData,
-        error: spotifyError || youtubeError,
     };
 }

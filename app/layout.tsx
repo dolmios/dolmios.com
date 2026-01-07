@@ -80,10 +80,10 @@ export default async function RootLayout({
   const initialTheme = themeCookie?.value || "light";
 
   return (
-    <html 
-      className={standardFont.variable} 
+    <html
+      className={standardFont.variable}
       data-theme={initialTheme}
-      lang="en" 
+      lang="en"
       suppressHydrationWarning>
       <body suppressHydrationWarning>
         <Styles />
