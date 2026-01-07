@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import type { JSX } from "react";
+
+import Image from "next/image";
 import { Button, Stack, Text } from "stoop-ui";
 
 import { Song } from "../components";
@@ -11,13 +12,12 @@ export default function Home(): JSX.Element {
     <Stack
       as="main"
       css={{
+        alignItems: "center",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        width: "100vw",
-        maxWidth: "1200px",
         margin: "0 auto",
+        maxWidth: "1200px",
+        minHeight: "100vh",
         padding: "$medium",
       }}
       direction="column"
