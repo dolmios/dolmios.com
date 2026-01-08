@@ -1,27 +1,31 @@
-"use client";
-
 import type { JSX } from "react";
 
 import Image from "next/image";
 import { Button, Stack, Text } from "stoop-ui";
 
-import { Song } from "../components";
+import { Song } from "@/components/Song";
+import meImage from "@/public/me.jpg";
 
 export default function Home(): JSX.Element {
   return (
     <Stack
       as="main"
+      bottom="large"
       css={{
         alignItems: "center",
         display: "flex",
+        flex: 1,
         justifyContent: "center",
-        margin: "0 auto",
-        maxWidth: "1200px",
-        minHeight: "100vh",
-        padding: "$medium",
+        mobile: {
+          paddingLeft: "$small",
+          paddingRight: "$small",
+        },
       }}
       direction="column"
-      gap="small">
+      gap="small"
+      left="medium"
+      right="medium"
+      top="large">
       <Stack
         align="center"
         css={{
@@ -34,7 +38,8 @@ export default function Home(): JSX.Element {
         <Image
           alt="Jackson Dolman"
           height={300}
-          src="/me.jpeg"
+          placeholder="blur"
+          src={meImage}
           style={{
             borderRadius: "8px",
             objectFit: "cover",
@@ -42,16 +47,28 @@ export default function Home(): JSX.Element {
           }}
           width={300}
         />
-        <Text color="secondary">
+        <Text>
           <b>Jackson Dolman</b>, Full-Stack Developer in New York. I build web applications, work
           with AI, and help teams ship product.
         </Text>
       </Stack>
 
-      <Stack direction="row" gap="small">
-        <Button size="small">
-          <a href="mailto:contact@dolmios.com">✺ contact@dolmios.com</a>
+      <Stack
+        align="center"
+        css={{
+          flexWrap: "wrap",
+        }}
+        direction="row"
+        gap="small"
+        justify="center">
+        <Button as="a" href="mailto:contact@dolmios.com" size="small">
+          ✺ contact@dolmios.com
         </Button>
+        {/* not ready yet
+        <Button as="a" href="/matchbooks" size="small">
+          ✺ matchbooks
+        </Button>
+        */}
         <Song />
       </Stack>
     </Stack>

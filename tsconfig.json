@@ -1,5 +1,13 @@
 {
   "extends": "eslint-config-dolmios/configs/tsconfig",
+  // add the @ option to the paths
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
   "include": [
     "**/*.ts",
     "**/*.tsx",

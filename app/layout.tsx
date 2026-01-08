@@ -1,11 +1,12 @@
-import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
-import localFont from "next/font/local";
-import { cookies } from "next/headers";
 import type { ReactNode } from "react";
 
-import { Providers } from "./providers";
-import { Styles } from "./styles";
+import { Analytics } from "@vercel/analytics/react";
+import localFont from "next/font/local";
+import { cookies } from "next/headers";
+
+import { Providers } from "@/app/providers";
+import { Styles } from "@/app/styles";
 
 const standardFont = localFont({
   display: "swap",
@@ -26,25 +27,28 @@ const standardFont = localFont({
 });
 
 const baseUrl = "https://dolmios.com";
-const ogImage = `${baseUrl}/meta.jpg`;
 
 export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
+  appleWebApp: {
+    title: "DOLMIOS",
+  },
   description:
-    "Jackson Dolman is a full-stack web developer based in New York City. Working with startups and founders to build modern apps and websites that scale.",
+    "Full-Stack Developer in New York. I build web applications, work with AI, and help teams ship product.",
+  icons: {
+    apple: "/apple-touch-icon.png",
+    icon: [
+      { sizes: "96x96", type: "image/png", url: "/favicon-96x96.png" },
+      { type: "image/svg+xml", url: "/favicon.svg" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     description:
-      "Jackson Dolman is a full-stack web developer based in New York City. Working with startups and founders to build modern apps and websites that scale.",
-    images: [
-      {
-        alt: "Jackson Dolman",
-        height: 630,
-        url: ogImage,
-        width: 1200,
-      },
-    ],
+      "Full-Stack Developer in New York. I build web applications, work with AI, and help teams ship product.",
     siteName: "dolmios.com",
     title: "Jackson Dolman",
     type: "website",
@@ -57,8 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     description:
-      "Jackson Dolman is a full-stack web developer based in New York City. Working with startups and founders to build modern apps and websites that scale.",
-    images: [ogImage],
+      "Full-Stack Developer in New York. I build web applications, work with AI, and help teams ship product.",
     site: "@jacksondolman",
     title: "Jackson Dolman",
   },
@@ -85,7 +88,13 @@ export default async function RootLayout({
       data-theme={initialTheme}
       lang="en"
       suppressHydrationWarning>
-      <body suppressHydrationWarning>
+      <body
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+        suppressHydrationWarning>
         <Styles />
         <Providers initialTheme={initialTheme}>
           {children}

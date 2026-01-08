@@ -1,8 +1,9 @@
+/* eslint-disable react/no-danger */
 "use client";
 
 import { useServerInsertedHTML } from "next/navigation";
-import { getCssText } from "stoop-ui";
 import { useRef } from "react";
+import { getCssText } from "stoop-ui";
 
 /**
  * Injects SSR-generated CSS into the document head.

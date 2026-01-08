@@ -1,42 +1,37 @@
 # dolmios.com
 
-> My personal site on the information superhighway.
+Personal site.
 
-## Install
+## Setup
 
 ```sh
 pnpm install
+pnpm db:migrate   # Create database tables
+pnpm db:seed      # Add example matchbooks
 ```
 
-## Usage
-
-Open [http://localhost:420](http://localhost:420) in the browser. If there are linting issues, the development server won’t start.
+## Development
 
 ```sh
-pnpm dev
+pnpm dev          # Start dev server at localhost:420
+pnpm db:studio    # Edit matchbooks (visual database editor)
 ```
 
-Before you deploy, lint your code and format it. Then run the build.
+## Database
+
+SQLite database with Drizzle ORM. Edit in Drizzle Studio, then commit and push. For now, Database is read-only on Vercel (edit locally, deploy via git).
 
 ```sh
-pnpm tidy
-pnpm build
+git add data/matchbooks.db
+git commit -m "Updated db"
+git push
 ```
 
-If you change the pages directory, build a fresh sitemap.
+
+## Deploy
 
 ```sh
-pnpm sitemap
+pnpm tidy         # Lint and format
+pnpm build        # Production build
+pnpm sitemap      # Regenerate sitemap
 ```
-
-## Contributing
-
-Feel free to get in touch with feedback, advice or suggestions. See [Conventional Commits](https://gist.github.com/dolmios/0e33c579a500d87fc6f44df6cde97259) for new contributors.
-
-## Acknowledgments
-
-- [stitches](https://github.com/stitchesjs/stitches)
-
-## License
-
-MIT © [Jackson Dolman](https://github.com/dolmios)

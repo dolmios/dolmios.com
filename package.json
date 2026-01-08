@@ -7,12 +7,14 @@
     "url": "https://github.com/dolmios/dolmios.com/issues"
   },
   "dependencies": {
+    "@libsql/client": "^0.17.0",
     "@vercel/analytics": "^1.6.1",
+    "drizzle-orm": "^0.45.1",
     "next": "^16.1.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-wrap-balancer": "^1.1.1",
-    "stoop": "^0.5.1",
+    "stoop": "^0.5.2",
     "stoop-ui": "^0.1.4",
     "swr": "^2.3.8",
     "typescript": "^5.9.3",
@@ -23,15 +25,21 @@
     "@types/node": "^25.0.3",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
+    "drizzle-kit": "^0.31.8",
     "eslint": "^9.39.2",
     "eslint-config-dolmios": "^2.0.13",
     "next-sitemap": "^4.2.3",
-    "prettier": "^3.7.4"
+    "prettier": "^3.7.4",
+    "tsx": "^4.21.0"
   },
   "prettier": "eslint-config-dolmios/configs/prettier",
   "private": false,
   "scripts": {
     "build": "next build",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "node --import tsx data/db/migrate.ts",
+    "db:seed": "node --import tsx data/db/seed.ts",
+    "db:studio": "drizzle-kit studio",
     "dev": "echo '⚡️ Fetching device IP for development...' && ipconfig getifaddr en0 && echo '🫡' && next dev --turbopack -p 420",
     "env:link": "vercel link",
     "env:local": "vercel env pull .env.local",
