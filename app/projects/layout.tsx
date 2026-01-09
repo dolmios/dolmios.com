@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import { Stack } from "stoop-ui";
 
-export default function MatchbooksLayout({ children }: { children: ReactNode }): ReactNode {
+export default function ProjectsLayout({ children }: { children: ReactNode }): ReactNode {
   return (
     <Stack
       as="main"

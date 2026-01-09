@@ -5,7 +5,7 @@ import { db } from "@/db";
 
 async function createSchema(): Promise<void> {
   try {
-    console.log("🔄 Creating database schema...");
+    console.log("Creating database schema...");
 
     // Create matchbooks table using Drizzle
     await db.run(sql`
@@ -22,9 +22,21 @@ async function createSchema(): Promise<void> {
       )
     `);
 
-    console.log("✅ Database schema created!");
+    // Create projects table
+    await db.run(sql`
+      CREATE TABLE IF NOT EXISTS projects (
+        id TEXT PRIMARY KEY,
+        title TEXT NOT NULL,
+        description TEXT NOT NULL,
+        year TEXT NOT NULL,
+        project_type TEXT NOT NULL,
+        url TEXT NOT NULL
+      )
+    `);
+
+    console.log("Database schema created!");
   } catch (error) {
-    console.error("❌ Schema creation failed:", error);
+    console.error("Schema creation failed:", error);
     throw error;
   }
 }

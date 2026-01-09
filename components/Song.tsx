@@ -85,7 +85,7 @@ export function Song(): JSX.Element {
         rel="noopener noreferrer"
         size="small"
         target="_blank">
-        {hasTrack ? song.toLowerCase() : "✺ spotify/dolmios"}
+        {hasTrack ? song.toLowerCase() : "\u273A spotify/dolmios"}
       </Button>
     </Stack>
   );

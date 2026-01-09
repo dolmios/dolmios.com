@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button, Stack, Text } from "stoop-ui";
 
 import { Song } from "@/components/Song";
@@ -49,7 +50,15 @@ export default function Home(): JSX.Element {
         />
         <Text>
           <b>Jackson Dolman</b>, Full-Stack Developer in New York. I build web applications, work
-          with AI, and help teams ship product.
+          with AI, and help teams ship product. I also collect{" "}
+          <Link
+            href="/matchbooks"
+            style={{
+              textDecoration: "underline",
+            }}>
+            matchbooks
+          </Link>
+          .
         </Text>
       </Stack>
 
@@ -62,11 +71,11 @@ export default function Home(): JSX.Element {
         gap="small"
         justify="center">
         <Button as="a" href="mailto:contact@dolmios.com" size="small">
-          ✺ contact@dolmios.com
+          {"\u273A"} contact@dolmios.com
         </Button>
         {/* not ready yet
         <Button as="a" href="/matchbooks" size="small">
-          ✺ matchbooks
+          {"\u273A"} matchbooks
         </Button>
         */}
         <Song />

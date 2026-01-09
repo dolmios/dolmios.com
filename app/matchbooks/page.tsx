@@ -11,26 +11,20 @@ export default async function MatchbooksPage(): Promise<JSX.Element> {
 
   return (
     <Stack direction="column" gap="large">
-      <Text as="h1" size="xlarge">
+      <Text>
         Matchbooks
       </Text>
       <Stack
         css={{
-          "@media (max-width: 400px)": {
-            gridTemplateColumns: "1fr",
-          },
-          "@media (max-width: 600px)": {
-            gridTemplateColumns: "repeat(2, 1fr)",
-          },
-          "@media (max-width: 900px)": {
-            gridTemplateColumns: "repeat(3, 1fr)",
-          },
-          "@media (max-width: 1200px)": {
-            gridTemplateColumns: "repeat(4, 1fr)",
+          desktop: {
+            gridTemplateColumns: "repeat(5, 1fr)",
           },
           display: "grid",
           gap: "$medium",
-          gridTemplateColumns: "repeat(5, 1fr)",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          mobile: {
+            gridTemplateColumns: "1fr",
+          },
         }}>
         {allMatchbooks.map((matchbook: Matchbook) => (
           <MatchbookCard key={matchbook.id} matchbook={matchbook} />

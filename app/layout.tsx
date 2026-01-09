@@ -7,6 +7,7 @@ import { cookies } from "next/headers";
 
 import { Providers } from "@/app/providers";
 import { Styles } from "@/app/styles";
+import { Header } from "@/components/Header";
 
 const standardFont = localFont({
   display: "swap",
@@ -97,6 +98,7 @@ export default async function RootLayout({
         suppressHydrationWarning>
         <Styles />
         <Providers initialTheme={initialTheme}>
+          <Header />
           {children}
           <Analytics />
         </Providers>

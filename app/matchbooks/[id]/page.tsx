@@ -5,6 +5,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Stack, Text } from "stoop-ui";
 
+import { Map } from "@/components/Map";
 import { db } from "@/db";
 import { matchbooks } from "@/db/schema";
 
@@ -31,32 +32,35 @@ export default async function MatchbookDetailPage({
   }
 
   const locationParts = [matchbook.city, matchbook.state, matchbook.country].filter(Boolean);
+  const locationString = locationParts.join(", ");
 
   return (
     <Stack direction="column" gap="large">
-      <Text as="h1" size="xlarge">
-        {matchbook.title}
-      </Text>
-
       <Stack direction="column" gap="medium">
-        <Text color="secondary">{matchbook.description}</Text>
-        <Stack direction="row" gap="small">
-          <Text color="secondary" size="small">
-            {new Date(matchbook.date).toLocaleDateString("en-US", {
-              month: "long",
-              year: "numeric",
-            })}
-          </Text>
-          {locationParts.length > 0 && (
-            <>
-              <Text color="secondary" size="small">
-                •
-              </Text>
-              <Text color="secondary" size="small">
-                {locationParts.join(", ")}
-              </Text>
-            </>
-          )}
+        <Text bottom="none">
+          {matchbook.title}
+        </Text>
+
+        <Stack direction="column" gap="medium">
+          <Text color="secondary">{matchbook.description}</Text>
+          <Stack direction="row" gap="small">
+            <Text color="secondary" variant="small">
+              {new Date(matchbook.date).toLocaleDateString("en-US", {
+                month: "long",
+                year: "numeric",
+              })}
+            </Text>
+            {locationParts.length > 0 && (
+              <>
+                <Text color="secondary" variant="small">
+                  •
+                </Text>
+                <Text color="secondary" variant="small">
+                  {locationString}
+                </Text>
+              </>
+            )}
+          </Stack>
         </Stack>
       </Stack>
 
@@ -104,6 +108,19 @@ export default async function MatchbookDetailPage({
           />
         </Stack>
       </Stack>
+
+      {locationString && (
+        <Stack
+          css={{
+            "@media (min-width: 768px)": {
+              height: "400px",
+            },
+            height: "300px",
+            width: "100%",
+          }}>
+          <Map location={locationString} />
+        </Stack>
+      )}
     </Stack>
   );
 }

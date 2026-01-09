@@ -4,12 +4,20 @@ import type { JSX } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button, Stack, Text } from "stoop-ui";
+import { Button, Stack, Text, useTheme } from "stoop-ui";
 
-export function Header(): JSX.Element {
+export function Header(): JSX.Element | null {
   const pathname = usePathname();
+  const { themeName, toggleTheme } = useTheme();
   const isMatchbooksPage = pathname?.startsWith("/matchbooks");
   const isMatchbookDetail = pathname?.match(/^\/matchbooks\/[^/]+$/);
+  const isProjectsPage = pathname?.startsWith("/projects");
+  const isProjectDetail = pathname?.match(/^\/projects\/[^/]+$/);
+  const isHomePage = pathname === "/";
+
+  if (isHomePage) {
+    return null;
+  }
 
   return (
     <Stack
@@ -23,7 +31,7 @@ export function Header(): JSX.Element {
           paddingLeft: "$small",
           paddingRight: "$small",
         },
-        padding: 0,
+
       }}
       direction="row"
       justify="between"
@@ -37,38 +45,50 @@ export function Header(): JSX.Element {
           textDecoration: "none",
         }}>
         <Text
-          as="h5"
-          css={{
-            fontWeight: "$bold",
-            margin: 0,
-            whiteSpace: "nowrap",
-          }}>
+          variant="strong">
           dolmios.com
         </Text>
       </Link>
       <Stack direction="row" gap="small">
         {isMatchbookDetail ? (
           <Button as="a" href="/matchbooks" size="small">
-            ← Back
+            Back
+          </Button>
+        ) : isProjectDetail ? (
+          <Button as="a" href="/projects" size="small">
+            Back
           </Button>
         ) : (
           <>
             <Button
               as="a"
+              disabled={isHomePage}
               href="/"
               size="small"
-              variant={!isMatchbooksPage ? "secondary" : "default"}>
+              variant={isHomePage ? "secondary" : "primary"}>
               Home
             </Button>
             <Button
               as="a"
+              disabled={isMatchbooksPage}
               href="/matchbooks"
               size="small"
-              variant={isMatchbooksPage ? "secondary" : "default"}>
+              variant={isMatchbooksPage ? "secondary" : "primary"}>
               Matchbooks
+            </Button>
+            <Button
+              as="a"
+              disabled={isProjectsPage}
+              href="/projects"
+              size="small"
+              variant={isProjectsPage ? "secondary" : "primary"}>
+              Projects
             </Button>
           </>
         )}
+        <Button size="small" onClick={toggleTheme}>
+          {themeName === "light" ? "\u263E" : "\u2600"}
+        </Button>
       </Stack>
     </Stack>
   );

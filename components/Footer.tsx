@@ -27,15 +27,15 @@ export function Footer(): JSX.Element {
       right="medium"
       top="large">
       <Text
-        as="small"
         css={{
           marginBottom: 0,
-        }}>
+        }}
+        variant="small">
         © {currentYear} Jackson Dolman
       </Text>
 
       <Button size="small" onClick={toggleTheme}>
-        {themeName === "light" ? "🌙 Dark" : "☀️ Light"}
+        {themeName === "light" ? "Dark" : "Light"}
       </Button>
     </Stack>
   );
