@@ -33,11 +33,11 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1(react@19.2.3)
       stoop:
-        specifier: ^0.6.1
-        version: 0.6.1(react@19.2.3)
+        specifier: ^0.6.2
+        version: 0.6.2(react@19.2.3)
       stoop-ui:
-        specifier: ^0.1.8
-        version: 0.1.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^0.1.10
+        version: 0.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       swr:
         specifier: ^2.3.8
         version: 2.3.8(react@19.2.3)
@@ -3594,14 +3594,14 @@ packages:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
 
-  stoop-ui@0.1.8:
-    resolution: {integrity: sha512-azxmulopkZwsHPrqJJ8HIM5ZHB2It+1aA2XvYWa0KmB7D22B0TN5TrZvAaF20YS+CxOxumCtEtn8A7hwdS3W0g==}
+  stoop-ui@0.1.10:
+    resolution: {integrity: sha512-TOw8lvQatwcMm9+/iKA3DbmwQ+bYTCOihApxpPftvHxS1Zij0Ee2HXx6DH1444yLwibRgTZNapQbpHz/cJh1Lg==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  stoop@0.6.1:
-    resolution: {integrity: sha512-yOCuLPZkD5Lo1UjElTiPtx0UffeVbvDtKeG+GqAn/h3tNSdL4NO4cUxNjuMPx8aJwRLVwswkSknGVOP22SajjA==}
+  stoop@0.6.2:
+    resolution: {integrity: sha512-OtUt+UCCOyObzAywfclEGK2zrzoPDWflu9tlafgx0eRX22fXKm6ycr0ACXtE8TJts5CLb9ivT+G0dUFJcCYZag==}
     peerDependencies:
       react: '>=16.8.0'
 
@@ -7412,14 +7412,14 @@ snapshots:
 
   statuses@1.5.0: {}
 
-  stoop-ui@0.1.8(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  stoop-ui@0.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@floating-ui/dom': 1.7.4
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
-      stoop: 0.6.1(react@19.2.3)
+      stoop: 0.6.2(react@19.2.3)
 
-  stoop@0.6.1(react@19.2.3):
+  stoop@0.6.2(react@19.2.3):
     dependencies:
       react: 19.2.3
 

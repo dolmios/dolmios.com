@@ -65,7 +65,7 @@ export function Header(): JSX.Element | null {
               disabled={isHomePage}
               href="/"
               size="small"
-              variant={isHomePage ? "secondary" : "primary"}>
+             >
               Home
             </Button>
             <Button
@@ -73,15 +73,14 @@ export function Header(): JSX.Element | null {
               disabled={isMatchbooksPage}
               href="/matchbooks"
               size="small"
-              variant={isMatchbooksPage ? "secondary" : "primary"}>
+>
               Matchbooks
             </Button>
             <Button
               as="a"
               disabled={isProjectsPage}
               href="/projects"
-              size="small"
-              variant={isProjectsPage ? "secondary" : "primary"}>
+              size="small">
               Projects
             </Button>
           </>

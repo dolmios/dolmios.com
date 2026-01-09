@@ -15,8 +15,8 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-wrap-balancer": "^1.1.1",
-    "stoop": "^0.6.1",
-    "stoop-ui": "^0.1.8",
+    "stoop": "^0.6.2",
+    "stoop-ui": "^0.1.10",
     "swr": "^2.3.8",
     "typescript": "^5.9.3",
     "vercel": "^50.1.6"
