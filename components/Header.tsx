@@ -4,7 +4,7 @@ import type { JSX } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button, Stack, Text, useTheme } from "stoop-ui";
+import { Button, Stack, Text, Tooltip, useTheme } from "stoop-ui";
 
 export function Header(): JSX.Element | null {
   const pathname = usePathname();
@@ -83,6 +83,40 @@ export function Header(): JSX.Element | null {
               size="small">
               Projects
             </Button>
+            <Tooltip trigger={<Button size="small">
+              &copy;
+            </Button>}>
+            <Stack css={{
+              maxWidth: "300px",
+            }}>
+              <Text>
+               The typeface used on this website is <Text as="strong"
+               css={{
+                textDecoration: "underline",
+               }}>
+                <a href="https://github.com/brycewilner/Standard" target="_blank">
+                Standard</a>
+                </Text>, by <Text as="strong" css={{
+                textDecoration: "underline",
+               }}>
+                <a href="https://brycewilner.com/" target="_blank">
+                Bryce Wilner</a>
+                </Text>. The website itself uses <Text as="strong" css={{
+                textDecoration: "underline",
+                }}>
+                  <a href="https://stoop.dolmios.com/" target="_blank">
+                  Stoop UI
+                  </a>
+                </Text>. You can find the source code for this website on <Text as="strong" css={{
+                  textDecoration: "underline",
+                }}>
+                  <a href="https://github.com/dolmios/dolmios.com" target="_blank">
+                  GitHub
+                  </a>.
+                </Text>
+               </Text>
+               </Stack>
+            </Tooltip>
           </>
         )}
         <Button size="small" onClick={toggleTheme}>
