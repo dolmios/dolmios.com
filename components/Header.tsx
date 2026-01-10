@@ -31,7 +31,6 @@ export function Header(): JSX.Element | null {
           paddingLeft: "$small",
           paddingRight: "$small",
         },
-
       }}
       direction="row"
       justify="between"
@@ -44,10 +43,7 @@ export function Header(): JSX.Element | null {
           minWidth: 0,
           textDecoration: "none",
         }}>
-        <Text
-          variant="strong">
-          dolmios.com
-        </Text>
+        <Text variant="strong">dolmios.com</Text>
       </Link>
       <Stack direction="row" gap="small">
         {isMatchbookDetail ? (
@@ -65,57 +61,66 @@ export function Header(): JSX.Element | null {
               disabled={isHomePage}
               href="/"
               size="small"
-             >
+              css={{
+                hidden: "phone",
+              }}>
               Home
             </Button>
-            <Button
-              as="a"
-              disabled={isMatchbooksPage}
-              href="/matchbooks"
-              size="small"
->
+            <Button as="a" disabled={isMatchbooksPage} href="/matchbooks" size="small">
               Matchbooks
             </Button>
-            <Button
-              as="a"
-              disabled={isProjectsPage}
-              href="/projects"
-              size="small">
+            <Button as="a" disabled={isProjectsPage} href="/projects" size="small">
               Projects
             </Button>
-            <Tooltip trigger={<Button size="small">
-              &copy;
-            </Button>}>
-            <Stack css={{
-              maxWidth: "300px",
-            }}>
-              <Text>
-               The typeface used on this website is <Text as="strong"
-               css={{
-                textDecoration: "underline",
-               }}>
-                <a href="https://github.com/brycewilner/Standard" target="_blank">
-                Standard</a>
-                </Text>, by <Text as="strong" css={{
-                textDecoration: "underline",
-               }}>
-                <a href="https://brycewilner.com/" target="_blank">
-                Bryce Wilner</a>
-                </Text>. The website itself uses <Text as="strong" css={{
-                textDecoration: "underline",
+            <Tooltip trigger={<Button size="small">&copy;</Button>}>
+              <Stack
+                css={{
+                  maxWidth: "300px",
                 }}>
-                  <a href="https://stoop.dolmios.com/" target="_blank">
-                  Stoop UI
-                  </a>
-                </Text>. You can find the source code for this website on <Text as="strong" css={{
-                  textDecoration: "underline",
-                }}>
-                  <a href="https://github.com/dolmios/dolmios.com" target="_blank">
-                  GitHub
-                  </a>.
+                <Text>
+                  The typeface used on this website is{" "}
+                  <Text
+                    as="strong"
+                    css={{
+                      textDecoration: "underline",
+                    }}>
+                    <a href="https://github.com/brycewilner/Standard" target="_blank">
+                      Standard
+                    </a>
+                  </Text>
+                  , by{" "}
+                  <Text
+                    as="strong"
+                    css={{
+                      textDecoration: "underline",
+                    }}>
+                    <a href="https://brycewilner.com/" target="_blank">
+                      Bryce Wilner
+                    </a>
+                  </Text>
+                  . The website itself uses{" "}
+                  <Text
+                    as="strong"
+                    css={{
+                      textDecoration: "underline",
+                    }}>
+                    <a href="https://stoop.dolmios.com/" target="_blank">
+                      Stoop UI
+                    </a>
+                  </Text>
+                  . You can find the source code for this website on{" "}
+                  <Text
+                    as="strong"
+                    css={{
+                      textDecoration: "underline",
+                    }}>
+                    <a href="https://github.com/dolmios/dolmios.com" target="_blank">
+                      GitHub
+                    </a>
+                    .
+                  </Text>
                 </Text>
-               </Text>
-               </Stack>
+              </Stack>
             </Tooltip>
           </>
         )}

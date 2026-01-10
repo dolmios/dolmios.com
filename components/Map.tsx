@@ -28,7 +28,9 @@ export function Map({ location }: MapProps): JSX.Element | null {
     const initializeMap = async (): Promise<void> => {
       try {
         // Get coordinates from geocode API
-        const geocodeResponse = await fetch(`/api/mapbox/geocode?q=${encodeURIComponent(location)}`);
+        const geocodeResponse = await fetch(
+          `/api/mapbox/geocode?q=${encodeURIComponent(location)}`,
+        );
 
         if (!geocodeResponse.ok) {
           const errorData = await geocodeResponse.json().catch(() => ({}));
@@ -88,7 +90,7 @@ export function Map({ location }: MapProps): JSX.Element | null {
         })
           .setLngLat([geocodeData.lng, geocodeData.lat])
           .setPopup(
-            new mapboxgl.Popup({ offset: 25 }).setHTML(`<strong>${geocodeData.address}</strong>`)
+            new mapboxgl.Popup({ offset: 25 }).setHTML(`<strong>${geocodeData.address}</strong>`),
           )
           .addTo(map.current);
 

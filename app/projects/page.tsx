@@ -12,9 +12,7 @@ export default async function ProjectsPage(): Promise<JSX.Element> {
 
   return (
     <Stack direction="column" gap="large">
-      <Text>
-      Projects
-      </Text>
+      <Text>Projects</Text>
       <Projects projects={allProjects} />
     </Stack>
   );

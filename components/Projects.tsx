@@ -69,7 +69,6 @@ function ProjectCard({
           }}
           direction="column"
           gap="small">
-
           <Text
             css={{
               textAlign: "center",

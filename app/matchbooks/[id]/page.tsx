@@ -37,9 +37,7 @@ export default async function MatchbookDetailPage({
   return (
     <Stack direction="column" gap="large">
       <Stack direction="column" gap="medium">
-        <Text bottom="none">
-          {matchbook.title}
-        </Text>
+        <Text bottom="none">{matchbook.title}</Text>
 
         <Stack direction="column" gap="medium">
           <Text color="secondary">{matchbook.description}</Text>

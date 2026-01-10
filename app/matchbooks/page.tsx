@@ -12,14 +12,12 @@ export default async function MatchbooksPage(): Promise<JSX.Element> {
   return (
     <Stack direction="column" gap="large">
       <Stack>
-      <Text>
-        Matchbooks
-      </Text>
-      <Card css={{ padding: "$small" }}>
-        <Text as="small">
-    I am re-doing my scans this weekend (1/10). Check back Monday. (Below is placeholders.)
-        </Text>
-      </Card>
+        <Text>Matchbooks</Text>
+        <Card css={{ padding: "$small" }}>
+          <Text as="small">
+            I am re-doing my scans this weekend (1/10). Check back Monday. (Below is placeholders.)
+          </Text>
+        </Card>
       </Stack>
       <Stack
         css={{
