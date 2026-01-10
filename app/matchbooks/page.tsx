@@ -28,7 +28,7 @@ export default async function MatchbooksPage(): Promise<JSX.Element> {
           gap: "$medium",
           gridTemplateColumns: "repeat(3, 1fr)",
           mobile: {
-            gridTemplateColumns: "1fr",
+            gridTemplateColumns: "repeat(2, 1fr)",
           },
         }}>
         {allMatchbooks.map((matchbook: Matchbook) => (
