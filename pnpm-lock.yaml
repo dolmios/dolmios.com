@@ -36,8 +36,8 @@ importers:
         specifier: ^0.6.2
         version: 0.6.2(react@19.2.3)
       stoop-ui:
-        specifier: ^0.1.10
-        version: 0.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
+        specifier: ^0.1.11
+        version: 0.1.11(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       swr:
         specifier: ^2.3.8
         version: 2.3.8(react@19.2.3)
@@ -3594,8 +3594,8 @@ packages:
     resolution: {integrity: sha512-OpZ3zP+jT1PI7I8nemJX4AKmAX070ZkYPVWV/AaKTJl+tXCTGyVdC1a4SL8RUQYEwk/f34ZX8UTykN68FwrqAA==}
     engines: {node: '>= 0.6'}
 
-  stoop-ui@0.1.10:
-    resolution: {integrity: sha512-TOw8lvQatwcMm9+/iKA3DbmwQ+bYTCOihApxpPftvHxS1Zij0Ee2HXx6DH1444yLwibRgTZNapQbpHz/cJh1Lg==}
+  stoop-ui@0.1.11:
+    resolution: {integrity: sha512-Ru8UFsP2Gksi5XEmYHxRJ2kgl0ivXqmuJ2JTDPPHaq6kpaTrgJoDOjjl9GKMBaeLa40T/rO9qsMTO9qehKJ8zA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -7412,7 +7412,7 @@ snapshots:
 
   statuses@1.5.0: {}
 
-  stoop-ui@0.1.10(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
+  stoop-ui@0.1.11(react-dom@19.2.3(react@19.2.3))(react@19.2.3):
     dependencies:
       '@floating-ui/dom': 1.7.4
       react: 19.2.3
