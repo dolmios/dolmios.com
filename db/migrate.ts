@@ -7,9 +7,13 @@ async function createSchema(): Promise<void> {
   try {
     console.log("Creating database schema...");
 
+    // Drop existing tables if they exist
+    await db.run(sql`DROP TABLE IF EXISTS matchbooks`);
+    await db.run(sql`DROP TABLE IF EXISTS projects`);
+
     // Create matchbooks table using Drizzle
     await db.run(sql`
-      CREATE TABLE IF NOT EXISTS matchbooks (
+      CREATE TABLE matchbooks (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
         description TEXT NOT NULL,
@@ -18,13 +22,15 @@ async function createSchema(): Promise<void> {
         secondary_image TEXT NOT NULL,
         city TEXT,
         state TEXT,
-        country TEXT
+        country TEXT,
+        established TEXT,
+        street TEXT
       )
     `);
 
     // Create projects table
     await db.run(sql`
-      CREATE TABLE IF NOT EXISTS projects (
+      CREATE TABLE projects (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
         description TEXT NOT NULL,

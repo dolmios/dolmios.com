@@ -15,6 +15,7 @@
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-wrap-balancer": "^1.1.1",
+    "sharp": "^0.34.5",
     "stoop": "^0.6.2",
     "stoop-ui": "^0.1.11",
     "swr": "^2.3.8",
@@ -24,8 +25,8 @@
   "devDependencies": {
     "@next/env": "^16.1.1",
     "@types/mapbox-gl": "^3.4.1",
-    "@types/node": "^25.0.3",
-    "@types/react": "^19.2.7",
+    "@types/node": "^25.0.6",
+    "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "drizzle-kit": "^0.31.8",
     "eslint": "^9.39.2",

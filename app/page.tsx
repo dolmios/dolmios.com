@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, Stack, Text } from "stoop-ui";
 
-import { Song } from "@/components/Song";
+import { Song } from "@/app/components/Song";
 import meImage from "@/public/me.jpg";
 
 export default function Home(): JSX.Element {
@@ -62,14 +62,7 @@ export default function Home(): JSX.Element {
         </Text>
       </Stack>
 
-      <Stack
-        align="center"
-        css={{
-          flexWrap: "wrap",
-        }}
-        direction="row"
-        gap="small"
-        justify="center">
+      <Stack align="center" direction="row" gap="small" justify="center" wrap>
         <Button as="a" href="mailto:contact@dolmios.com" size="small">
           {"\u273A"} contact@dolmios.com
         </Button>

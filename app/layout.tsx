@@ -5,9 +5,9 @@ import { Analytics } from "@vercel/analytics/react";
 import localFont from "next/font/local";
 import { cookies } from "next/headers";
 
+import { Header } from "@/app/components/Header";
 import { Providers } from "@/app/providers";
 import { Styles } from "@/app/styles";
-import { Header } from "@/components/Header";
 
 const standardFont = localFont({
   display: "swap",

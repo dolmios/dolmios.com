@@ -5,10 +5,12 @@ export const matchbooks = sqliteTable("matchbooks", {
   country: text("country"),
   date: text("date").notNull(),
   description: text("description").notNull(),
+  established: text("established"),
   id: text("id").primaryKey(),
   primaryImage: text("primary_image").notNull(),
   secondaryImage: text("secondary_image").notNull(),
   state: text("state"),
+  street: text("street"),
   title: text("title").notNull(),
 });
 

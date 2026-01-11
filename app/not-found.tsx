@@ -18,10 +18,10 @@ export default function NotFound(): JSX.Element {
         },
       }}
       direction="column"
-      gap="small"
+      gap="large"
       left="medium"
       right="medium"
-      top="large">
+      top="medium">
       <Stack
         align="center"
         css={{
@@ -38,12 +38,12 @@ export default function NotFound(): JSX.Element {
       <Stack
         align="center"
         css={{
-          flexWrap: "wrap",
           marginTop: "$medium",
         }}
         direction="row"
         gap="small"
-        justify="center">
+        justify="center"
+        wrap>
         <Button as="a" href="/" size="small">
           {"\u273A"} Go home
         </Button>

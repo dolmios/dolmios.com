@@ -3,9 +3,9 @@ import type { JSX } from "react";
 import { eq } from "drizzle-orm";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Stack, Text } from "stoop-ui";
+import { Badge, Stack, Text } from "stoop-ui";
 
-import { Map } from "@/components/Map";
+import { Map } from "@/app/matchbooks/components/Map";
 import { db } from "@/db";
 import { matchbooks } from "@/db/schema";
 
@@ -31,48 +31,75 @@ export default async function MatchbookDetailPage({
     notFound();
   }
 
+  const addressParts = [
+    matchbook.street,
+    matchbook.city,
+    matchbook.state,
+    matchbook.country,
+  ].filter(Boolean);
+  const addressString = addressParts.join(", ");
+
   const locationParts = [matchbook.city, matchbook.state, matchbook.country].filter(Boolean);
   const locationString = locationParts.join(", ");
+  const hasAllLocationFields = matchbook.city && matchbook.state && matchbook.country;
 
   return (
     <Stack direction="column" gap="large">
       <Stack direction="column" gap="medium">
-        <Text bottom="none">{matchbook.title}</Text>
+        <Stack align="center" direction="row" gap="small" wrap>
+          <Text bottom="none">{matchbook.title}</Text>
+          {matchbook.description && (
+            <Text
+              bottom="none"
+              css={{
+                opacity: "$hover",
+              }}
+              variant="small">
+              &quot;{matchbook.description}&quot;
+            </Text>
+          )}
+        </Stack>
 
         <Stack direction="column" gap="medium">
-          <Text color="secondary">{matchbook.description}</Text>
-          <Stack direction="row" gap="small">
-            <Text color="secondary" variant="small">
+          <Stack direction="row" gap="small" wrap>
+            <Badge variant="outline">
+              Scanned{" "}
               {new Date(matchbook.date).toLocaleDateString("en-US", {
                 month: "long",
                 year: "numeric",
               })}
-            </Text>
-            {locationParts.length > 0 && (
-              <>
-                <Text color="secondary" variant="small">
-                  •
-                </Text>
-                <Text color="secondary" variant="small">
-                  {locationString}
-                </Text>
-              </>
+            </Badge>
+            {matchbook.established && (
+              <Badge variant="outline">Established: {matchbook.established}</Badge>
             )}
+            {addressString && <Badge variant="outline">{addressString}</Badge>}
           </Stack>
         </Stack>
       </Stack>
 
+      {hasAllLocationFields && (
+        <Stack
+          css={{
+            height: "300px",
+            width: "100%",
+          }}>
+          <Map location={locationString} />
+        </Stack>
+      )}
+
       <Stack
         css={{
-          "@media (max-width: 768px)": {
+          gap: "$large",
+          mobile: {
             flexDirection: "column",
           },
-          gap: "$large",
         }}
-        direction="row">
+        direction="row"
+        wrap>
         <Stack
           css={{
             aspectRatio: "3/4",
+            backgroundColor: "#000",
             flex: 1,
             position: "relative",
           }}>
@@ -80,10 +107,12 @@ export default async function MatchbookDetailPage({
             alt={matchbook.title}
             fill
             priority
+            quality={100}
+            sizes="(max-width: 768px) 100vw, 50vw"
             src={matchbook.primaryImage}
             style={{
               borderRadius: "8px",
-              objectFit: "cover",
+              objectFit: "contain",
             }}
           />
         </Stack>
@@ -91,6 +120,7 @@ export default async function MatchbookDetailPage({
         <Stack
           css={{
             aspectRatio: "3/4",
+            backgroundColor: "#000",
             flex: 1,
             position: "relative",
           }}>
@@ -98,27 +128,16 @@ export default async function MatchbookDetailPage({
             alt={`${matchbook.title} - back`}
             fill
             priority
+            quality={100}
+            sizes="(max-width: 768px) 100vw, 50vw"
             src={matchbook.secondaryImage}
             style={{
               borderRadius: "8px",
-              objectFit: "cover",
+              objectFit: "contain",
             }}
           />
         </Stack>
       </Stack>
-
-      {locationString && (
-        <Stack
-          css={{
-            "@media (min-width: 768px)": {
-              height: "400px",
-            },
-            height: "300px",
-            width: "100%",
-          }}>
-          <Map location={locationString} />
-        </Stack>
-      )}
     </Stack>
   );
 }
