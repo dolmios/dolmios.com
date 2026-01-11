@@ -7,11 +7,12 @@ import type { Matchbook as MatchbookType } from "@/db/schema";
 
 import { Matchbook } from "@/app/matchbooks/components/Matchbook";
 
+const ALL_OPTION_VALUE = "";
+
 export function Filters({ matchbooks }: { matchbooks: MatchbookType[] }): JSX.Element {
   const [selectedCountry, setSelectedCountry] = useState<string | undefined>();
   const [selectedState, setSelectedState] = useState<string | undefined>();
 
-  // Extract unique countries
   const countries = useMemo(() => {
     const uniqueCountries = Array.from(
       new Set(
@@ -19,13 +20,15 @@ export function Filters({ matchbooks }: { matchbooks: MatchbookType[] }): JSX.El
       ),
     ).sort();
 
-    return uniqueCountries.map((country) => ({
-      label: country,
-      value: country,
-    }));
+    return [
+      { label: "All Countries", value: ALL_OPTION_VALUE },
+      ...uniqueCountries.map((country) => ({
+        label: country,
+        value: country,
+      })),
+    ];
   }, [matchbooks]);
 
-  // Extract unique states for selected country
   const states = useMemo(() => {
     if (!selectedCountry) return [];
     const countryMatchbooks = matchbooks.filter((m) => m.country === selectedCountry);
@@ -39,30 +42,30 @@ export function Filters({ matchbooks }: { matchbooks: MatchbookType[] }): JSX.El
       ),
     ).sort();
 
-    return uniqueStates.map((state) => ({
-      label: state,
-      value: state,
-    }));
+    return [
+      { label: "All States", value: ALL_OPTION_VALUE },
+      ...uniqueStates.map((state) => ({
+        label: state,
+        value: state,
+      })),
+    ];
   }, [matchbooks, selectedCountry]);
 
-  // Filter matchbooks based on selections
   const filteredMatchbooks = useMemo(() => {
     return matchbooks.filter((matchbook) => {
       if (selectedCountry && matchbook.country !== selectedCountry) return false;
       if (selectedState && matchbook.state !== selectedState) return false;
-
       return true;
     });
   }, [matchbooks, selectedCountry, selectedState]);
 
-  // Reset state when country changes
-  const handleCountryChange = (value: string, _label: string): void => {
-    setSelectedCountry(value);
+  const handleCountryChange = (value: string): void => {
+    setSelectedCountry(value === ALL_OPTION_VALUE ? undefined : value);
     setSelectedState(undefined);
   };
 
-  const handleStateChange = (value: string, _label: string): void => {
-    setSelectedState(value);
+  const handleStateChange = (value: string): void => {
+    setSelectedState(value === ALL_OPTION_VALUE ? undefined : value);
   };
 
   return (
