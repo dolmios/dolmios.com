@@ -7,12 +7,7 @@ import type { Matchbook as MatchbookType } from "@/db/schema";
 
 import { Matchbook } from "@/app/matchbooks/components/Matchbook";
 
-type MatchbookWithBlur = MatchbookType & {
-  primaryBlurDataURL: string;
-  secondaryBlurDataURL: string;
-};
-
-export function Filters({ matchbooks }: { matchbooks: MatchbookWithBlur[] }): JSX.Element {
+export function Filters({ matchbooks }: { matchbooks: MatchbookType[] }): JSX.Element {
   const [selectedCountry, setSelectedCountry] = useState<string | undefined>();
   const [selectedState, setSelectedState] = useState<string | undefined>();
 
@@ -113,7 +108,7 @@ export function Filters({ matchbooks }: { matchbooks: MatchbookWithBlur[] }): JS
             gridTemplateColumns: "repeat(2, 1fr)",
           },
         }}>
-        {filteredMatchbooks.map((matchbook: MatchbookWithBlur) => (
+        {filteredMatchbooks.map((matchbook: MatchbookType) => (
           <Matchbook key={matchbook.id} matchbook={matchbook} />
         ))}
       </Stack>
