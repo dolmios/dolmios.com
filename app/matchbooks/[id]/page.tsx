@@ -38,9 +38,6 @@ export default async function MatchbookDetailPage({
     matchbook.country,
   ].filter(Boolean);
   const addressString = addressParts.join(", ");
-
-  const locationParts = [matchbook.city, matchbook.state, matchbook.country].filter(Boolean);
-  const locationString = locationParts.join(", ");
   const hasAllLocationFields = matchbook.city && matchbook.state && matchbook.country;
 
   return (
@@ -63,7 +60,7 @@ export default async function MatchbookDetailPage({
         <Stack direction="column" gap="medium">
           <Stack direction="row" gap="small" wrap>
             <Badge variant="outline">
-              Scanned{" "}
+              Scanned:{" "}
               {new Date(matchbook.date).toLocaleDateString("en-US", {
                 month: "long",
                 year: "numeric",
@@ -83,7 +80,7 @@ export default async function MatchbookDetailPage({
             height: "300px",
             width: "100%",
           }}>
-          <Map location={locationString} />
+          <Map location={addressString} />
         </Stack>
       )}
 
