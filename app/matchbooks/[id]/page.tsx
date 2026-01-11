@@ -90,8 +90,10 @@ export default async function MatchbookDetailPage({
       <Stack
         css={{
           gap: "$large",
+          width: "100%",
           mobile: {
             flexDirection: "column",
+            width: "100%",
           },
         }}
         direction="row"
@@ -102,6 +104,11 @@ export default async function MatchbookDetailPage({
             backgroundColor: "#000",
             flex: 1,
             position: "relative",
+            width: "100%",
+            mobile: {
+              flex: "none",
+              width: "100%",
+            },
           }}>
           <Image
             alt={matchbook.title}
@@ -123,6 +130,11 @@ export default async function MatchbookDetailPage({
             backgroundColor: "#000",
             flex: 1,
             position: "relative",
+            width: "100%",
+            mobile: {
+              flex: "none",
+              width: "100%",
+            },
           }}>
           <Image
             alt={`${matchbook.title} - back`}
