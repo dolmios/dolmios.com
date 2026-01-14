@@ -707,6 +707,15 @@ const matchbooksData = [
 const exampleProjects = [
   {
     description:
+      "A macOS menu bar app for managing multiple timezones and converting times. Made for personal use to help schedule meetings across timezones. Built for my personal needs working between New York and Melbourne timezones.",
+    id: "timesync",
+    projectType: "macOS App",
+    title: "Timesync",
+    url: "https://timesync.dolmios.com/",
+    year: "2026",
+  },
+  {
+    description:
       "A Stitches-like CSS-in-JS library with CSS variables for instant theme switching, built-in multi-theme support, and Next.js App Router integration. Type-safe, performant, and actively maintained.",
     id: "stoop",
     projectType: "CSS-in-JS Library",
